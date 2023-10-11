@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+    
+}
+/* la navigation ici  */
+
+body nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 65px;
+  padding: 9px;
+  color: white;
+  background-color: rgb(54, 53, 53);
+  position: fixed; 
+  z-index: 5; 
+  top: 0;         
+  left: 0;         
+  width: 100%;    
+}
+nav i{
+  font-size: 2rem;
+}
+nav .bar-vertical{
+  height: 30px;
+  border: 1px solid;
+  color: rgba(128, 128, 128, 0.294);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+nav .nav-right{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70px;
+  margin-right: 5px;
+}
+nav .nav-left{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 180px;
+
+}
+/* nav #bx-search{
+  display: none;
+} */
+
+
+/* la navigation ici  */
+
+/* burger menu ici  */
+body .burger-nav {
+  max-height: 100vh; /* Par exemple, définissez une hauteur maximale */
+  background-color: white;
+  width: 90%;
+  position: absolute;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* Permet le défilement vertical lorsque le contenu dépasse la hauteur maximale */
+  transition: 0.5s ease-in;
+}
+
+
+.burger-nav #menu-link{
+  display: none;
+  padding: 10px;
+}
+
+.burger-nav #affiche {
+  background-image: linear-gradient(to left, rgb(166, 255, 0), rgb(29, 222, 141));
+  color: white;
+  padding: 5px;
+  font-size: 0.8rem;
+  height: 100px;
+}
+.burger-nav #accueil-link{
+
+  background-color: #efedec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 5px;
+  font-size: 0.8rem;
+  height: 100px;
+}
+.burger-nav #vetements-link{
+  
+  background-color: #efedec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 5px;
+  font-size: 0.8rem;
+  height: 100px;
+}
+.burger-nav #frigo-link{
+  
+  background-color: #efedec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 5px;
+  font-size: 0.8rem;
+  height: 100px;
+}
+.burger-nav #phone-link{
+  
+  background-color: #efedec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 5px;
+  font-size: 0.8rem;
+  height: 100px;
+}
+.burger-nav #maison-link{
+  
+  background-color: #efedec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 5px;
+  font-size: 0.8rem;
+  height: 100px;
+}
+
+/* burger menu ici  */

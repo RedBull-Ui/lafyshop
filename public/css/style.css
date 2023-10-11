@@ -1,0 +1,321 @@
+  @import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+ /* la navigation ici  */
+
+
+body nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+    padding: 9px;
+    color: white;
+    background-color: rgb(54, 53, 53);
+    position: fixed; 
+    z-index: 5; 
+    top: 0;         
+    left: 0;         
+    width: 100%;    
+}
+nav i{
+    font-size: 2rem;
+}
+nav .bar-vertical{
+    height: 30px;
+    border: 1px solid;
+    color: rgba(128, 128, 128, 0.294);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+nav .nav-right{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70px;
+    margin-right: 5px;
+}
+nav .nav-left{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 180px;
+
+}
+nav #bx-search{
+    display: none;
+  }
+
+
+ /* la navigation ici  */
+
+ /* burger menu ici  */
+ body .burger-nav {
+    max-height: 100vh; /* Par exemple, définissez une hauteur maximale */
+    background-color: white;
+    width: 90%;
+    position: absolute;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Permet le défilement vertical lorsque le contenu dépasse la hauteur maximale */
+    transition: 0.5s ease-in;
+  }
+
+  
+ .burger-nav #menu-link{
+    display: none;
+    padding: 10px;
+ }
+
+ .burger-nav #affiche {
+    background-image: linear-gradient(to left, rgb(166, 255, 0), rgb(29, 222, 141));
+    color: white;
+    padding: 5px;
+    font-size: 0.8rem;
+    height: 100px;
+ }
+ .burger-nav #accueil-link{
+
+   background-color: #efedec;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 1.5rem !important;
+   font-weight: 600;
+   text-transform: uppercase;
+   padding: 5px;
+   font-size: 0.8rem;
+   height: 100px;
+ }
+ .burger-nav #vetements-link{
+    
+    background-color: #efedec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 5px;
+    font-size: 0.8rem;
+    height: 100px;
+ }
+ .burger-nav #frigo-link{
+    
+    background-color: #efedec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 5px;
+    font-size: 0.8rem;
+    height: 100px;
+ }
+ .burger-nav #phone-link{
+    
+    background-color: #efedec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 5px;
+    font-size: 0.8rem;
+    height: 100px;
+ }
+ .burger-nav #maison-link{
+    
+    background-color: #efedec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 5px;
+    font-size: 0.8rem;
+    height: 100px;
+ }
+
+ /* burger menu ici  */
+
+ /* la promo ici  */
+body .promo {
+    margin-top: 73px;
+    background-image: linear-gradient(to left, rgb(166, 255, 0), rgb(29, 222, 141));
+    padding: 10px 0px 10px 0px;
+    font-weight: bolder;
+    font-size: 0.9rem;
+    text-align: center;
+    color: white;
+}
+ /* la promo ici  */
+
+ /* la video d acceil  */
+ body video {
+    max-width: 100%;
+    max-height: 500px; /* Réglez la hauteur maximale souhaitée */
+    width: auto;
+    height: auto;
+    width: 100%;
+    height: auto;
+    position: relative; /* Assurez-vous que la vidéo est dans un contexte de positionnement relatif */
+
+    object-fit: cover; /* Ajuste la vidéo pour remplir tout l'espace disponible */
+  }
+  body .video-container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Réglez la hauteur souhaitée pour le conteneur */
+  }
+  .video-container .overlay {
+    font-family: 'Young Serif', serif;
+    font-weight: bold;
+    position:absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent
+    ;
+    color: white; /* Couleur du texte */
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Pour s'assurer que l'overlay est au-dessus de la vidéo */
+  }
+  
+  body .overlay .button {
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #060505;
+    transition: all 1s;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid #0b0b0b;
+  }
+  
+  button:hover {
+    color: #ffffff;
+    transform: scale(1.05);
+    outline: 2px solid #090808;
+    box-shadow: 2px 3px 10px -2px #ff6f69;
+  }
+  
+  button::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #1c1b1b;
+    color: white;
+    transform: skewX(45deg);
+    z-index: -1;
+    transition: width 500ms;
+  }
+  
+  button:hover::before {
+    width: 200%;
+  }
+ /* la video d acceil  */
+
+ /* les cartes  */
+ .row{
+    margin-top: 150px;
+ }
+ .row .carte{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ }
+ .row .carte img{
+    height: 210px;
+    width: 130px;
+ }
+ /* les cartes  */
+
+ /* APP pub ici */
+ body .app-pub {
+    margin-top: 100px;
+    background-image: linear-gradient(to left, rgb(193, 51, 222), rgb(206, 39, 201));
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+ }
+ .app-pub button{
+    color: white;
+    font-size: 0.9rem;
+    padding: 5px;
+    width: 160px;
+    margin-top: 5px;
+    border-radius: 9999px;
+    border: 2.3px solid white;
+    background-color: transparent;
+    font-weight: bolder;
+ }
+ .app-pub input{
+    width: 250px;
+    color: black;
+    background-color: white;
+    border-radius: 9999px;
+    border: none;
+    font-weight: bolder;
+    height: 40px;
+ }
+ /* APP pub ici */
+
+ /* mark disposition  */
+ .containe {
+    margin-bottom: 150px;
+ }
+ 
+ .containe .mark-row{
+    padding-left: 70px;
+    width: 100%;
+    display: flex ;
+    justify-content: space-between;
+ }
+ /* mark disposition  */
+
+ /* footer here  */
+ body footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    background-color: rgba(90, 84, 74, 0.18);
+    height: 50px;
+    padding: 15px;
+ }
+ /* footer here  */
