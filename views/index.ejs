@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- box icon here  -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <!-- boostrap here -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
     <!-- mon css here -->
     <link rel="stylesheet" href="/css/style.css">
     <title>Accueil</title>
@@ -18,109 +21,178 @@
 
     <%- include('composants/nav.ejs') %>
 
-    <%- include('composants/promo.ejs') %> <br>
-    <%- include('composants/burger-menu.ejs') %> 
+        <%- include('composants/promo.ejs') %> <br>
+            <%- include('composants/burger-menu.ejs') %>
+                <%- include('composants/tab-bar.ejs') %> <br>
 
-            <div class="img-container">
-                <div class="overlay">
-                    <h2>Bienvenu sur LafyShop</h2> <br>
-                    <button onclick="menu()" class="button">Voir Boutique</button>
-                </div>
-
-                <img id="img-accueil" src="/img/accueil.jpg" alt="">
-
-            </div>
-            <div class="container">
-                <div class="row" style="height: 100vh;">
-                    <div class="col">
-                        <div class="carte">
-                            <img src="/img/mode.jpg" alt="">
-                            <div class="infos">
-                                <p style="font-weight: bolder; text-align: center; margin-top: 5px;">Vetements</p>
-                                <p style="text-align: center;">Notre collection hommes & femmes</p>
+                    <!-- mon slider  -->
+                    <div class="slider-container">
+                        <h3 style="text-align: start; margin-left: 10px;">Articles visiter</h3>
+                        <div class="slider">
+                            <div class="article-carte">
+                                <img src="/img/phone.jpg" alt="Nom de l'article">
+                                <br>
+                                <p style="text-align: start;">Iphone 12 simple</br>-
+                                    <span>Rouge 250G.</span>
+                                <div class="prix">
+                                    <span class="prix-actuel"
+                                        style="color: #A60303; font-weight: bolder; font-size: 1.2rem;">250.999
+                                        CFA</span>
+                                </div>
+                                <button>Ajouter</button>
+                            </div>
+                            <div class=" article-carte">
+                                <img src="/img/mode.jpg" alt="Nom de l'article">
+                                <br>
+                                <p style="text-align: start;">Iphone 12 simple</br>-
+                                    <span>Rouge 250G.</span>
+                                <div class="prix">
+                                    <span class="prix-actuel"
+                                        style="color: #A60303; font-weight: bolder; font-size: 1.2rem;">250.999
+                                        CFA</span>
+                                </div>
+                                <button>Ajouter</button>
+                            </div>
+                            <div class=" article-carte">
+                                <img src="/img/canaper.jpg" alt="Nom de l'article">
+                                <br>
+                                <p style="text-align: start;">Iphone 12 simple</br>-
+                                    <span>Rouge 250G.</span>
+                                <div class="prix">
+                                    <span class="prix-actuel"
+                                        style="color: #A60303; font-weight: bolder; font-size: 1.2rem;">250.999
+                                        CFA</span>
+                                </div>
+                                <button>Ajouter</button>
+                            </div>
+                            <div class=" article-carte">
+                                <img src="/img/frigo.jpg" alt="Nom de l'article">
+                                <br>
+                                <p style="text-align: start;">Iphone 12 simple</br>-
+                                    <span>Rouge 250G.</span>
+                                <div class="prix">
+                                    <span class="prix-actuel"
+                                        style="color: #A60303; font-weight: bolder; font-size: 1.2rem;">250.999
+                                        CFA</span>
+                                </div>
+                                <button>Ajouter</button>
+                            </div>
+                            <div class=" article-carte">
+                                <img src="/img/phone.jpg" alt="Nom de l'article">
+                                <br>
+                                <p style="text-align: start;">Iphone 12 simple</br>-
+                                    <span>Rouge 250G.</span>
+                                <div class="prix">
+                                    <span class="prix-actuel"
+                                        style="color: #A60303; font-weight: bolder; font-size: 1.2rem;">250.999
+                                        CFA</span>
+                                </div>
+                                <button>Ajouter</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="col">
-                            <div class="carte">
-                                <img src="/img/frigo.jpg" alt="">
-                                <div class="infos">
-                                    <p style="font-weight: bolder; text-align: center; margin-top: 5px;">Electromenager
-                                    </p>
-                                    <p style="text-align: center;">Notre large gamme de choix</p>
+                    <!-- mon slider  -->
+
+                    <h3 style="text-align: start; margin: 30px 0px 30px 10px;">Nos categories</h3>
+                    
+                    <div class="container">
+                        <div class="row" style="height: 100vh;">
+                            <div class="col ">
+                                <div class="carte">
+                                    <img src="/img/mode.jpg" alt="">
+                                    <div class="infos">
+                                        <p style="font-weight: bolder; text-align: center; margin-top: 5px;">Vetements
+                                        </p>
+                                        <p style="text-align: center;">Notre collection hommes & femmes</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="carte">
-                            <img src="/img/phone.jpg" alt="">
-                            <div class="infos">
-                                <p style="font-weight: bolder; text-align: center; margin-top: 5px;">Telephone & Pc</p>
-                                <p style="text-align: center;">Accessoires</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="col">
-                            <div class="carte">
-                                <img src="/img/canaper.jpg" alt="">
-                                <div class="infos">
-                                    <p style="font-weight: bolder; text-align: center; margin-top: 5px;">Maison</p>
-                                    <p style="text-align: center;">Meuble & decoration</p>
+                            <div class="col">
+                                <div class="col">
+                                    <div class="carte">
+                                        <img src="/img/frigo.jpg" alt="">
+                                        <div class="infos">
+                                            <p style="font-weight: bolder; text-align: center; margin-top: 5px;">
+                                                Electromenager
+                                            </p>
+                                            <p style="text-align: center;">Notre large gamme de choix</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col">
+                                <div class="carte">
+                                    <img src="/img/phone.jpg" alt="">
+                                    <div class="infos">
+                                        <p style="font-weight: bolder; text-align: center; margin-top: 5px;">Telephone &
+                                            Pc</p>
+                                        <p style="text-align: center;">Accessoires</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="col">
+                                    <div class="carte">
+                                        <img src="/img/canaper.jpg" alt="">
+                                        <div class="infos">
+                                            <p style="font-weight: bolder; text-align: center; margin-top: 5px;">Maison
+                                            </p>
+                                            <p style="text-align: center;">Meuble & decoration</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-
-                </div>
-            </div>
-            <div class="app-pub">
-                <button>L'APPLI Lafyshop</button> <br>
-                <p style="text-align: center;">Hey , tu veux shopper easy ?</br>
-                Retriuve des selecs creees juste pour toi</p> <br>
-                <input type="submit" value="TELECHARGER MAINTENANT"><br>
-            </div>
-            <div class="containe" style="display: flex; flex-direction: column;
+                    <div class="app-pub">
+                        <button>L'APPLI Lafyshop</button> <br>
+                        <p style="text-align: center;">Hey , tu veux shopper easy ?</br>
+                            Retriuve des selecs creees juste pour toi</p> <br>
+                        <input type="submit" value="TELECHARGER MAINTENANT"><br>
+                    </div>
+                    <div class="containe" style="display: flex; flex-direction: column;
             align-items: center; justify-content: space-between;">
-                <br>
-                <h4 style="text-align: center;">MARQUE A SUIVRE</h4>
-                <div class="row mark-row" >
-                    <div class="col">
-                        <img src="/img/apple.png" alt="">
+                        <br>
+                        <h4 style="text-align: center;">MARQUE A SUIVRE</h4>
+                        <div class="row mark-row">
+                            <div class="col">
+                                <img src="/img/apple.png" alt="">
+                            </div>
+                            <div class="col">
+                                <img src="/img/visa.png" alt="">
+                            </div>
+                        </div>
+                        <div class="row mark-row">
+                            <div class="col">
+                                <img src="/img/nike.png" alt="">
+                            </div>
+                            <div class="col">
+                                <img src="/img/android-logo.png" alt="">
+                            </div>
+                        </div>
+                        <div class="row mark-row">
+                            <div class="col">
+                                <img src="/img/adidas.png" alt="">
+                            </div>
+                            <div class="col">
+                                <img src="/img/windows.png" alt="">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <img src="/img/visa.png" alt="">
-                    </div>
-                </div>
-                <div class="row mark-row">
-                    <div class="col">
-                        <img src="/img/nike.png" alt="">
-                    </div>
-                    <div class="col">
-                        <img src="/img/android-logo.png" alt="">
-                    </div>
-                </div>
-                <div class="row mark-row">
-                    <div class="col">
-                        <img src="/img/adidas.png" alt="">
-                    </div>
-                    <div class="col">
-                        <img src="/img/windows.png" alt="">
-                    </div>
-                </div>
-            </div>
 
-            <%- include('composants/footer.ejs') %>
+                    <%- include('composants/footer.ejs') %>
 
 
 
-            <script src="/script/index.js"></script>
-            <!-- boostrap here -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-                crossorigin="anonymous"></script>
+                        <!-- boostrap here -->
+
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                            crossorigin="anonymous"></script>
+
+                        <script src="/script/index.js"></script>
+
 </body>
 
 </html>

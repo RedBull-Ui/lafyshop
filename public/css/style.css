@@ -18,7 +18,8 @@ body nav{
     height: 65px;
     padding: 9px;
     color: white;
-    background-color: rgb(54, 53, 53);
+    background-color: #A60303;
+    /* background-color: rgb(54, 53, 53); */
     position: fixed; 
     z-index: 5; 
     top: 0;         
@@ -60,14 +61,13 @@ nav #bx-search{
  body .burger-nav {
     max-height: 100vh; /* Par exemple, définissez une hauteur maximale */
     background-color: white;
-    width: 90%;
     position: absolute;
     z-index: 10;
     position: fixed;
     top: 0;
     left: 0;
+    transition: 0.4s ease-in-out;
     overflow-y: auto; /* Permet le défilement vertical lorsque le contenu dépasse la hauteur maximale */
-    transition: 0.4s ease-in;
   }
 
   
@@ -158,86 +158,112 @@ body .promo {
 }
  /* la promo ici  */
 
- /* la img d acceil  */
-   body #img-accueil{
-      height: 600px;
-      width: 100%;
-   }
-  .img-container .overlay {
-    font-family: 'Young Serif', serif;
-    font-weight: bold;
-    position:absolute;
-    top: 200px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    color: white; /* Couleur du texte */
-    text-align: center;
-    font-size: 24px;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1; /* Pour s'assurer que l'overlay est au-dessus de la vidéo */
-  }
-  
-  body .overlay .button {
-   margin-top: 150px;
-    padding: 1em 2em;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #060505;
-    transition: all 1s;
-    font-size: 18px;
-    position: relative;
-    overflow: hidden;
-    outline: 2px solid #0b0b0b;
-  }
-  .overlay h2{
-   font-family: 'Anton', sans-serif;
-   font-weight: 400;
-   font-size: 2rem;
-   letter-spacing: 10px;
-   margin-top: 1px;
-   background: rgba(5, 5, 5, 0.3); /* Couleur de fond semi-transparente */
-   color: white;
-  }
+ /* la nav bar ici  */
+ body .nav-bar {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   row-gap: 10px;
+   column-gap: 5px;
+   margin-top: 5px;
+   list-style: none;
+   padding: 5px;
+   font-size: 0.9rem !important;
+   margin-bottom: 20px;
+ }
+ .nav-bar a{
+   text-decoration: none;
+   color: #1c1b1b;
+   margin: 0%;
 
-  
-  button:hover {
-    color: #ffffff;
-    transform: scale(1.05);
-    outline: 2px solid #090808;
-    box-shadow: 2px 3px 10px -2px #ff6f69;
-  }
-  
-  button::before {
-    content: "";
-    position: absolute;
-    left: -50px;
-    top: 0;
-    width: 0;
-    height: 100%;
-    background-color: #1c1b1b;
-    color: white;
-    transform: skewX(45deg);
-    z-index: -1;
-    transition: width 500ms;
-  }
-  
-  button:hover::before {
-    width: 200%;
-  }
- /* la img d acceil  */
+ }
+
+
+ /* la nav bar ici  */
+
+/* slider ici  */
+.slider-container {
+   width: 100%;
+   overflow: hidden;
+}
+
+.slider {
+   display: flex;
+   transition: transform 0.5s ease-in-out;
+   width: 99%;
+   overflow-x: scroll;
+   white-space: nowrap;
+}
+
+.article-carte {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   flex: 0 0 20%;
+   padding: 10px;
+   box-sizing: border-box;
+   text-align: center;
+   width: 250px; /* 4 est le nombre d'éléments .article-carte par ligne */
+    padding: 5px;
+    margin: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.article-carte img {
+   width: 100%;
+   height: auto;
+}
+
+.prix {
+   margin-top: 10px;
+}
+
+.prix-actuel {
+   font-weight: bold;
+   font-size: 1.2rem;
+   color: #A60303;
+}
+
+
+.article-carte button {
+   display: inline-block;
+   margin: 15px;
+   padding: 15px;
+   width: 100%;
+   text-align: center;
+   font-size: 1rem;
+   letter-spacing: 1px;
+   text-decoration: none;
+   color: #11c81d;
+   background: transparent;
+   cursor: pointer;
+   transition: ease-out 0.5s;
+   border: 1px solid #11c81d;
+   border-radius: 10px;
+   box-shadow: inset 0 0 0 0 #11c81d;
+ }
+ 
+ .article-carte button:hover {
+   color: white;
+   box-shadow: inset 0 -100px 0 0 #11c81d;
+ }
+ 
+ .article-carte button:active {
+   transform: scale(0.9);
+ }
+
+ .article-carte img {
+   margin-top: 10px;
+   width: 100px;
+   height: 150px;
+}
+
+/* slider ici  */
 
  /* les cartes  */
  .row{
-    margin-top: 150px;
+    margin-top: 20px;
  }
  .row .carte{
     display: flex;

@@ -13,7 +13,13 @@ function menu(){
    
 }
 
+// swiper here
+// swiper here
+
+
+
 function icon_x(){
+    
     burger.style.width = '0%'; // Vous pouvez ajuster la largeur souhaitée ici
     x.style.display = 'none'; // Vous pouvez ajuster la largeur souhaitée ici
     menu_link.style.display = 'none'; // Vous pouvez ajuster la largeur souhaitée ici
