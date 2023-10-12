@@ -19,18 +19,16 @@
     <%- include('composants/nav.ejs') %>
 
     <%- include('composants/promo.ejs') %> <br>
-    <%- include('composants/burger-menu.ejs') %> <br>
+    <%- include('composants/burger-menu.ejs') %> 
 
-            <div class="video-container">
+            <div class="img-container">
                 <div class="overlay">
                     <h2>Bienvenu sur LafyShop</h2> <br>
                     <button onclick="menu()" class="button">Voir Boutique</button>
-
                 </div>
-                <video autoplay loop muted playsinline preload="auto">
-                    <source src="/img/accueil2.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
+
+                <img id="img-accueil" src="/img/accueil.jpg" alt="">
+
             </div>
             <div class="container">
                 <div class="row" style="height: 100vh;">
