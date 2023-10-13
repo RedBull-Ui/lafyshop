@@ -367,11 +367,94 @@ body .promo {
   background-color: white;
   margin-left: 10px;
 }
-.avatar-box  i {
+.avatar-box  .fa-shirt {
   font-size: 4rem;
-  color: #66adf5c8;
+  color: #3492f0f1;
+}
+.avatar-box  .bxs-fridge {
+  font-size: 4rem;
+  color: indigo;
+}
+.avatar-box  .fa-mobile {
+  font-size: 4rem;
+  color: teal;
+}
+.avatar-box  .bxs-bed {
+  font-size: 4rem;
+  color: darkorange;
 }
 /* avatar box  */
+
+/* deux card  */
+.deux-card-container{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  margin-bottom: 70px;
+}
+.deux-card-container .carte{
+  padding: 5px;
+  width: 48%;
+  height: 300px;
+  background-color: white;
+}
+.deux-card-container img{
+  margin: auto;
+}
+.deux-card-container button {
+  display: inline-block;
+  margin: 5px 0px 0px 0px;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #11c81d;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 1px solid #11c81d;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 #11c81d;
+  .article-carte button:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 #11c81d;
+  }
+  
+  .carte button:active {
+    transform: scale(0.9);
+  }
+ 
+
+}
+/* deux card  */
+
+/* grosse card  */
+
+.grosse-card-container{
+  width: 99%;
+  margin: auto;
+}
+.grosse-card-container .img-box{
+  margin: auto;
+  background-color: white;
+
+}
+.grosse-card-container .details{
+  margin-top: 10px;
+  padding-left: 10px;
+}
+.grosse-card-container .details .bxs-star{
+color: gold;
+}
+.grosse-card-container .details .bxs-star-half{
+color: gold;
+}
+
+
+/* grosse card  */
 
  /* les cartes  */
  .row{
