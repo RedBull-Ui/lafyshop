@@ -220,6 +220,9 @@ nav #bx-search{
     display: none;
     padding: 10px;
  }
+ .burger-nav #menu-link p{
+  font-size: 0.9rem !important;
+ }
 
  .burger-nav #affiche {
     background-image: linear-gradient(to left, rgb(166, 255, 0), rgb(29, 222, 141));
@@ -237,7 +240,6 @@ nav #bx-search{
    font-weight: 600;
    text-transform: uppercase;
    padding: 5px;
-   font-size: 1.2rem !important;
    height: 80px;
  }
  .burger-nav #vetements-link{
@@ -246,7 +248,6 @@ nav #bx-search{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.2rem !important;
     font-weight: 600;
     text-transform: uppercase;
     padding: 5px;
@@ -258,7 +259,6 @@ nav #bx-search{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.2rem !important;
     font-weight: 600;
     text-transform: uppercase;
     padding: 5px;
@@ -270,7 +270,6 @@ nav #bx-search{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.2rem !important;
     font-weight: 600;
     text-transform: uppercase;
     padding: 5px;
@@ -282,7 +281,6 @@ nav #bx-search{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.2rem !important;
     font-weight: 600;
     text-transform: uppercase;
     padding: 5px;
@@ -553,14 +551,16 @@ body .promo {
 /* deux card  */
 .deux-card-container{
   box-sizing: border-box;
-  padding: 10px;
+  padding: 5px;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: transparent;
-  margin-bottom: 70px;
-  height: 380px;
+  margin-bottom: 2px;
+  min-height: auto;
 }
 .deux-card-container .carte{
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -569,17 +569,21 @@ body .promo {
   margin: 5px;
   margin-bottom: 10px;
   width: 48%;
-  height: 320px;
+  height: 250px;
   background-color: white;
+  border-radius: 18px;
 }
 .deux-card-container img{
   margin: auto;
 }
 .deux-card-container button {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 5px 0px 0px 0px;
   padding: 15px;
   width: 100%;
+  height: 40px;
   text-align: center;
   font-size: 1rem;
   letter-spacing: 1px;
