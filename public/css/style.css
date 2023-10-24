@@ -3,8 +3,8 @@
   @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 *{
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
@@ -14,7 +14,7 @@ body {
 
 }
 body .page-top{
-  background-color: #A60303;
+  background-color: #293847;
   height: auto;
   padding-bottom: 5px;
   display: flex;
@@ -34,7 +34,7 @@ body nav{
     height: 65px;
     padding: 9px;
     color: white;
-    background-color: #A60303;
+    background-color: #293847;
     /* background-color: rgb(54, 53, 53); */
     position: fixed; 
     z-index: 5; 
@@ -206,6 +206,7 @@ nav #bx-search{
  body .burger-nav {
     max-height: 100vh; /* Par exemple, définissez une hauteur maximale */
     background-color: white;
+    color: rgb(57, 56, 56);
     position: absolute;
     z-index: 10;
     position: fixed;
@@ -221,7 +222,9 @@ nav #bx-search{
     padding: 10px;
  }
  .burger-nav #menu-link p{
-  font-size: 0.9rem !important;
+  font-size: 0.8rem !important;
+  margin: 0;
+  margin-left: 10px;
  }
 
  .burger-nav #affiche {
@@ -231,61 +234,24 @@ nav #bx-search{
     font-size: 0.8rem;
     height: 100px;
  }
- .burger-nav #accueil-link{
-
-   background-color: #efedec;
+ .burger-nav #link{
    display: flex;
    justify-content: space-between;
    align-items: center;
    font-weight: 600;
-   text-transform: uppercase;
-   padding: 5px;
-   height: 80px;
+   padding: 0px;
+   height: 30px;
  }
- .burger-nav #vetements-link{
-    
-    background-color: #efedec;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 5px;
-    height: 80px;
+ #link .left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
  }
- .burger-nav #frigo-link{
-    
-    background-color: #efedec;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 5px;
-    height: 80px;
- }
- .burger-nav #phone-link{
-    
-    background-color: #efedec;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 5px;
-    height: 80px;
- }
- .burger-nav #maison-link{
-    
-    background-color: #efedec;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 5px;
-    height: 80px;
- }
+#link .left i{
+  font-size: 1.2rem;
+  color: grey;  
+  margin-right: 20px;
+}
 
  /* burger menu ici  */
 
@@ -440,7 +406,7 @@ body .promo {
 .prix-actuel {
    font-weight: bold;
    font-size: 1.2rem;
-   color: #A60303;
+   color: #293847;
 }
 
 
@@ -502,7 +468,7 @@ body .promo {
 
 }
 .offre-special h4{
-  color: #A60303;
+  color: #293847;
 }
 .offre-special i{
   color: rgb(218, 190, 32);

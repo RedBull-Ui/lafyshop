@@ -10,12 +10,16 @@
 }
 /* la navigation ici  */
 body {
-background-color: rgba(240, 255, 255, 0.568);
+background-color: #efefef;
+min-height: 100vh;
+padding: 0px 5px 0px 5px;
+max-width: 100%;
 
 }
+
 body .page-top{
-background-color: #A60303;
-height: auto;
+  background-color: #293847;
+  height: auto;
 padding-bottom: 5px;
 display: flex;
 flex-direction: column;
@@ -34,7 +38,7 @@ body nav{
   height: 65px;
   padding: 9px;
   color: white;
-  background-color: #A60303;
+  background-color: #293847;
   /* background-color: rgb(54, 53, 53); */
   position: fixed; 
   z-index: 5; 
@@ -206,6 +210,7 @@ transition: 0s;
 body .burger-nav {
   max-height: 100vh; /* Par exemple, définissez une hauteur maximale */
   background-color: white;
+  color: rgb(57, 56, 56);
   position: absolute;
   z-index: 10;
   position: fixed;
@@ -221,7 +226,9 @@ body .burger-nav {
   padding: 10px;
 }
 .burger-nav #menu-link p{
-font-size: 0.9rem !important;
+font-size: 0.8rem !important;
+margin: 0;
+margin-left: 10px;
 }
 
 .burger-nav #affiche {
@@ -231,60 +238,121 @@ font-size: 0.9rem !important;
   font-size: 0.8rem;
   height: 100px;
 }
-.burger-nav #accueil-link{
-
- background-color: #efedec;
+.burger-nav #link{
  display: flex;
  justify-content: space-between;
  align-items: center;
  font-weight: 600;
- text-transform: uppercase;
- padding: 5px;
- height: 80px;
+ padding: 0px;
+ height: 30px;
 }
-.burger-nav #vetements-link{
-  
-  background-color: #efedec;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 5px;
-  height: 80px;
+#link .left{
+display: flex;
+align-items: center;
+justify-content: center;
 }
-.burger-nav #frigo-link{
-  
-  background-color: #efedec;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 5px;
-  height: 80px;
-}
-.burger-nav #phone-link{
-  
-  background-color: #efedec;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 5px;
-  height: 80px;
-}
-.burger-nav #maison-link{
-  
-  background-color: #efedec;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 5px;
-  height: 80px;
+#link .left i{
+font-size: 1.2rem;
+color: grey;  
+margin-right: 20px;
 }
 
 /* burger menu ici  */
+
+/* categories carte ici  */
+
+.categories {
+  padding-top: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.categories .carte{
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.categories .carte-top{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+.categories .carte-details{
+  height: 50px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+}
+
+
+/* categories carte ici  */
+
+
+
+
+
+
+ /* APP pub ici */
+ body .app-pub {
+  margin-top: 100px;
+  background: repeating-linear-gradient(60deg, transparent 30px, rgba(230, 43, 217, 0.2) 10px,rgba(242, 35, 187, 0.2) 90px),
+  repeating-linear-gradient(120deg, transparent 30px, rgba(233, 21, 226, 0.2) 10px,rgba(255, 0, 195, 0.2)90px),
+  repeating-linear-gradient(180deg, transparent 30px, rgba(178, 11, 158, 0.2) 10px, rgba(255, 0, 238, 0.2) 90px);
+  /* background-image: linear-gradient(to left, rgb(193, 51, 222), rgb(206, 39, 201)); */
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bolder;
+}
+.app-pub button{
+  color: white;
+  font-size: 0.9rem;
+  padding: 5px;
+  width: 160px;
+  margin-top: 5px;
+  border-radius: 9999px;
+  border: 2.3px solid white;
+  background-color: transparent;
+  font-weight: bolder;
+}
+.app-pub input{
+  width: 250px;
+  color: black;
+  background-color: white;
+  border-radius: 9999px;
+  border: none;
+  font-weight: bolder;
+  height: 40px;
+}
+/* APP pub ici */
+
+/* mark disposition  */
+.containe {
+  margin-bottom: 150px;
+}
+
+.containe .mark-row{
+  padding-left: 70px;
+  width: 100%;
+  display: flex ;
+  justify-content: space-between;
+}
+/* mark disposition  */
+
+/* footer here  */
+body footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  background-color: rgba(90, 84, 74, 0.18);
+  height: 50px;
+  padding: 15px;
+}
+/* footer here  */
