@@ -14,8 +14,8 @@ app.get('/', function (req, res) {
   res.render('index.ejs'); // Utilisez "render" au lieu de "rend"
 });
 
-app.get('/habits', function (req, res) {
-  res.render('habits.ejs'); // Utilisez "render" au lieu de "rend"
+app.get('/habitsH', function (req, res) {
+  res.render('habitsH.ejs'); // Utilisez "render" au lieu de "rend"
 });
 app.get('/phone', function (req, res) {
   res.render('phone.ejs'); // Utilisez "render" au lieu de "rend"
