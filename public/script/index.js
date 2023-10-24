@@ -28,8 +28,14 @@ function icon_x(){
 function accueil(){
     window.location.href='/'
 }
+function montres(){
+    window.location.href='/montres'
+}
 function habitsH(){
     window.location.href='/habitsH'
+}
+function habitsF(){
+    window.location.href='/habitsF'
 }
 function phone(){
     window.location.href='/phone'

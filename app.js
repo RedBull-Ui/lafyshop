@@ -17,6 +17,9 @@ app.get('/', function (req, res) {
 app.get('/habitsH', function (req, res) {
   res.render('habitsH.ejs'); // Utilisez "render" au lieu de "rend"
 });
+app.get('/habitsF', function (req, res) {
+  res.render('habitsF.ejs'); // Utilisez "render" au lieu de "rend"
+});
 app.get('/phone', function (req, res) {
   res.render('phone.ejs'); // Utilisez "render" au lieu de "rend"
 });
@@ -26,6 +29,11 @@ app.get('/maison', function (req, res) {
 app.get('/frigo', function (req, res) {
   res.render('frigo.ejs'); // Utilisez "render" au lieu de "rend"
 });
+app.get('/montres', function (req, res) {
+  res.render('montres.ejs'); // Utilisez "render" au lieu de "rend"
+});
+
+
 
 app.listen(3333, () => {
   console.log('Le serveur est lancé sur le port 3333 !');
