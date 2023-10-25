@@ -32,6 +32,18 @@ app.get('/frigo', function (req, res) {
 app.get('/montres', function (req, res) {
   res.render('montres.ejs'); // Utilisez "render" au lieu de "rend"
 });
+app.get('/montresPage', function (req, res) {
+  res.render('montresPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/montresCoPage', function (req, res) {
+  res.render('montresCoPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/bague', function (req, res) {
+  res.render('bague.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/chaine', function (req, res) {
+  res.render('chaine.ejs'); // Utilisez "render" au lieu de "rend"
+});
 
 
 

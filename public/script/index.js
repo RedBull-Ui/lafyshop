@@ -31,6 +31,18 @@ function accueil(){
 function montres(){
     window.location.href='/montres'
 }
+function montresPage(){
+    window.location.href='/montresPage'
+}
+function montresCoPage(){
+    window.location.href='/montresCoPage'
+}
+function chaine(){
+    window.location.href='/chaine'
+}
+function bague(){
+    window.location.href='/bague'
+}
 function habitsH(){
     window.location.href='/habitsH'
 }
