@@ -44,6 +44,42 @@ app.get('/bague', function (req, res) {
 app.get('/chaine', function (req, res) {
   res.render('chaine.ejs'); // Utilisez "render" au lieu de "rend"
 });
+app.get('/iphone', function (req, res) {
+  res.render('iphonePage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/samsung', function (req, res) {
+  res.render('samsungPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/oppo', function (req, res) {
+  res.render('oppoPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/tecno', function (req, res) {
+  res.render('tecnoPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/redmi', function (req, res) {
+  res.render('redmiPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/itel', function (req, res) {
+  res.render('itelPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/infinix', function (req, res) {
+  res.render('infinixPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/mac', function (req, res) {
+  res.render('macPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/dell', function (req, res) {
+  res.render('dellPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/hp', function (req, res) {
+  res.render('hpPage.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/telTools', function (req, res) {
+  res.render('telTools.ejs'); // Utilisez "render" au lieu de "rend"
+});
+app.get('/pcTools', function (req, res) {
+  res.render('pcTools.ejs'); // Utilisez "render" au lieu de "rend"
+});
 
 
 

@@ -31,8 +31,41 @@ function accueil(){
 function montres(){
     window.location.href='/montres'
 }
-function montresPage(){
-    window.location.href='/montresPage'
+function itel(){
+    window.location.href='/itel'
+}
+function iphone(){
+    window.location.href='/iphone'
+}
+function dell(){
+    window.location.href='/dell'
+}
+function redmi(){
+    window.location.href='/redmi'
+}
+function samsung(){
+    window.location.href='/samsung'
+}
+function mac(){
+    window.location.href='/mac'
+}
+function hp(){
+    window.location.href='/hp'
+}
+function infinix(){
+    window.location.href='/infinix'
+}
+function tecno(){
+    window.location.href='/tecno'
+}
+function oppo(){
+    window.location.href='/oppo'
+}
+function telTools(){
+    window.location.href='/telTools'
+}
+function pcTools(){
+    window.location.href='/pcTools'
 }
 function montresCoPage(){
     window.location.href='/montresCoPage'
