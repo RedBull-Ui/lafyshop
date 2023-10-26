@@ -25,38 +25,35 @@ function icon_x(){
     menu_link.style.display = 'none'; // Vous pouvez ajuster la largeur souhaitée ici
 
 }
+// menu link ici 
 function accueil(){
     window.location.href='/'
 }
-function montres(){
-    window.location.href='/montres'
+function habitsH(){
+    window.location.href='/habitsH'
 }
+function habitsF(){
+    window.location.href='/habitsF'
+}
+function phone(){
+    window.location.href='/phone'
+}
+function maison(){
+    window.location.href='/maison'
+}
+function frigo(){
+    window.location.href='/frigo'
+}
+
+// menu link ici 
+
+
+// tel & pc page link ici
 function itel(){
     window.location.href='/itel'
 }
 function iphone(){
     window.location.href='/iphone'
-}
-function dell(){
-    window.location.href='/dell'
-}
-function sacH(){
-    window.location.href='/sacH'
-}
-function outfitH(){
-    window.location.href='/outfitH'
-}
-function ceintureH(){
-    window.location.href='/ceintureH'
-}
-function chaussetteH(){
-    window.location.href='/chaussetteH'
-}
-function chaussuresH(){
-    window.location.href='/chaussuresH'
-}
-function chapeau(){
-    window.location.href='/chapeau'
 }
 function redmi(){
     window.location.href='/redmi'
@@ -85,6 +82,54 @@ function telTools(){
 function pcTools(){
     window.location.href='/pcTools'
 }
+function dell(){
+    window.location.href='/dell'
+}
+// tel & pc page link ici
+
+// vetements hommes ici 
+function sacH(){
+    window.location.href='/sacH'
+}
+function outfitH(){
+    window.location.href='/outfitH'
+}
+function ceintureH(){
+    window.location.href='/ceintureH'
+}
+function chaussetteH(){
+    window.location.href='/chaussetteH'
+}
+function chaussuresH(){
+    window.location.href='/chaussuresH'
+}
+function chapeau(){
+    window.location.href='/chapeau'
+}
+// vetements hommes ici 
+
+// vetements femmes ici 
+function sacF(){
+    window.location.href='/sacF'
+}
+function outfitF(){
+    window.location.href='/outfitF'
+}
+function ceintureF(){
+    window.location.href='/ceintureF'
+}
+function chaussetteF(){
+    window.location.href='/chaussetteF'
+}
+function chaussuresF(){
+    window.location.href='/chaussuresF'
+}
+function chapeauF(){
+    window.location.href='/chapeauF'
+}
+// vetements femmes ici 
+
+// montres & bijoux ici 
 function montresCoPage(){
     window.location.href='/montresCoPage'
 }
@@ -94,18 +139,7 @@ function chaine(){
 function bague(){
     window.location.href='/bague'
 }
-function habitsH(){
-    window.location.href='/habitsH'
+function montres(){
+    window.location.href='/montres'
 }
-function habitsF(){
-    window.location.href='/habitsF'
-}
-function phone(){
-    window.location.href='/phone'
-}
-function maison(){
-    window.location.href='/maison'
-}
-function frigo(){
-    window.location.href='/frigo'
-}
+// montres & bijoux ici 

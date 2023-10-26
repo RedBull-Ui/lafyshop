@@ -9,11 +9,10 @@ app.use(express.static(__dirname + '/public'));
 
 // Le chemin absolu vers le répertoire "public" doit correspondre à l'endroit où se trouve votre fichier CSS
 
-
+// menu routes
 app.get('/', function (req, res) {
   res.render('index.ejs'); 
 });
-
 app.get('/habitsH', function (req, res) {
   res.render('habitsH.ejs'); 
 });
@@ -29,6 +28,9 @@ app.get('/maison', function (req, res) {
 app.get('/frigo', function (req, res) {
   res.render('frigo.ejs'); 
 });
+// menu routes
+
+// les pages pour montre & bijoux
 app.get('/montres', function (req, res) {
   res.render('montres.ejs'); 
 });
@@ -44,6 +46,9 @@ app.get('/bague', function (req, res) {
 app.get('/chaine', function (req, res) {
   res.render('chaine.ejs'); 
 });
+// les pages pour montre & bijoux
+
+// les pages pour tel & pc 
 app.get('/iphone', function (req, res) {
   res.render('iphonePage.ejs'); 
 });
@@ -80,6 +85,10 @@ app.get('/telTools', function (req, res) {
 app.get('/pcTools', function (req, res) {
   res.render('pcTools.ejs'); 
 });
+
+// les pages pour tel & pc 
+
+// vetements hommes 
 app.get('/sacH', function (req, res) {
   res.render('sacHPage.ejs'); 
 });
@@ -99,9 +108,32 @@ app.get('/ceintureH', function (req, res) {
   res.render('ceintureHPage.ejs'); 
 });
 
-app.get('/chaussetteH', function (req, res) {
-  res.render('chaussetteHPage.ejs'); 
+
+// vetements hommes 
+
+// vetements femmes 
+app.get('/sacF', function (req, res) {
+  res.render('sacFPage.ejs'); 
 });
+app.get('/chaussuresF', function (req, res) {
+  res.render('chaussuresFPage.ejs'); 
+});
+app.get('/chaussetteF', function (req, res) {
+  res.render('chaussetteFPage.ejs'); 
+});
+app.get('/chapeauF', function (req, res) {
+  res.render('chapeauFPage.ejs'); 
+});
+app.get('/outfitF', function (req, res) {
+  res.render('outfitFPage.ejs'); 
+});
+app.get('/ceintureF', function (req, res) {
+  res.render('ceintureFPage.ejs'); 
+});
+
+
+// vetements femmes 
+
 
 
 
