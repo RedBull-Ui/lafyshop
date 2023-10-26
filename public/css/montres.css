@@ -235,17 +235,22 @@ margin-left: 10px;
   height: 100px;
 }
 .burger-nav #link{
+  box-sizing: border-box;
  display: flex;
  justify-content: space-between;
  align-items: center;
  font-weight: 600;
  padding: 0px;
  height: 30px;
+ width: auto;
+
 }
 #link .left{
 display: flex;
 align-items: center;
-justify-content: center;
+width: 195px;
+height: 30px;
+padding: 0%;
 }
 #link .left i{
 font-size: 1.2rem;
