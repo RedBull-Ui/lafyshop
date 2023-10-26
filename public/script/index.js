@@ -143,3 +143,12 @@ function montres(){
     window.location.href='/montres'
 }
 // montres & bijoux ici 
+
+// meuble & deco 
+function meublePage(){
+    window.location.href='/meublePage'
+}
+function decoPage(){
+    window.location.href='/decoPage'
+}
+// meuble & deco 

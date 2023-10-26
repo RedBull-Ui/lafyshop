@@ -134,6 +134,15 @@ app.get('/ceintureF', function (req, res) {
 
 // vetements femmes 
 
+// meuble & deco ici 
+app.get('/meublePage', function (req, res) {
+  res.render('meublePage.ejs'); 
+});
+app.get('/decoPage', function (req, res) {
+  res.render('decoPage.ejs'); 
+});
+// meuble & deco ici 
+
 
 
 
