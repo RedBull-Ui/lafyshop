@@ -40,6 +40,24 @@ function iphone(){
 function dell(){
     window.location.href='/dell'
 }
+function sacH(){
+    window.location.href='/sacH'
+}
+function outfitH(){
+    window.location.href='/outfitH'
+}
+function ceintureH(){
+    window.location.href='/ceintureH'
+}
+function chaussetteH(){
+    window.location.href='/chaussetteH'
+}
+function chaussuresH(){
+    window.location.href='/chaussuresH'
+}
+function chapeau(){
+    window.location.href='/chapeau'
+}
 function redmi(){
     window.location.href='/redmi'
 }

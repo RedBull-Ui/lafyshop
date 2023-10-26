@@ -11,74 +11,96 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', function (req, res) {
-  res.render('index.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('index.ejs'); 
 });
 
 app.get('/habitsH', function (req, res) {
-  res.render('habitsH.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('habitsH.ejs'); 
 });
 app.get('/habitsF', function (req, res) {
-  res.render('habitsF.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('habitsF.ejs'); 
 });
 app.get('/phone', function (req, res) {
-  res.render('phone.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('phone.ejs'); 
 });
 app.get('/maison', function (req, res) {
-  res.render('maison.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('maison.ejs'); 
 });
 app.get('/frigo', function (req, res) {
-  res.render('frigo.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('frigo.ejs'); 
 });
 app.get('/montres', function (req, res) {
-  res.render('montres.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('montres.ejs'); 
 });
 app.get('/montresPage', function (req, res) {
-  res.render('montresPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('montresPage.ejs'); 
 });
 app.get('/montresCoPage', function (req, res) {
-  res.render('montresCoPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('montresCoPage.ejs'); 
 });
 app.get('/bague', function (req, res) {
-  res.render('bague.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('bague.ejs'); 
 });
 app.get('/chaine', function (req, res) {
-  res.render('chaine.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('chaine.ejs'); 
 });
 app.get('/iphone', function (req, res) {
-  res.render('iphonePage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('iphonePage.ejs'); 
 });
 app.get('/samsung', function (req, res) {
-  res.render('samsungPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('samsungPage.ejs'); 
 });
 app.get('/oppo', function (req, res) {
-  res.render('oppoPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('oppoPage.ejs'); 
 });
 app.get('/tecno', function (req, res) {
-  res.render('tecnoPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('tecnoPage.ejs'); 
 });
 app.get('/redmi', function (req, res) {
-  res.render('redmiPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('redmiPage.ejs'); 
 });
 app.get('/itel', function (req, res) {
-  res.render('itelPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('itelPage.ejs'); 
 });
 app.get('/infinix', function (req, res) {
-  res.render('infinixPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('infinixPage.ejs'); 
 });
 app.get('/mac', function (req, res) {
-  res.render('macPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('macPage.ejs'); 
 });
 app.get('/dell', function (req, res) {
-  res.render('dellPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('dellPage.ejs'); 
 });
 app.get('/hp', function (req, res) {
-  res.render('hpPage.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('hpPage.ejs'); 
 });
 app.get('/telTools', function (req, res) {
-  res.render('telTools.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('telTools.ejs'); 
 });
 app.get('/pcTools', function (req, res) {
-  res.render('pcTools.ejs'); // Utilisez "render" au lieu de "rend"
+  res.render('pcTools.ejs'); 
+});
+app.get('/sacH', function (req, res) {
+  res.render('sacHPage.ejs'); 
+});
+app.get('/chaussuresH', function (req, res) {
+  res.render('chaussuresHPage.ejs'); 
+});
+app.get('/chaussetteH', function (req, res) {
+  res.render('chaussetteHPage.ejs'); 
+});
+app.get('/chapeau', function (req, res) {
+  res.render('chapeauPage.ejs'); 
+});
+app.get('/outfitH', function (req, res) {
+  res.render('outfitHPage.ejs'); 
+});
+app.get('/ceintureH', function (req, res) {
+  res.render('ceintureHPage.ejs'); 
+});
+
+app.get('/chaussetteH', function (req, res) {
+  res.render('chaussetteHPage.ejs'); 
 });
 
 
