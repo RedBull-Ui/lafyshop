@@ -1,7 +1,9 @@
-const burger = document.getElementById('burger-nav')
+const burger = document.getElementById('burger-nav');
 const x = document.getElementById('x');
+const right = document.getElementById('rigth');
 var bx = document.getElementById('bx-menu');
 var menu_link= document.getElementById('menu-link');
+var mon_panier = document.getElementById('monPanier');
 
 burger.style.width = '0%'; // Vous pouvez ajuster la largeur souhaitée ici
 x.style.display = 'none'; // Vous pouvez ajuster la largeur souhaitée ici
@@ -13,6 +15,19 @@ function menu(){
    
 }
 
+// mon_panier.style.width= '0%';
+// right.style.display = 'none'; 
+
+function panier(){
+    mon_panier.style.width = '100%'; // Vous pouvez ajuster la largeur souhaitée ici
+    // right.style.display = 'block'; 
+   
+}
+function close_panier(){
+    mon_panier.style.width = '0%'; // Vous pouvez ajuster la largeur souhaitée ici
+    // right.style.display = 'none'; 
+}
+
 // swiper here
 // swiper here
 
@@ -21,8 +36,8 @@ function menu(){
 function icon_x(){
     
     burger.style.width = '0%'; // Vous pouvez ajuster la largeur souhaitée ici
-    x.style.display = 'none'; // Vous pouvez ajuster la largeur souhaitée ici
-    menu_link.style.display = 'none'; // Vous pouvez ajuster la largeur souhaitée ici
+    // x.style.display = 'none'; 
+    // menu_link.style.display = 'none'; 
 
 }
 // menu link ici 
@@ -140,7 +155,7 @@ function bague(){
     window.location.href='/bague'
 }
 function montres(){
-    window.location.href='/montres'
+    window.location.href='/montresPage'
 }
 // montres & bijoux ici 
 
