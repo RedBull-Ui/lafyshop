@@ -269,6 +269,9 @@ nav #bx-search{
 .monPanier .top{
   display: flex;
   align-items: center;
+  background-color: #293847;
+  color: white;
+  height: 90px;
 }
 .monPanier h3{
   margin: auto;
