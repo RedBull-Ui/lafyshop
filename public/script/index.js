@@ -173,3 +173,9 @@ function decoPage(){
     window.location.href='/decoPage'
 }
 // meuble & deco 
+
+//commander 
+function commander(){
+    window.location.href='/commander'
+}
+//commander 

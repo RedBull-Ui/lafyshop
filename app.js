@@ -143,6 +143,12 @@ app.get('/decoPage', function (req, res) {
 });
 // meuble & deco ici 
 
+//route page de commande 
+app.get('/commander', function (req, res) {
+  res.render('commander.ejs'); 
+});
+// page de commande 
+
 
 
 
