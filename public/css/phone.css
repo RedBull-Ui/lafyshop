@@ -250,12 +250,10 @@ margin-left: 10px;
 
 }
 #link .left{
-display: flex;
-align-items: center;
-width: 195px;
-height: 30px;
-padding: 0%;
-}
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  }
 #link .left i{
 font-size: 1.2rem;
 color: grey;  

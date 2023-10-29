@@ -305,7 +305,7 @@ margin-right: 20px;
  #link .left{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
  }
 #link .left i{
   font-size: 1.2rem;

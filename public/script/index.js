@@ -151,6 +151,9 @@ function chapeauF(){
 function montresCoPage(){
     window.location.href='/montresCoPage'
 }
+function montresPage(){
+    window.location.href='/montresPage'
+}
 function chaine(){
     window.location.href='/chaine'
 }
@@ -158,7 +161,7 @@ function bague(){
     window.location.href='/bague'
 }
 function montres(){
-    window.location.href='/montresPage'
+    window.location.href='/montres'
 }
 // montres & bijoux ici 
 

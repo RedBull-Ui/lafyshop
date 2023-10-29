@@ -243,10 +243,10 @@ margin-left: 10px;
  height: 30px;
 }
 #link .left{
-display: flex;
-align-items: center;
-justify-content: center;
-}
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  }
 #link .left i{
 font-size: 1.2rem;
 color: grey;  

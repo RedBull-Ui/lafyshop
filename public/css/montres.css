@@ -202,63 +202,7 @@ transition: 0s;
 
 /* la barre de recherche ici */
 
-/* burger menu ici  */
-body .burger-nav {
-  max-height: 100vh; /* Par exemple, définissez une hauteur maximale */
-  background-color: white;
-  color: rgb(57, 56, 56);
-  position: absolute;
-  z-index: 10;
-  position: fixed;
-  top: 0;
-  left: 0;
-  transition: 0.4s ease-in-out;
-  overflow-y: auto; /* Permet le défilement vertical lorsque le contenu dépasse la hauteur maximale */
-}
 
-
-.burger-nav #menu-link{
-  display: none;
-  padding: 10px;
-}
-.burger-nav #menu-link p{
-font-size: 0.8rem !important;
-margin: 0;
-margin-left: 10px;
-}
-
-.burger-nav #affiche {
-  background-image: linear-gradient(to left, rgb(166, 255, 0), rgb(29, 222, 141));
-  color: white;
-  padding: 5px;
-  font-size: 0.8rem;
-  height: 100px;
-}
-.burger-nav #link{
-  box-sizing: border-box;
- display: flex;
- justify-content: space-between;
- align-items: center;
- font-weight: 600;
- padding: 0px;
- height: 30px;
- width: auto;
-
-}
-#link .left{
-display: flex;
-align-items: center;
-width: 195px;
-height: 30px;
-padding: 0%;
-}
-#link .left i{
-font-size: 1.2rem;
-color: grey;  
-margin-right: 20px;
-}
-
-/* burger menu ici  */
 /* burger menu ici  */
 .scroll-annule{
   overflow: hidden;
@@ -304,7 +248,7 @@ margin-right: 20px;
  #link .left{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
  }
 #link .left i{
   font-size: 1.2rem;
