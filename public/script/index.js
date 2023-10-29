@@ -4,7 +4,7 @@ const right = document.getElementById('rigth');
 var bx = document.getElementById('bx-menu');
 var menu_link= document.getElementById('menu-link');
 var mon_panier = document.getElementById('monPanier');
-
+var body = document.getElementById('body');
 burger.style.width = '0%'; // Vous pouvez ajuster la largeur souhaitée ici
 x.style.display = 'none'; // Vous pouvez ajuster la largeur souhaitée ici
 
@@ -21,11 +21,14 @@ function menu(){
 function panier(){
     mon_panier.style.width = '100%'; // Vous pouvez ajuster la largeur souhaitée ici
     // right.style.display = 'block'; 
+    body.classList.add('scroll-annule');
    
 }
 function close_panier(){
     mon_panier.style.width = '0%'; // Vous pouvez ajuster la largeur souhaitée ici
     // right.style.display = 'none'; 
+    body.classList.remove('scroll-annule');
+
 }
 
 // swiper here

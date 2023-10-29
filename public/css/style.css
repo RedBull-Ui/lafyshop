@@ -10,9 +10,11 @@
 }
  /* la navigation ici  */
 body {
+  position: relative;
   background-color: rgba(240, 255, 255, 0.568);
 
 }
+
 body .page-top{
   background-color: #293847;
   height: auto;
@@ -202,6 +204,9 @@ nav #bx-search{
  /* la barre de recherche ici */
 
  /* burger menu ici  */
+ .scroll-annule{
+  overflow: hidden;
+}
  body .burger-nav {
     max-height: 100vh; /* Par exemple, définissez une hauteur maximale */
     background-color: white;
@@ -253,44 +258,58 @@ nav #bx-search{
 
  /* burger menu ici  */
 
- /* mon panier ici  */
- .monPanier {
+/* mon panier ici  */
+.monPanier {
   background-color: #f1f0f8;
-  min-height: 100vh; /* Par exemple, définissez une hauteur maximale */
-  width: 0%;
-  position: fixed; /* Position fixe pour que le panier reste en haut de la page */
+  width: 0%; /* Ajusté pour occuper toute la largeur */
+  min-height: 100vh;
+  max-height: 100vh;
+  z-index: 10;
+  position: fixed;
   top: 0;
-  right: 0; /* Vous pouvez ajouter "left: 0;" pour être sûr que le panier occupe toute la largeur */
-  z-index: 15;
+  right: 0;
+  overflow-y: auto;
+  max-height: 100vh;
   transition: 0.5s ease-in;
-  overflow: auto;
-
+  padding-bottom: 90px; /* Ajoutez une marge inférieure pour .panier-footer */
+  
 }
-.monPanier .top{
+
+.monPanier .top {
   display: flex;
   align-items: center;
   background-color: #293847;
   color: white;
-  height: 90px;
+  height: 70px;
+  width: 100%; /* Ajusté pour occuper toute la largeur */
+  position: sticky;
+  top: 0;
+  z-index: 1; /* Assurez-vous que .top est au-dessus du reste du contenu */
 }
-.monPanier h3{
-  margin: auto;
 
+.monPanier h3 {
+  margin: auto; /* Supprimé l'espacement par défaut pour le titre */
+  padding: 10px; /* Ajouté un peu d'espacement autour du titre */
 }
-.monPanier .center{
+
+.monPanier .center {
   padding: 10px;
+  max-height: calc(100vh - 100px); /* Ajusté la hauteur maximale */
+  overflow-y: auto; /* Défilement si nécessaire */
 }
-.monPanier .panier-vide{
+
+.monPanier .panier-vide {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  padding: 10px; /* Ajusté l'espacement */
+  margin-bottom: 10px;
   border-radius: 10px;
-  margin-top: 20px;
   background-color: white;
 }
-.panier-vide button{
+
+.panier-vide button {
   width: 100%;
   background-color: #0f68c1;
   color: white;
@@ -298,9 +317,44 @@ nav #bx-search{
   border: none;
   border-radius: 9px;
   height: 45px;
-  margin-bottom: 10px;
+  margin-top: 10px; /* Chaque bouton se trouve au-dessus de l'autre pour plus de clarté */
 }
- /* mon panier ici  */
+
+.panier-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 130px; /* Ajusté la hauteur pour que .panier-footer soit toujours présent en bas du panier */
+  width: 100%;
+  padding: 20px 20px 0px 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 5px 0px;
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.footer-top{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.panier-footer button {
+  width: 100%;
+  height: 45px;
+  background-color: rgb(64, 200, 64);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px; /* Ajouté un peu d'espacement à droite */
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+/* mon panier ici  */
+
 
  /* la promo ici  */
 body .promo {
