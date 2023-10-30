@@ -143,6 +143,21 @@ app.get('/decoPage', function (req, res) {
 });
 // meuble & deco ici 
 
+// vehicule & appart & enfant & beauter
+app.get('/enfant', function (req, res) {
+  res.render('enfant.ejs'); 
+});
+app.get('/appartement', function (req, res) {
+  res.render('appartement.ejs'); 
+});
+app.get('/vehicule', function (req, res) {
+  res.render('vehicule.ejs'); 
+});
+app.get('/beauter', function (req, res) {
+  res.render('beauter.ejs'); 
+});
+// vehicule & appart
+
 //route page de commande 
 app.get('/commander', function (req, res) {
   res.render('commander.ejs'); 

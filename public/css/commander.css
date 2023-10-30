@@ -14,12 +14,18 @@
     align-items: center;
     justify-content: center;
     height: 60px;
+    width: 100%;
     background-color: #293847;
     color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
 }
 .main{
     padding: 30px 10px 20px 10px;
     margin-bottom: 150px;
+    margin-top: 50px;
 }
 .main h1,p{
     text-align: center;
@@ -30,6 +36,7 @@
     margin-bottom: 10px;
     outline: none;
     padding: 0px 20px 0px 20px;
+    border: 1px solid;
 }
 .main .Btn {
     width: 100%;

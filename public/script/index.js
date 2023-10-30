@@ -172,7 +172,23 @@ function meublePage(){
 function decoPage(){
     window.location.href='/decoPage'
 }
-// meuble & deco 
+
+// vehicule & appart
+
+function beauter(){
+    window.location.href='/beauter'
+}
+function enfant(){
+    window.location.href='/enfant'
+}
+function vehicule(){
+    window.location.href='/vehicule'
+}
+function appartement(){
+    window.location.href='/appartement'
+}
+
+// vehicule & appart
 
 //commander 
 function commander(){
