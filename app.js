@@ -1,6 +1,8 @@
 const express = require('express');
 const ejs = require('ejs'); // Importez EJS correctement
 const app = express();
+const mysql = require('mysql');
+
 
 // Définissez EJS comme moteur de modèle
 app.set('view engine', 'ejs');
@@ -8,6 +10,25 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 // Le chemin absolu vers le répertoire "public" doit correspondre à l'endroit où se trouve votre fichier CSS
+
+// la base de donner ici 
+const db = mysql.createConnection({
+  host: 'localhost', // L'hôte de votre base de données
+  user: 'root', // Le nom d'utilisateur de la base de données
+  password: 'root', // Le mot de passe de la base de données
+  database: 'lafyshop_bd' // Le nom de la base de données que vous utilisez
+});
+
+db.connect((err) => {
+  if (err) {
+    console.error('Erreur de connexion à la base de données : ' + err.message);
+  } else {
+    console.log('Connecté à la base de données MySQL');
+  }
+});
+
+// la base de donner ici 
+
 
 // menu routes
 app.get('/', function (req, res) {
