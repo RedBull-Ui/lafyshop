@@ -162,7 +162,12 @@ app.get('/beauter', function (req, res) {
 app.get('/commander', function (req, res) {
   res.render('commander.ejs'); 
 });
-// page de commande 
+// route page de commande 
+//route vers valider 
+app.get('/valider', function (req, res) {
+  res.render('valider.ejs'); 
+});
+// route vers valider 
 
 
 

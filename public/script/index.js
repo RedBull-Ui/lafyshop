@@ -195,3 +195,8 @@ function commander(){
     window.location.href='/commander'
 }
 //commander 
+//valider 
+function valider(){
+    window.location.href='/valider'
+}
+//valider 
