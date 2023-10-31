@@ -109,41 +109,42 @@
 
 </body>
 <script>
-// Attendez que le DOM soit chargé avant d'exécuter du code JavaScript
-document.addEventListener('DOMContentLoaded', function () {
-  // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-  fetch('/recupererDonnees')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('La réponse du serveur n\'est pas OK');
-      }
-      return response.json();
-    })
-    .then(data => {
-      localStorage.setItem('articlesVisiter', JSON.stringify(data));
-      console.log(data);
-      // 2. Une fois les données récupérées, bouclez dans votre slider
-      populateSlider();
-    })
-    .catch(error => console.error('Erreur lors de la récupération des données : ' + error));
+  // Attendez que le DOM soit chargé avant d'exécuter du code JavaScript
+  document.addEventListener('DOMContentLoaded', function() {
 
-  // 3. Créez une fonction pour boucler dans le slider
-  function populateSlider() {
-    // Récupérer les données d'articles visités depuis le localStorage
-    const articlesVisites = JSON.parse(localStorage.getItem('articlesVisiter'));
+    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
+    fetch('/recupererArticlesvisiter')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('La réponse du serveur n\'est pas OK');
+        }
+        return response.json();
+      })
+      .then(data => {
+        localStorage.setItem('articlesVisiter', JSON.stringify(data));
+        console.log(data);
+        // 2. Une fois les données récupérées, bouclez dans votre slider
+        populateSlider();
+      })
+      .catch(error => console.error('Erreur lors de la récupération des données : ' + error));
 
-    // Vérifiez si des articles visités existent
-    if (articlesVisites && articlesVisites.length > 0) {
-      // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-      const slider = document.querySelector('.sliderVisiter');
+    // 3. Créez une fonction pour boucler dans le slider
+    function populateSlider() {
+      // Récupérer les données d'articles visités depuis le localStorage
+      const articlesVisites = JSON.parse(localStorage.getItem('articlesVisiter'));
 
-      // Bouclez sur les articles et générez dynamiquement les éléments HTML
-      articlesVisites.forEach((article) => {
-        const articleCarte = document.createElement('div');
-        articleCarte.classList.add('article-carte');
+      // Vérifiez si des articles visités existent
+      if (articlesVisites && articlesVisites.length > 0) {
+        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
+        const slider = document.querySelector('.sliderVisiter');
 
-        // Vous pouvez personnaliser le contenu de chaque article en fonction des données
-        articleCarte.innerHTML = `
+        // Bouclez sur les articles et générez dynamiquement les éléments HTML
+        articlesVisites.forEach((article) => {
+          const articleCarte = document.createElement('div');
+          articleCarte.classList.add('article-carte');
+
+          // Vous pouvez personnaliser le contenu de chaque article en fonction des données
+          articleCarte.innerHTML = `
           <img src="${article.url}" alt="${article.nom}">
           <br>
           <p style="text-align: start;">${article.nom}<br>-
@@ -155,11 +156,70 @@ document.addEventListener('DOMContentLoaded', function () {
           <button>Ajouter</button>
         `;
 
-        slider.appendChild(articleCarte);
-      });
+          slider.appendChild(articleCarte);
+        });
+      }
     }
-  }
-});
 
-  </script>
+
+    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
+    fetch('/recupererPromo')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('La réponse du serveur n\'est pas OK');
+        }
+        return response.json();
+      })
+      .then(data => {
+        localStorage.setItem('promo', JSON.stringify(data));
+        console.log(data);
+        // 2. Une fois les données récupérées, bouclez dans votre slider
+        populatePromo();
+      })
+      .catch(error => console.error('Erreur lors de la récupération des données : ' + error));
+
+    // 3. Créez une fonction pour boucler dans le slider
+    function populatePromo() {
+      // Récupérer les données d'articles visités depuis le localStorage
+      const offre_special = JSON.parse(localStorage.getItem('promo'));
+
+      // Vérifiez si des articles visités existent
+      if (offre_special && offre_special.length > 0) {
+        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
+        const box = document.querySelector('.offre-box');
+
+        // Bouclez sur les articles et générez dynamiquement les éléments HTML
+        offre_special.forEach((offre) => {
+          const offreSpecial = document.createElement('div');
+          offreSpecial.classList.add('offre-special');
+
+          // Vous pouvez personnaliser le contenu de chaque article en fonction des données
+          offreSpecial.innerHTML = `
+        <div class="offre-img">
+        <img src="${offre.url}" alt="${offre.nom}">
+    </div>
+    <div class="details">
+        <p><strong>${offre.nom}</strong></br> </br>
+        <span>${offre.details}</span></p>
+        <div class="etoils d-flex">
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+        </div>
+        <h6 style="text-decoration: line-through;">${offre.faux_prix} CFA</h6>
+        <h4>${offre.prix} CFA</h4>
+    </div>
+    <i class='bx bxs-cart-add'></i>
+</div> <br>
+        `;
+
+          box.appendChild(offreSpecial);
+        });
+      }
+    }
+  });
+</script>
+
 </html>

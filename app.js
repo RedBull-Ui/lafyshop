@@ -22,7 +22,7 @@ db.connect((err) => {
 });
 
 // Route pour récupérer les données depuis la base de données
-app.get('/recupererDonnees', function (req, res) {
+app.get('/recupererArticlesVisiter', function (req, res) {
   const query = 'SELECT * FROM articlesVisiter';
   
   db.query(query, (err, results) => {
@@ -36,8 +36,28 @@ app.get('/recupererDonnees', function (req, res) {
   });
 });
 
-app.get('/recupererDonneesLocales', function (req, res) {
+app.get('/recupererArticlesvisiter', function (req, res) {
   const mesDonnees = JSON.parse(localStorage.getItem('articlesVisiter'));
+  res.json(mesDonnees);
+});
+
+// Route pour récupérer les données depuis la base de données
+app.get('/recupererPromo', function (req, res) {
+  const query = 'SELECT * FROM promo';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererPromo', function (req, res) {
+  const mesDonnees = JSON.parse(localStorage.getItem('promo'));
   res.json(mesDonnees);
 });
 
