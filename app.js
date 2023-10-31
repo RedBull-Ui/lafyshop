@@ -1,22 +1,16 @@
 const express = require('express');
-const ejs = require('ejs'); // Importez EJS correctement
+const ejs = require('ejs');
 const app = express();
 const mysql = require('mysql');
 
-
-// Définissez EJS comme moteur de modèle
 app.set('view engine', 'ejs');
-// Utilisation de express.static pour servir des fichiers statiques depuis le répertoire "public"
 app.use(express.static(__dirname + '/public'));
 
-// Le chemin absolu vers le répertoire "public" doit correspondre à l'endroit où se trouve votre fichier CSS
-
-// la base de donner ici 
 const db = mysql.createConnection({
-  host: 'localhost', // L'hôte de votre base de données
-  user: 'root', // Le nom d'utilisateur de la base de données
-  password: 'root', // Le mot de passe de la base de données
-  database: 'lafyshop_bd' // Le nom de la base de données que vous utilisez
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'lafyshop_bd'
 });
 
 db.connect((err) => {
@@ -27,13 +21,34 @@ db.connect((err) => {
   }
 });
 
-// la base de donner ici 
+// Route pour récupérer les données depuis la base de données
+app.get('/recupererDonnees', function (req, res) {
+  const query = 'SELECT * FROM articlesVisiter';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
 
+app.get('/recupererDonneesLocales', function (req, res) {
+  const mesDonnees = JSON.parse(localStorage.getItem('articlesVisiter'));
+  res.json(mesDonnees);
+});
+
+// Route pour récupérer les données stockées dans le localStorage
 
 // menu routes
+
 app.get('/', function (req, res) {
-  res.render('index.ejs'); 
+  res.render('index.ejs');
 });
+
 app.get('/habitsH', function (req, res) {
   res.render('habitsH.ejs'); 
 });
