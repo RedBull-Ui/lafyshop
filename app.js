@@ -144,6 +144,12 @@ app.get('/pcTools', function (req, res) {
 
 // les pages pour tel & pc 
 
+// chicha store 
+app.get('/chichaStore', function (req, res) {
+  res.render('chichaStore.ejs'); 
+});
+// chicha store 
+
 // vetements hommes 
 app.get('/sacH', function (req, res) {
   res.render('sacHPage.ejs'); 

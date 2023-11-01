@@ -209,7 +209,15 @@ function frigidere(){
 function grille_pain(){
     window.location.href='/grillesPains'
 }
-// electro-menager 
+// electro-menager
+
+// chicha store 
+function chichaStore(){
+    window.location.href='/chichaStore'
+
+}
+// chicha store 
+
 
 //commander 
 function electroMenager(){

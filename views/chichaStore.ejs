@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="refresh" content="2"> -->
+    <meta name="theme-color" content="#293847">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+   
+    <!-- awesome cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- box icon here  -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- boostrap here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    <!-- mon css here -->
+    <link rel="stylesheet" href="/css/chichaStore.css">
+
+    <title>Chicha store</title>
+</head>
+
+<body id="body">
+    <!-- la navigation ici  -->
+    <%- include('composants/nav.ejs') %>
+        <!-- la navigation ici  -->
+        <!-- le burger menu ici -->
+        <%- include('composants/burger-menu.ejs') %>
+            <!-- le burger menu ici -->
+            <%- include('composants/panier.ejs') %>
+
+
+            <div class="header" style="margin-top: 115px; margin-bottom: 20px; padding: 5px; height: 20px;">
+                <h3>Chicha store</h3>
+            </div>
+
+            <!-- les carte categories  -->
+            <div class="categories row">
+                <div class="col-6">
+                    <div class="carte shadow-sm" onclick="iphone()">
+                        <div class="carte-top"> 
+                            <img src="./img/xr.jpg" width="75" alt="">
+                        </div>
+                        <div class="carte-details">
+                            <p>Chicha</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="carte shadow-sm" onclick="samsung()">
+                        <div class="carte-top">
+                            <img src="./img/s22.jpg" width="75" alt="">
+                        </div>
+                        <div class="carte-details">
+                            <p>Puff</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="carte shadow-sm" onclick="oppo()">
+                        <div class="carte-top">
+                            <img src="./img/oppo.jpg" width="75" alt="">
+                        </div>
+                        <div class="carte-details">
+                            <p>Charbon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="carte shadow-sm" onclick="redmi()">
+                        <div class="carte-top">
+                            <img src="./img/xiomi.jpg" width="75" alt="">
+                        </div>
+                        <div class="carte-details">
+                            <p>Arome</p>
+                        </div>
+                    </div>
+                </div>
+               
+                
+         
+                
+                
+                
+               
+            </div>
+            <!-- les carte categories  -->
+
+
+            <!-- les deux carte du haut  -->
+            <!-- <%- //include('composants/deuxCarteIn.ejs') %> <br> -->
+                <!-- les deux carte du haut  -->
+
+
+
+                <%- include('composants/footer.ejs') %>
+
+
+
+                <!-- boostrap here -->
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                    crossorigin="anonymous"></script>
+
+                <script src="/script/index.js"></script>
+
+</body>
+
+</html>
