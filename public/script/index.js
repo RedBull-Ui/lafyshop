@@ -190,11 +190,39 @@ function appartement(){
 
 // vehicule & appart
 
+// electro-menager 
+function fours(){
+    window.location.href='/fours'
+}
+function mixeurs(){
+    window.location.href='/mixeurs'
+}
+function cafetieres(){
+    window.location.href='/cafetieres'
+}
+function cusinieres(){
+    window.location.href='/cusinieres'
+}
+function frigidere(){
+    window.location.href='/frigideres'
+}
+function grille_pain(){
+    window.location.href='/grillesPains'
+}
+// electro-menager 
+
+//commander 
+function electroMenager(){
+    window.location.href='/electro'
+}
+//commander 
+
 //commander 
 function commander(){
     window.location.href='/commander'
 }
 //commander 
+
 //valider 
 function valider(){
     window.location.href='/valider'

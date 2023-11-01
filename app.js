@@ -214,6 +214,30 @@ app.get('/beauter', function (req, res) {
 });
 // vehicule & appart
 
+//electro-menager
+app.get('/electro', function (req, res) {
+  res.render('electroMenager.ejs'); 
+});
+app.get('/fours', function (req, res) {
+  res.render('fours.ejs'); 
+});
+app.get('/mixeurs', function (req, res) {
+  res.render('mixeurs.ejs'); 
+});
+app.get('/cusinieres', function (req, res) {
+  res.render('cusinieres.ejs'); 
+});
+app.get('/frigideres', function (req, res) {
+  res.render('frigideres.ejs'); 
+});
+app.get('/cafetieres', function (req, res) {
+  res.render('cafetieres.ejs'); 
+});
+app.get('/grillesPains', function (req, res) {
+  res.render('grillesPains.ejs'); 
+});
+//electro-menager
+
 //route page de commande 
 app.get('/commander', function (req, res) {
   res.render('commander.ejs'); 
