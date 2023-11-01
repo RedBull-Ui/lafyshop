@@ -214,7 +214,18 @@ function grille_pain(){
 // chicha store 
 function chichaStore(){
     window.location.href='/chichaStore'
-
+}
+function charbon(){
+    window.location.href='/charbon'
+}
+function puff(){
+    window.location.href='/puff'
+}
+function arome(){
+    window.location.href='/arome'
+}
+function chicha(){
+    window.location.href='/chicha'
 }
 // chicha store 
 

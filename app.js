@@ -148,6 +148,19 @@ app.get('/pcTools', function (req, res) {
 app.get('/chichaStore', function (req, res) {
   res.render('chichaStore.ejs'); 
 });
+
+app.get('/chicha', function (req, res) {
+  res.render('chicha.ejs'); 
+});
+app.get('/puff', function (req, res) {
+  res.render('puff.ejs'); 
+});
+app.get('/charbon', function (req, res) {
+  res.render('charbon.ejs'); 
+});
+app.get('/arome', function (req, res) {
+  res.render('arome.ejs'); 
+});
 // chicha store 
 
 // vetements hommes 
