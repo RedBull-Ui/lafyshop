@@ -21,7 +21,7 @@ db.connect((err) => {
   }
 });
 
-// Route pour récupérer les données depuis la base de données
+// Route pour récupérer les données depuis la articlevisiter
 app.get('/recupererArticlesVisiter', function (req, res) {
   const query = 'SELECT * FROM articlesVisiter';
   
@@ -41,7 +41,10 @@ app.get('/recupererArticlesvisiter', function (req, res) {
   res.json(mesDonnees);
 });
 
-// Route pour récupérer les données depuis la base de données
+// Route pour récupérer les données depuis la articlevisiter
+
+
+// Route pour récupérer les données depuis la table promo
 app.get('/recupererPromo', function (req, res) {
   const query = 'SELECT * FROM promo';
   
@@ -56,14 +59,17 @@ app.get('/recupererPromo', function (req, res) {
   });
 });
 
+// Route pour récupérer les données stockées dans le localStorage
 app.get('/recupererPromo', function (req, res) {
   const mesDonnees = JSON.parse(localStorage.getItem('promo'));
   res.json(mesDonnees);
 });
 
-// Route pour récupérer les données stockées dans le localStorage
+// Route pour récupérer les données depuis la table promo
 
-// Route pour récupérer les données depuis la base de données
+
+
+// Route pour récupérer les données depuis la table telslider
 app.get('/recupererTelSlider', function (req, res) {
   const query = 'SELECT * FROM telslider';
   
@@ -78,12 +84,16 @@ app.get('/recupererTelSlider', function (req, res) {
   });
 });
 
+// Route pour récupérer les données stockées dans le localStorage
 app.get('/recupererTelSlider', function (req, res) {
   const mesDonnees = JSON.parse(localStorage.getItem('telSlider'));
   res.json(mesDonnees);
 });
 
 // Route pour récupérer les données stockées dans le localStorage
+
+// Route pour récupérer les données depuis la table telslider
+
 
 // menu routes
 
