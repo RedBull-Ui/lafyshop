@@ -63,6 +63,28 @@ app.get('/recupererPromo', function (req, res) {
 
 // Route pour récupérer les données stockées dans le localStorage
 
+// Route pour récupérer les données depuis la base de données
+app.get('/recupererTelSlider', function (req, res) {
+  const query = 'SELECT * FROM telslider';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererTelSlider', function (req, res) {
+  const mesDonnees = JSON.parse(localStorage.getItem('telSlider'));
+  res.json(mesDonnees);
+});
+
+// Route pour récupérer les données stockées dans le localStorage
+
 // menu routes
 
 app.get('/', function (req, res) {

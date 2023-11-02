@@ -495,6 +495,19 @@ body .promo {
         /* COUPON */
 
 
+/* sliser tel & accessoire  */
+.slider-containerTelephone {
+  width: 99%;
+  overflow: hidden;
+}
+.sliderTelephone {
+ display: flex;
+ transition: transform 0.5s ease-in-out;
+ max-width: 99%;
+ overflow-x: scroll;
+ white-space: nowrap;
+}
+/* sliser tel & accessoire  */
 
 
 
@@ -522,7 +535,7 @@ body .promo {
    text-align: center;
     width: 150px; /* 4 est le nombre d'éléments .article-carte par ligne */
     padding: 5px;
-    margin: 5px;
+    margin: 10px;
     box-sizing: border-box;
     text-align: center;
     animation: defilement 15s linear infinite; /* Définir une animation de défilement automatique */

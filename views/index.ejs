@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-
   <!-- awesome cdn  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -210,15 +209,69 @@
         </div>
         <h6 style="text-decoration: line-through;">${offre.faux_prix} CFA</h6>
         <h4>${offre.prix} CFA</h4>
-    </div>
+     </div>
     <i class='bx bxs-cart-add'></i>
-</div> <br>
+  </div> <br>
         `;
 
           box.appendChild(offreSpecial);
         });
       }
     }
+
+
+     // ...
+
+ // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
+ fetch('/recupererTelSlider')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('La réponse du serveur n\'est pas OK');
+        }
+        return response.json();
+      })
+      .then(data => {
+        localStorage.setItem('telSlider', JSON.stringify(data));
+        console.log(data);
+        // 2. Une fois les données récupérées, bouclez dans votre slider
+        populateTelSlider();
+      })
+      .catch(error => console.error('Erreur lors de la récupération des données : ' + error));
+
+    // 3. Créez une fonction pour boucler dans le slider
+    function populateTelSlider() {
+      // Récupérer les données d'articles visités depuis le localStorage
+      const telBox = JSON.parse(localStorage.getItem('telSlider'));
+
+      // Vérifiez si des articles visités existent
+      if (telBox && telBox.length > 0) {
+        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
+        const boxParent = document.querySelector('.sliderTelephone');
+
+        // Bouclez sur les articles et générez dynamiquement les éléments HTML
+        telBox.forEach((telCarte) => {
+  const telItems = document.createElement('div');
+  telItems.classList.add('article-carte');
+
+  // Vous pouvez personnaliser le contenu de chaque article en fonction des données
+  telItems.innerHTML = `
+  <img src="${telCarte.url}" alt="${telCarte.nom}">
+            <br>
+            <p style="text-align: center;">${telCarte.nom}</br>-
+                <span>${telCarte.details}</span>
+            <div class="prix">
+                <span class="prix-actuel"
+                    style="color: #293847; font-weight: bolder; font-size: 1.2rem;">${telCarte.prix} CFA</span>
+            </div>
+            <button>Ajouter</button>
+  `;
+
+  boxParent.appendChild(telItems);
+});
+      }
+    }
+
+
   });
 </script>
 
