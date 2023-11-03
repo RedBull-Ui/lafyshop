@@ -668,7 +668,8 @@ body .promo {
 .deux-card-container{
   box-sizing: border-box;
   padding: 5px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
   background-color: transparent;
@@ -676,6 +677,7 @@ body .promo {
   min-height: auto;
 }
 .deux-card-container .carte{
+  box-shadow: 0 3px 5px rgba(125, 125, 125, 0.2);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -684,7 +686,6 @@ body .promo {
   padding: 5px;
   margin: 5px;
   margin-bottom: 10px;
-  width: 48%;
   height: 250px;
   background-color: white;
   border-radius: 18px;

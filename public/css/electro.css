@@ -291,13 +291,6 @@ margin-right: 20px;
   margin-left: 10px;
  }
 
- .burger-nav #affiche {
-    background-image: linear-gradient(to left, rgb(166, 255, 0), rgb(29, 222, 141));
-    color: white;
-    padding: 5px;
-    font-size: 0.8rem;
-    height: 100px;
- }
  .burger-nav #link{
    display: flex;
    justify-content: space-between;

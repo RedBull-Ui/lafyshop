@@ -90,7 +90,31 @@ app.get('/recupererTelSlider', function (req, res) {
   res.json(mesDonnees);
 });
 
+
+// Route pour récupérer les données depuis la table telslider
+
+
+// Route pour récupérer les données depuis la table moment 
+app.get('/recupererMoment', function (req, res) {
+  const query = 'SELECT * FROM moment';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
 // Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererMoment', function (req, res) {
+  const momentDonnees = JSON.parse(localStorage.getItem('moment'));
+  res.json(momentDonnees);
+});
+
 
 // Route pour récupérer les données depuis la table telslider
 
