@@ -215,7 +215,7 @@ transition: 0s;
     position: fixed;
     top: 0;
     left: 0;
-    transition: 0.4s ease-in;
+    transition: 0.3s ease-in-out;
     overflow-y: auto; /* Permet le défilement vertical lorsque le contenu dépasse la hauteur maximale */
   }
 
@@ -273,7 +273,7 @@ transition: 0s;
   right: 0;
   overflow-y: auto;
   max-height: 100vh;
-  transition: 0.5s ease-in;
+  transition: 0.3s ease-in-out;
   padding-bottom: 90px; /* Ajoutez une marge inférieure pour .panier-footer */
   
 }
