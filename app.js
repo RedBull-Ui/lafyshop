@@ -163,6 +163,27 @@ app.get('/recupererHf', function (req, res) {
   res.json(hmDonnees);
 });
 
+// Route pour récupérer les données depuis la table h&m
+app.get('/recupererElectro', function (req, res) {
+  const query = 'SELECT * FROM electro'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données electro depuis la base de données');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererElectro', function (req, res) {
+  const electroDonnees = JSON.parse(localStorage.getItem('electro'));
+  res.json(electroDonnees);
+});
+
 
 // Route pour récupérer les données depuis la table h&m
 

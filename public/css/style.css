@@ -443,10 +443,22 @@ body .promo {
     white-space: nowrap
 
  }
+
   .sliderMode-container{
     margin-bottom: 18px;
   }
   .sliderMode {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    max-width: 99%;
+    overflow-x: scroll;
+    white-space: nowrap
+
+ }
+  .sliderElectro-container{
+    margin-bottom: 18px;
+  }
+  .sliderElectro {
     display: flex;
     transition: transform 0.5s ease-in-out;
     max-width: 99%;

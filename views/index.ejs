@@ -78,10 +78,6 @@
 
   <!-- electro slider -->
   <br>
-  <!-- deux carte -->
-  <%- include('composants/deux-card.ejs') %> <br>
-
-  <!-- deux carte -->
 
 
   <div class="app-pub">
@@ -421,6 +417,54 @@ function populateHm() {
       `;
 
       hmContainer.appendChild(hmDiv);
+    });
+  }
+}
+
+  // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
+  fetch('/recupererElectro')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('La réponse du serveur n\'est pas OK');
+    }
+    return response.json();
+  })
+  .then(data => {
+    localStorage.setItem('electro', JSON.stringify(data));
+    console.log(data);
+    // 2. Une fois les données récupérées, bouclez dans votre slider
+    populateElectro();
+  })
+  .catch(error => console.error('Erreur lors de la récupération des données electro: ' + error));
+
+// 3. Créez une fonction pour boucler dans le slider
+function populateElectro() {
+  // Récupérer les données d'articles visités depuis le localStorage
+  const electro = JSON.parse(localStorage.getItem('electro'));
+
+  // Vérifiez si des articles visités existent
+  if (electro && electro.length > 0) {
+    // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
+    const electroContainer = document.querySelector('.sliderElectro');
+
+    // Bouclez sur les articles et générez dynamiquement les éléments HTML
+    electro.forEach((electroCardItem) => {
+      const electroDiv = document.createElement('div');
+      electroDiv.classList.add('article-carte');
+
+      electroDiv.innerHTML = `
+      <img src="${electroCardItem.url}" alt="${electroCardItem.nom}">
+            <br>
+            <p style="text-align: center;">${electroCardItem.nom}</br>-
+                <span>${electroCardItem.details}</span>
+            <div class="prix">
+                <span class="prix-actuel"
+                    style="color: #293847; font-weight: bolder; font-size: 1.2rem;">${electroCardItem.prix}CFA</span>
+            </div>
+            <button>Ajouter</button>
+      `;
+
+      electroContainer.appendChild(electroDiv);
     });
   }
 }
