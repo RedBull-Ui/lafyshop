@@ -68,7 +68,7 @@
   <br>
   <br>
   <!-- mode slider  -->
-  <%- include('composants/slider-mode.ejs') %> <br>
+  <%- include('composants/slider-mode.ejs') %> <br> 
 
   <!-- mode slider -->
   <br>
@@ -322,8 +322,8 @@
     }
 
 
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-fetch('/recupererBigCard')
+  // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
+  fetch('/recupererBigCard')
   .then(response => {
     if (!response.ok) {
       throw new Error('La réponse du serveur n\'est pas OK');
@@ -372,6 +372,55 @@ function populateBigCard() {
       `;
 
       bigCardContainer.appendChild(bigCardDiv);
+    });
+  }
+}
+
+
+  // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
+  fetch('/recupererHf')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('La réponse du serveur n\'est pas OK');
+    }
+    return response.json();
+  })
+  .then(data => {
+    localStorage.setItem('hf', JSON.stringify(data));
+    console.log(data);
+    // 2. Une fois les données récupérées, bouclez dans votre slider
+    populateHm();
+  })
+  .catch(error => console.error('Erreur lors de la récupération des données hf: ' + error));
+
+// 3. Créez une fonction pour boucler dans le slider
+function populateHm() {
+  // Récupérer les données d'articles visités depuis le localStorage
+  const hm = JSON.parse(localStorage.getItem('hf'));
+
+  // Vérifiez si des articles visités existent
+  if (hm && hm.length > 0) {
+    // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
+    const hmContainer = document.querySelector('.sliderMode');
+
+    // Bouclez sur les articles et générez dynamiquement les éléments HTML
+    hm.forEach((hmCardItem) => {
+      const hmDiv = document.createElement('div');
+      hmDiv.classList.add('article-carte');
+
+      hmDiv.innerHTML = `
+      <img src="${hmCardItem.url}" alt="${hmCardItem.nom}">
+            <br>
+            <p style="text-align: center;">${hmCardItem.nom}</br>-
+                <span>${hmCardItem.details}</span>
+            <div class="prix">
+                <span class="prix-actuel"
+                    style="color: #293847; font-weight: bolder; font-size: 1.2rem;">${hmCardItem.prix}CFA</span>
+            </div>
+            <button>Ajouter</button>
+      `;
+
+      hmContainer.appendChild(hmDiv);
     });
   }
 }
