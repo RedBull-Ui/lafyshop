@@ -116,7 +116,31 @@ app.get('/recupererMoment', function (req, res) {
 });
 
 
-// Route pour récupérer les données depuis la table telslider
+// Route pour récupérer les données depuis la table MOMENT
+
+// Route pour récupérer les données depuis la table bigCard 
+app.get('/recupererBigCard', function (req, res) {
+  const query = 'SELECT * FROM bigCard';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données bigCard');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererBigCard', function (req, res) {
+  const bigCardDonnees = JSON.parse(localStorage.getItem('bigCard'));
+  res.json(bigCardDonnees);
+});
+
+
+// Route pour récupérer les données depuis la table bigCard
 
 
 // menu routes
