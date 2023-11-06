@@ -441,6 +441,102 @@ app.get('/recupererElectro', function (req, res) {
 
 // Route pour récupérer les données depuis la table electro
 
+// Route pour récupérer les données depuis la table montre connecter
+app.get('/recupererMontresCo', function (req, res) {
+  const query = 'SELECT * FROM montresco'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données montresCo depuis la base de données');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererMontresCo', function (req, res) {
+  const montresCoDonnees = JSON.parse(localStorage.getItem('montresCo'));
+  res.json(montresCoDonnees);
+});
+
+
+// Route pour récupérer les données depuis la table montresCo
+
+// Route pour récupérer les données depuis la table montre 
+app.get('/recupererMontres', function (req, res) {
+  const query = 'SELECT * FROM montres'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données montres depuis la base de données');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererMontres', function (req, res) {
+  const montresDonnees = JSON.parse(localStorage.getItem('montres'));
+  res.json(montresDonnees);
+});
+
+
+// Route pour récupérer les données depuis la table montres
+
+// Route pour récupérer les données depuis la table bague 
+app.get('/recupererBagues', function (req, res) {
+  const query = 'SELECT * FROM bagues'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données montres depuis la base de données bagues');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererBagues', function (req, res) {
+  const baguesDonnees = JSON.parse(localStorage.getItem('bagues'));
+  res.json(baguesDonnees);
+});
+
+
+// Route pour récupérer les données depuis la table bagues
+
+// Route pour récupérer les données depuis la table chaines 
+app.get('/recupererChaines', function (req, res) {
+  const query = 'SELECT * FROM chaines'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données chaines depuis la base de données bagues');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererChaines', function (req, res) {
+  const chainesDonnees = JSON.parse(localStorage.getItem('chaines'));
+  res.json(chainesDonnees);
+});
+
+
+// Route pour récupérer les données depuis la table chaines
+
 
 // menu routes
 
