@@ -21,6 +21,260 @@ db.connect((err) => {
   }
 });
 
+
+
+// Route pour récupérer les données depuis la table redmi
+app.get('/recupererRedmi', function (req, res) {
+  const query = 'SELECT * FROM redmi';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données redmi');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererRedmi', function (req, res) {
+  const mesRedmiDonnees = JSON.parse(localStorage.getItem('redmi'));
+  res.json(mesRedmiDonnees);
+});
+// Route pour récupérer les données depuis la table redmi
+
+// Route pour récupérer les données depuis la table Tecno
+app.get('/recupererTecno', function (req, res) {
+  const query = 'SELECT * FROM tecno';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données tecno');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererTecno', function (req, res) {
+  const mesTecnoDonnees = JSON.parse(localStorage.getItem('tecno'));
+  res.json(mesTecnoDonnees);
+});
+// Route pour récupérer les données depuis la table redmi
+
+// Route pour récupérer les données depuis la table itel
+app.get('/recupererItel', function (req, res) {
+  const query = 'SELECT * FROM itel';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données itel');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererItel', function (req, res) {
+  const mesItelDonnees = JSON.parse(localStorage.getItem('itel'));
+  res.json(mesItelDonnees);
+});
+// Route pour récupérer les données depuis la table itel
+
+// Route pour récupérer les données depuis la table mac
+app.get('/recupererMac', function (req, res) {
+  const query = 'SELECT * FROM mac';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données mac');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererMac', function (req, res) {
+  const mesMacDonnees = JSON.parse(localStorage.getItem('mac'));
+  res.json(mesMacDonnees);
+});
+// Route pour récupérer les données depuis la table mac
+
+// Route pour récupérer les données depuis la table hp
+app.get('/recupererHp', function (req, res) {
+  const query = 'SELECT * FROM hp';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données hp');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererHp', function (req, res) {
+  const mesHpDonnees = JSON.parse(localStorage.getItem('hp'));
+  res.json(mesHpDonnees);
+});
+// Route pour récupérer les données depuis la table hp
+
+// Route pour récupérer les données depuis la table dell
+app.get('/recupererDell', function (req, res) {
+  const query = 'SELECT * FROM dell';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données dell');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererDell', function (req, res) {
+  const mesDellDonnees = JSON.parse(localStorage.getItem('dell'));
+  res.json(mesDellDonnees);
+});
+// Route pour récupérer les données depuis la table dell
+
+// Route pour récupérer les données depuis la table teltools
+app.get('/recupererTeltools', function (req, res) {
+  const query = 'SELECT * FROM teltools';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données teltools');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererTeltools', function (req, res) {
+  const mesTeltoolsDonnees = JSON.parse(localStorage.getItem('teltools'));
+  res.json(mesTeltoolsDonnees);
+});
+// Route pour récupérer les données depuis la table teltools
+
+// Route pour récupérer les données depuis la table teltools
+app.get('/recupererPctools', function (req, res) {
+  const query = 'SELECT * FROM pctools';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données pc tools');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererPctools', function (req, res) {
+  const mesPctoolsDonnees = JSON.parse(localStorage.getItem('pctools'));
+  res.json(mesPctoolsDonnees);
+});
+// Route pour récupérer les données depuis la table teltools
+
+// Route pour récupérer les données depuis la table samsung
+app.get('/recupererOppo', function (req, res) {
+  const query = 'SELECT * FROM oppo';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données oppo');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererOppo', function (req, res) {
+  const mesOppoDonnees = JSON.parse(localStorage.getItem('oppo'));
+  res.json(mesOppoDonnees);
+});
+// Route pour récupérer les données depuis la table redmi
+
+// Route pour récupérer les données depuis la table samsung
+app.get('/recupererSamsung', function (req, res) {
+  const query = 'SELECT * FROM samsung';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données samsung');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererSamsung', function (req, res) {
+  const mesInfinixDonnees = JSON.parse(localStorage.getItem('samsung'));
+  res.json(mesInfinixDonnees);
+});
+// Route pour récupérer les données depuis la table samsung
+
+// Route pour récupérer les données depuis la table infinix
+app.get('/recupererInfinix', function (req, res) {
+  const query = 'SELECT * FROM infinix';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données infinix');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererInfinix', function (req, res) {
+  const mesInfinixDonnees = JSON.parse(localStorage.getItem('infinix'));
+  res.json(mesInfinixDonnees);
+});
+// Route pour récupérer les données depuis la table infinix
+
+app.get('/recupererIphones', function (req, res) {
+  const query = 'SELECT * FROM iphones';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererIphones', function (req, res) {
+  const mesIphonesDonnees = JSON.parse(localStorage.getItem('iphones'));
+  res.json(mesIphoneDonnees);
+});
+
+// Route pour récupérer les données depuis la table iphones
+
 // Route pour récupérer les données depuis la articlevisiter
 app.get('/recupererArticlesVisiter', function (req, res) {
   const query = 'SELECT * FROM articlesVisiter';
@@ -142,7 +396,7 @@ app.get('/recupererBigCard', function (req, res) {
 
 // Route pour récupérer les données depuis la table bigCard
 
-// Route pour récupérer les données depuis la table h&m
+// Route pour récupérer les données depuis la table hf
 app.get('/recupererHf', function (req, res) {
   const query = 'SELECT * FROM hf'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
   db.query(query, (err, results) => {
@@ -163,7 +417,7 @@ app.get('/recupererHf', function (req, res) {
   res.json(hmDonnees);
 });
 
-// Route pour récupérer les données depuis la table h&m
+// Route pour récupérer les données depuis la table electro
 app.get('/recupererElectro', function (req, res) {
   const query = 'SELECT * FROM electro'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
   db.query(query, (err, results) => {
@@ -185,7 +439,7 @@ app.get('/recupererElectro', function (req, res) {
 });
 
 
-// Route pour récupérer les données depuis la table h&m
+// Route pour récupérer les données depuis la table electro
 
 
 // menu routes
