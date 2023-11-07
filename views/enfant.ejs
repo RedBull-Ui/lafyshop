@@ -2,106 +2,118 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <!-- <meta http-equiv="refresh" content="2"> -->
-    <meta name="theme-color" content="#293847">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-   
-    <!-- awesome cdn  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   
-    <!-- box icon here  -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-    <!-- boostrap here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="refresh" content="2"> -->
+  <meta name="theme-color" content="#293847">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
-    <!-- mon css here -->
-    <link rel="stylesheet" href="/css/meublePage.css">
-    <title>Meuble </title>
+  <!-- awesome cdn  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- box icon here  -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- boostrap here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+  <!-- mon css here -->
+  <link rel="stylesheet" href="/css/ceintureHPage.css">
+  <title>Enfants</title>
 </head>
 
 <body id="body">
 
-    <%- include('composants/nav.ejs') %>
+  <%- include('composants/nav.ejs') %>
 
-            <%- include('composants/burger-menu.ejs') %>
-            <%- include('composants/panier.ejs') %>
-
-
-
-
-            <div class="main">
-
-                <div class="carte shadow-sm">
-                    <div class="left">
-                        <img src="/img/talon.jpg" width="70">
-                    </div>
-                    <div class="right">
-                        <span>Console Nintendo switch - Bleu Neon & rouge neon + Nintendo switxh sport </span></br>
-                        <span>detail ici </span></p>
-                        <div class="d-flex">
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star-half' ></i>
-                            <i class='bx bx-star' ></i>
-                        </div>
-                        <br>
-                        <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-                        <p style="text-decoration: line-through; color: gray; font-size: 0.8rem;">100,000 CFA</p>
-                        <div class="bottom">
-                            <p style="color: rgb(239, 38, 38); font-weight: 600;">50,000 CFA</p>
-                            <button type="button">Ajouter</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="carte shadow-sm">
-                    <div class="left">
-                        <img src="/img/talon.jpg" width="70">
-                    </div>
-                    <div class="right">
-                        <span>Console Nintendo switch - Bleu Neon & rouge neon + Nintendo switxh sport </span></br>
-                        <span>detail ici </span></p>
-                        <div class="d-flex">
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star-half' ></i>
-                            <i class='bx bx-star' ></i>
-                        </div>
-                        <br>
-                        <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-                        <p style="text-decoration: line-through; color: gray; font-size: 0.8rem;">100,000 CFA</p>
-                        <div class="bottom">
-                            <p style="color: rgb(239, 38, 38); font-weight: 600;">50,000 CFA</p>
-                            <button type="button">Ajouter</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-                    <!-- FOOTER ICI  -->
-                    <%- include('composants/footer.ejs') %>
-                    <!-- FOOTER ICI  -->
+  <%- include('composants/burger-menu.ejs') %>
+  <%- include('composants/panier.ejs') %>
 
 
 
-                        <!-- boostrap here -->
 
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-                            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-                            crossorigin="anonymous"></script>
+  <div class="main">
+    <div class="d-flex">
+      <a style="text-decoration: none; color: black;" href="#">Enfants </a>
+    </div>
+    <br> <br>
+    <h3><strong>Enfants</strong></h3>
+    <br> <br>
+    
 
-                        <script src="/script/index.js"></script>
+   <br>
+
+
+  </div>
+
+
+  <!-- FOOTER ICI  -->
+  <%- include('composants/footer.ejs') %>
+  <!-- FOOTER ICI  -->
+
+
+
+  <!-- boostrap here -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  <script src="/script/index.js"></script>
 
 </body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
+    fetch('/recupererenfants')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('La réponse du serveur n\'est pas OK');
+        }
+        return response.json();
+      })
+      .then(data => {
+        localStorage.setItem('enfants', JSON.stringify(data));
+        console.log(data);
+        // 2. Une fois les données récupérées, bouclez dans votre slider
+        populateenfants();
+      })
+      .catch(error => console.error('Erreur lors de la récupération des données enfants : ' + error));
+
+    // 3. Créez une fonction pour boucler dans le slider
+    function populateenfants() {
+      // Récupérer les données d'articles visités depuis le localStorage
+      const enfants = JSON.parse(localStorage.getItem('enfants'));
+
+      // Vérifiez si des articles visités existent
+      if (enfants && enfants.length > 0) {
+        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
+        const enfantsContainer = document.querySelector('.main');
+
+        // Bouclez sur les articles et générez dynamiquement les éléments HTML
+        enfants.forEach((enfantsCardItem) => {
+          const enfantsDiv = document.createElement('div');
+          enfantsDiv.classList.add('carte');
+
+          enfantsDiv.innerHTML = `
+    <div class="card-top">
+        <img src="${enfantsCardItem.url}" width="100">
+    </div>
+    <div class="card-details">
+    <span style="color: black; font-weight: 500;">${enfantsCardItem.nom}</span></br>
+    <span style="color: grey;">${enfantsCardItem.info}</span></p>
+    <p style="font-size: 0.8rem; color: gray;">Disponible</p>
+    <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;">${enfantsCardItem.prix} CFA</p>
+    </div>
+      `;
+
+          enfantsContainer.appendChild(enfantsDiv);
+        });
+      }
+    }
+  })
+</script>
 
 </html>

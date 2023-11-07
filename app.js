@@ -649,6 +649,28 @@ app.get('/recuperersacF', function (req, res) {
 
 // Route pour récupérer les données depuis la table Chaussures
 
+// Route pour récupérer les données depuis la table Enfants
+app.get('/recupererenfants', function (req, res) {
+  const query = 'SELECT * FROM enfants'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données enfants');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererenfants', function (req, res) {
+  const enfantsDonnees = JSON.parse(localStorage.getItem('enfants'));
+  res.json(enfantsDonnees);
+});
+
+// Route pour récupérer les données depuis la table enfants
+
 // Route pour récupérer les données depuis la table chaussures
 app.get('/recupererchaussures', function (req, res) {
   const query = 'SELECT * FROM chaussures'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
