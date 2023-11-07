@@ -693,6 +693,50 @@ app.get('/recupererbeauter', function (req, res) {
 
 // Route pour récupérer les données depuis la table beauter
 
+// Route pour récupérer les données depuis la table Meubles
+app.get('/recuperermeubles', function (req, res) {
+  const query = 'SELECT * FROM meubles'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données meubles');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recuperermeubles', function (req, res) {
+  const meublesDonnees = JSON.parse(localStorage.getItem('meubles'));
+  res.json(meublesDonnees);
+});
+
+// Route pour récupérer les données depuis la table Meubles
+
+// Route pour récupérer les données depuis la table deco
+app.get('/recupererdeco', function (req, res) {
+  const query = 'SELECT * FROM deco'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données deco');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererdeco', function (req, res) {
+  const decoDonnees = JSON.parse(localStorage.getItem('deco'));
+  res.json(decoDonnees);
+});
+
+// Route pour récupérer les données depuis la table Deco
+
 // Route pour récupérer les données depuis la table chaussures
 app.get('/recupererchaussures', function (req, res) {
   const query = 'SELECT * FROM chaussures'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
