@@ -671,6 +671,28 @@ app.get('/recupererenfants', function (req, res) {
 
 // Route pour récupérer les données depuis la table enfants
 
+// Route pour récupérer les données depuis la table Beauter
+app.get('/recupererbeauter', function (req, res) {
+  const query = 'SELECT * FROM beauter'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données beauter');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererbeauter', function (req, res) {
+  const beauterDonnees = JSON.parse(localStorage.getItem('beauter'));
+  res.json(beauterDonnees);
+});
+
+// Route pour récupérer les données depuis la table beauter
+
 // Route pour récupérer les données depuis la table chaussures
 app.get('/recupererchaussures', function (req, res) {
   const query = 'SELECT * FROM chaussures'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
