@@ -537,6 +537,191 @@ app.get('/recupererChaines', function (req, res) {
 
 // Route pour récupérer les données depuis la table chaines
 
+// Route pour récupérer les données depuis la table outfit H
+app.get('/recupererOutfitH', function (req, res) {
+  const query = 'SELECT * FROM outfitH'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données outfitH');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererOutfitH', function (req, res) {
+  const outfitHDonnees = JSON.parse(localStorage.getItem('outfitH'));
+  res.json(outfitHDonnees);
+});
+
+// Route pour récupérer les données depuis la table Chaussures
+
+// Route pour récupérer les données depuis la table chaussures
+app.get('/recupererchaussures', function (req, res) {
+  const query = 'SELECT * FROM chaussures'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données chaussures');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererchaussures', function (req, res) {
+  const chaussuresDonnees = JSON.parse(localStorage.getItem('chaussures'));
+  res.json(chaussuresDonnees);
+});
+
+// Route pour récupérer les données depuis la table chaussures
+
+// Route pour récupérer les données depuis la table ceintureH
+app.get('/recupererceintureH', function (req, res) {
+  const query = 'SELECT * FROM ceintureH'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données ceintureH');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererceintureH', function (req, res) {
+  const ceintureHDonnees = JSON.parse(localStorage.getItem('ceintureH'));
+  res.json(ceintureHDonnees);
+});
+
+// Route pour récupérer les données depuis la table chaussures
+
+// Route pour récupérer les données depuis la table chaussette
+app.get('/recupererchaussettes', function (req, res) {
+  const query = 'SELECT * FROM chaussettes'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données chaussettes');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererchaussettes', function (req, res) {
+  const chaussetteDonnees = JSON.parse(localStorage.getItem('chaussettes'));
+  res.json(chaussetteDonnees);
+});
+
+// Route pour récupérer les données depuis la table chaussures
+
+// Route pour récupérer les données depuis la table chaussette
+
+app.get('/recupererchaussettes', function (req, res) {
+  const query = 'SELECT * FROM chaussettes'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données chaussettes');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererchaussettes', function (req, res) {
+  const chaussetteDonnees = JSON.parse(localStorage.getItem('chaussettes'));
+  res.json(chaussetteDonnees);
+});
+
+// Route pour récupérer les données depuis la table Chaussette
+
+// Route pour récupérer les données depuis la table sacH
+app.get('/recuperersacH', function (req, res) {
+  const query = 'SELECT * FROM sacH'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données sacH');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recuperersacH', function (req, res) {
+  const sacHDonnees = JSON.parse(localStorage.getItem('sacH'));
+  res.json(sacHDonnees);
+});
+
+// Route pour récupérer les données depuis la table SacH
+
+// Route pour récupérer les données depuis la table chapeau
+app.get('/recupererchapeau', function (req, res) {
+  const query = 'SELECT * FROM chapeau'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données chapeau');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recuperersacH', function (req, res) {
+  const sacHDonnees = JSON.parse(localStorage.getItem('sacH'));
+  res.json(sacHDonnees);
+});
+
+// Route pour récupérer les données depuis la table SacH
+
+// Route pour récupérer les données depuis la table chaussette
+app.get('/recupererchaussettes', function (req, res) {
+  const query = 'SELECT * FROM chaussettes'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données chaussettes');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererchaussettes', function (req, res) {
+  const chaussetteDonnees = JSON.parse(localStorage.getItem('chaussettes'));
+  res.json(chaussetteDonnees);
+});
+
+// Route pour récupérer les données depuis la table chaussures
+
 
 // menu routes
 
