@@ -44,6 +44,132 @@ app.get('/recupererRedmi', function (req, res) {
 });
 // Route pour récupérer les données depuis la table redmi
 
+// Route pour récupérer les données depuis la table fours
+app.get('/recupererfours', function (req, res) {
+  const query = 'SELECT * FROM fours';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données fours');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererfours', function (req, res) {
+  const mesfoursDonnees = JSON.parse(localStorage.getItem('fours'));
+  res.json(mesfoursDonnees);
+});
+// Route pour récupérer les données depuis la table fours
+
+// Route pour récupérer les données depuis la table grillePain
+app.get('/recuperergrillePain', function (req, res) {
+  const query = 'SELECT * FROM grillePain';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données grillePain');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recuperergrillePain', function (req, res) {
+  const mesgrillePainDonnees = JSON.parse(localStorage.getItem('grillePain'));
+  res.json(mesgrillePainDonnees);
+});
+// Route pour récupérer les données depuis la table grillePain
+
+// Route pour récupérer les données depuis la table mixeurs
+app.get('/recuperermixeurs', function (req, res) {
+  const query = 'SELECT * FROM mixeurs';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données mixeurs');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recuperermixeurs', function (req, res) {
+  const mesmixeursDonnees = JSON.parse(localStorage.getItem('mixeurs'));
+  res.json(mesmixeursDonnees);
+});
+// Route pour récupérer les données depuis la table mixeurs
+
+// Route pour récupérer les données depuis la table cafetieres
+app.get('/recuperercafetieres', function (req, res) {
+  const query = 'SELECT * FROM cafetieres';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données cafetieres');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recuperercafetieres', function (req, res) {
+  const mescafetieresDonnees = JSON.parse(localStorage.getItem('cafetieres'));
+  res.json(mescafetieresDonnees);
+});
+// Route pour récupérer les données depuis la table cafetieres
+
+// Route pour récupérer les données depuis la table frigideres
+app.get('/recupererfrigideres', function (req, res) {
+  const query = 'SELECT * FROM frigideres';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données frigideres');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererfrigideres', function (req, res) {
+  const mesfrigideresDonnees = JSON.parse(localStorage.getItem('frigideres'));
+  res.json(mesfrigideresDonnees);
+});
+// Route pour récupérer les données depuis la table frigideres
+
+// Route pour récupérer les données depuis la table cusinieres
+app.get('/recuperercusinieres', function (req, res) {
+  const query = 'SELECT * FROM cusinieres';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données cusinieres');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recuperercusinieres', function (req, res) {
+  const mescusinieresDonnees = JSON.parse(localStorage.getItem('cusinieres'));
+  res.json(mescusinieresDonnees);
+});
+// Route pour récupérer les données depuis la table cusinieres
+
 // Route pour récupérer les données depuis la table Tecno
 app.get('/recupererTecno', function (req, res) {
   const query = 'SELECT * FROM tecno';
