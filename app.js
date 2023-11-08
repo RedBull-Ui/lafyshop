@@ -170,6 +170,27 @@ app.get('/recuperercusinieres', function (req, res) {
 });
 // Route pour récupérer les données depuis la table cusinieres
 
+// Route pour récupérer les données depuis la table puff
+app.get('/recupererpuff', function (req, res) {
+  const query = 'SELECT * FROM puff';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données puff');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
+});
+
+app.get('/recupererpuff', function (req, res) {
+  const mespuffDonnees = JSON.parse(localStorage.getItem('puff'));
+  res.json(mespuffDonnees);
+});
+// Route pour récupérer les données depuis la table puff
+
 // Route pour récupérer les données depuis la table Tecno
 app.get('/recupererTecno', function (req, res) {
   const query = 'SELECT * FROM tecno';
@@ -860,8 +881,70 @@ app.get('/recupererdeco', function (req, res) {
   const decoDonnees = JSON.parse(localStorage.getItem('deco'));
   res.json(decoDonnees);
 });
-
 // Route pour récupérer les données depuis la table Deco
+
+// Route pour récupérer les données depuis la table chicha
+app.get('/recupererchicha', function (req, res) {
+  const query = 'SELECT * FROM chicha'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données chicha');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererchicha', function (req, res) {
+  const chichaDonnees = JSON.parse(localStorage.getItem('chicha'));
+  res.json(chichaDonnees);
+});
+// Route pour récupérer les données depuis la table chicha
+
+// Route pour récupérer les données depuis la table charbon
+app.get('/recuperercharbon', function (req, res) {
+  const query = 'SELECT * FROM charbon'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données charbon');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recuperercharbon', function (req, res) {
+  const charbonDonnees = JSON.parse(localStorage.getItem('charbon'));
+  res.json(charbonDonnees);
+});
+// Route pour récupérer les données depuis la table charbon
+
+// Route pour récupérer les données depuis la table arome
+app.get('/recupererarome', function (req, res) {
+  const query = 'SELECT * FROM arome'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données arome');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererarome', function (req, res) {
+  const aromeDonnees = JSON.parse(localStorage.getItem('arome'));
+  res.json(aromeDonnees);
+});
+// Route pour récupérer les données depuis la table arome
 
 // Route pour récupérer les données depuis la table chaussures
 app.get('/recupererchaussures', function (req, res) {
