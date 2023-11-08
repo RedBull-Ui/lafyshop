@@ -941,10 +941,31 @@ app.get('/recupererarome', function (req, res) {
 
 // Route pour récupérer les données stockées dans le localStorage
 app.get('/recupererarome', function (req, res) {
-  const aromeDonnees = JSON.parse(localStorage.getItem('arome'));
+  const aromeDonnees = JSON.parse(localStorage.getItem('arome')); 
   res.json(aromeDonnees);
 });
 // Route pour récupérer les données depuis la table arome
+
+// Route pour récupérer les données depuis la table vehicule
+app.get('/recuperervehicule', function (req, res) {
+  const query = 'SELECT * FROM vehicule'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données vehicule');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recuperervehicule', function (req, res) {
+  const vehiculeDonnees = JSON.parse(localStorage.getItem('vehicule')); 
+  res.json(vehiculeDonnees);
+});
+// Route pour récupérer les données depuis la table vehicule
 
 // Route pour récupérer les données depuis la table chaussures
 app.get('/recupererchaussures', function (req, res) {
@@ -1015,14 +1036,13 @@ app.get('/recupererchaussettes', function (req, res) {
 
 // Route pour récupérer les données depuis la table chaussures
 
-// Route pour récupérer les données depuis la table chaussette
-
-app.get('/recupererchaussettes', function (req, res) {
-  const query = 'SELECT * FROM chaussettes'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+// Route pour récupérer les données depuis la table appart
+app.get('/recupererappart', function (req, res) {
+  const query = 'SELECT * FROM appart'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données chaussettes');
+      res.status(500).send('Erreur lors de la récupération des données appart');
     } else {
       // Envoyez les données récupérées au client depuis la base de données
       res.json(results);
@@ -1032,12 +1052,36 @@ app.get('/recupererchaussettes', function (req, res) {
 
 
 // Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererchaussettes', function (req, res) {
-  const chaussetteDonnees = JSON.parse(localStorage.getItem('chaussettes'));
+app.get('/recupererappart', function (req, res) {
+  const chaussetteDonnees = JSON.parse(localStorage.getItem('appart'));
   res.json(chaussetteDonnees);
 });
 
-// Route pour récupérer les données depuis la table Chaussette
+// Route pour récupérer les données depuis la table chaussures
+
+// Route pour récupérer les données depuis la table chaussette
+
+app.get('/recupererappart', function (req, res) {
+  const query = 'SELECT * FROM appart'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données appart');
+    } else {
+      // Envoyez les données récupérées au client depuis la base de données
+      res.json(results);
+    }
+  });
+});
+
+
+// Route pour récupérer les données stockées dans le localStorage
+app.get('/recupererappart', function (req, res) {
+  const appartDonnees = JSON.parse(localStorage.getItem('appart'));
+  res.json(appartDonnees);
+});
+
+// Route pour récupérer les données depuis la table appart
 
 // Route pour récupérer les données depuis la table sacH
 app.get('/recuperersacH', function (req, res) {
