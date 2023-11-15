@@ -247,3 +247,16 @@ function valider(){
     window.location.href='/valider'
 }
 //valider 
+
+// details redirection ici 
+// document.addEventListener('DOMContentLoaded', function() {
+//     const cards = document.querySelectorAll('.carte');
+
+//     cards.forEach(card => {
+//       card.addEventListener('click', function() {
+//         const productId = card.dataset.productId; // Ajoutez un attribut data-product-id à chaque carte
+//         window.location.href = `/iphone/${productId}`;
+//       });
+//     });
+//   });
+// details redirection ici 

@@ -36,7 +36,7 @@
 
   <div class="main">
     <div class="d-flex">
-      <a style="text-decoration: none; color: black;" href="/phone">Telephone</a> /
+      <a style="text-decoration: none; color: black;" href="/phone">Retour</a> /
       <a style="text-decoration: none; color: black;" href="#">Accessoire</a>
     </div>
     <br> <br>
@@ -44,6 +44,7 @@
     <br> <br>
 
     <% pcTools.forEach((produit) => { %>
+      <a href="/pctools/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -55,6 +56,7 @@
       <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
       </div>
       </div>
+      </a>
 
 
       <% }); %>

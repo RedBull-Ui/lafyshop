@@ -44,6 +44,7 @@
     <br> <br>
     
     <% macs.forEach((produit) => { %>
+      <a href="/mac/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">

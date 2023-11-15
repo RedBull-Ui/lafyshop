@@ -20,9 +20,9 @@
 
 
   <!-- mon css here -->
-  <link rel="stylesheet" href="/css/iphonePage.css">
-  <title>Iphone</title>
-</head>
+  <link rel="stylesheet" href="/css/hpPage.css">
+  <link rel="stylesheet" href="/css/detail.css">
+    <head>DEll</head>
 
 <body id="body">
 
@@ -32,38 +32,16 @@
   <%- include('composants/panier.ejs') %>
 
 
+<br> <br><br> <br><br> <br>
+<div class="d-flex justify-content-between" style="width: 40%;">
+  <a href="/dell">Retour</a> /
+  <a href="#">DELL</a>
+</div>
+<br>
+<%- include('composants/detailsMain.ejs') %>
 
 
-  <div class="main">
-    <div class="d-flex">
-      <a style="text-decoration: none; color: black;" href="/phone">Telephone</a> /
-      <a style="text-decoration: none; color: black;" href="/iphone">Iphone</a>
-    </div>
-    <br> <br>
-    <h3><strong>Iphone</strong></h3>
-    <br> <br>
-    <% iphones.forEach((produit) => { %>
-      <a href="/iphone/<%= produit.id %>">
-      <div class="carte" data-product-id="<%= produit.id %>">
-        <div class="card-top">
-          <img src="<%= produit.url %>" width="100">
-        </div>
-        <div class="card-details">
-          <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
-          <span style="color: grey;"><%= produit.info %></span></p>
-          <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-          <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
-        </div>
-      </div>
-    </a>
-
-
-      <% }); %>
-
-   <br>
-
-
-  </div>
+ 
 
 
   <!-- FOOTER ICI  -->
@@ -79,7 +57,6 @@
   <script src="/script/index.js"></script>
 
 </body>
-
 
 
 </html>

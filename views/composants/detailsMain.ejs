@@ -1,0 +1,31 @@
+<div class="details-main">
+
+    <br> <br>
+    <div class="details-img">
+        <img src="<%= product.url %>" alt="<%= product.nom %>" width="150">
+    </div>
+    <div class="details-info">
+        <h2><strong><%= product.nom %></strong></h2>
+        <h2><%= product.prix %> CFA</h2>
+        <br>
+        <p><%= product.details %></p>
+        <span>Quantite :</span> <br>
+        <select name="Quantite" id="Quantite">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+<br>
+        <button>Ajouter au panier</button>
+<br>
+        <input type="submit" value="Acheter maintenant">
+<br> <br> <br> <br>
+    </div>
+</div>

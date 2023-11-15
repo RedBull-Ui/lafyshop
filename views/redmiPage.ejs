@@ -43,6 +43,8 @@
     <h3><strong>Redmi</strong></h3>
     <br> <br>
     <% redmis.forEach((produit) => { %>
+      <a href="/redmi/<%= produit.id %>">
+
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -54,6 +56,7 @@
       <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
       </div>
       </div>
+      </a>
 
 
       <% }); %>

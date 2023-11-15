@@ -44,6 +44,7 @@
     <br> <br>
     
     <% samsungs.forEach((produit) => { %>
+      <a href="/samsung/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -55,6 +56,7 @@
       <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
       </div>
       </div>
+      </a>
 
 
       <% }); %>

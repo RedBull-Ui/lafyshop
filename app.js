@@ -855,17 +855,29 @@ app.get('/grillesPains', function (req, res) {
   });
 });
 
-// vue de details 
-app.get('/detail/:id', function (req, res) {
-  const productId = req.params.id;
-  // Utilisez l'ID pour récupérer les détails du produit depuis la base de données
-  const productDetails = getProductDetailsById(productId);
 
-  // Rendre la vue avec les détails du produit
-  res.render('detailProduit.ejs', { produit: productDetails });
+// ajoute dans le panier 
+
+// Nous allons créer un tableau pour stocker les produits ajoutés côté client
+const produitsDansLePanier = [];
+
+// Lorsqu'un produit est ajouté côté client, nous l'ajoutons au tableau
+app.post('/ajouter-au-panier', (req, res) => {
+
+  const produitId = req.body.produitId;
+  // Vous pouvez ajouter d'autres informations sur le produit ici, si nécessaire
+
+  // Recherchez le produit par son ID (vous devez implémenter cette recherche)
+  const produit = /* Recherchez le produit par son ID dans la base de données */
+
+  // Ajoutez le produit au tableau des produits dans le panier
+  produitsDansLePanier.push(produit);
+
+  // Envoyez une réponse pour indiquer le succès de l'ajout
+  res.json({ success: true });
 });
 
-// vue de details 
+// ajoute dans le panier 
 
 //route page de commande 
 app.get('/commander', function (req, res) {
@@ -877,6 +889,370 @@ app.get('/valider', function (req, res) {
   res.render('valider.ejs'); 
 });
 // route vers valider 
+
+
+// les details iphones views ici //
+app.get('/iphone/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM iphones WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('iphoneDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/iphone');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici iphones //
+
+// les details samsung views ici //
+app.get('/samsung/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM samsung WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('samsungDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/samsung');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici samsung //
+
+// les details oppo views ici //
+app.get('/oppo/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM oppo WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('oppoDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/oppo');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici oppo //
+
+// les details redmi views ici //
+app.get('/redmi/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM redmi WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('redmiDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/redmi');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici redmi //
+
+// les details tecno views ici //
+app.get('/tecno/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM tecno WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('tecnoDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/tecno');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici tecno //
+
+// les details infinix views ici //
+app.get('/infinix/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM infinix WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('infinixDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/infinix');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici infinix //
+
+// les details itel views ici //
+app.get('/itel/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM itel WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('itelDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/itel');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici itel //
+
+// les details dell views ici //
+app.get('/dell/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM dell WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('dellDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/dell');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici dell //
+
+// les details mac views ici //
+app.get('/mac/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM mac WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('macDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/mac');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici mac //
+// les details mac views ici //
+app.get('/mac/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM mac WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('macDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/mac');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici mac //
+
+// les details hp views ici //
+app.get('/hp/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM hp WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('hpDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/hp');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici hp //
+
+// les details pctools views ici //
+app.get('/pctools/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM pctools WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('pctoolsDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/pctools');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici pctools //
+
+// les details teltools views ici //
+app.get('/teltools/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM teltools WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        res.render('teltoolsDetail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/teltools');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici teltools //
 
 
 

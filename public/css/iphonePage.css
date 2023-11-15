@@ -14,6 +14,9 @@ body {
 background-color: white;
 
 }
+a{
+  text-decoration: none;
+}
 body .page-top{
 background-color: #293847;
 height: auto;
