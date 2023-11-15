@@ -21,7 +21,7 @@
 
   <!-- mon css here -->
   <link rel="stylesheet" href="/css/dellPage.css">
-  <title>Infinix</title>
+  <title>Dell</title>
 </head>
 
 <body id="body">
@@ -42,8 +42,21 @@
     <br> <br>
     <h3><strong>Dell</strong></h3>
     <br> <br>
-    
+    <% dells.forEach((produit) => { %>
+      <div class="carte">
+        <div class="card-top">
+          <img src="<%= produit.url %>" width="100">
+      </div>
+      <div class="card-details">
+      <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
+      <span style="color: grey;"><%= produit.info %></span></p>
+      <p style="font-size: 0.8rem; color: gray;">Disponible</p>
+      <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
+      </div>
+      </div>
 
+
+      <% }); %>
    <br>
 
 
@@ -64,57 +77,6 @@
 
 </body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
 
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-    fetch('/recupererDell')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('La réponse du serveur n\'est pas OK');
-        }
-        return response.json();
-      })
-      .then(data => {
-        localStorage.setItem('dell', JSON.stringify(data));
-        console.log(data);
-        // 2. Une fois les données récupérées, bouclez dans votre slider
-        populateDell();
-      })
-      .catch(error => console.error('Erreur lors de la récupération des données dell : ' + error));
-
-    // 3. Créez une fonction pour boucler dans le slider
-    function populateDell() {
-      // Récupérer les données d'articles visités depuis le localStorage
-      const dell = JSON.parse(localStorage.getItem('dell'));
-
-      // Vérifiez si des articles visités existent
-      if (dell && dell.length > 0) {
-        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-        const dellContainer = document.querySelector('.main');
-
-        // Bouclez sur les articles et générez dynamiquement les éléments HTML
-        dell.forEach((dellCardItem) => {
-          const dellDiv = document.createElement('div');
-          dellDiv.classList.add('carte');
-
-          dellDiv.innerHTML = `
-    <div class="card-top">
-        <img src="${dellCardItem.url}" width="100">
-    </div>
-    <div class="card-details">
-    <span style="color: black; font-weight: 500;">${dellCardItem.nom}</span></br>
-    <span style="color: grey;">${dellCardItem.info}</span></p>
-    <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-    <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;">${dellCardItem.prix} CFA</p>
-    </div>
-      `;
-
-          dellContainer.appendChild(dellDiv);
-        });
-      }
-    }
-  })
-</script>
 
 </html>

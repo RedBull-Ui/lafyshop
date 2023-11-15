@@ -3,6 +3,7 @@ const ejs = require('ejs');
 const app = express();
 const mysql = require('mysql');
 
+
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
@@ -22,414 +23,14 @@ db.connect((err) => {
 });
 
 
-
-// Route pour récupérer les données depuis la table redmi
-app.get('/recupererRedmi', function (req, res) {
-  const query = 'SELECT * FROM redmi';
+// Route pour récupérer les données depuis la table articlesvisiter
+app.get('/recupererArticlesvisiter', function (req, res) {
+  const query = 'SELECT * FROM articlesvisiter';
   
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données redmi');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererRedmi', function (req, res) {
-  const mesRedmiDonnees = JSON.parse(localStorage.getItem('redmi'));
-  res.json(mesRedmiDonnees);
-});
-// Route pour récupérer les données depuis la table redmi
-
-// Route pour récupérer les données depuis la table fours
-app.get('/recupererfours', function (req, res) {
-  const query = 'SELECT * FROM fours';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données fours');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererfours', function (req, res) {
-  const mesfoursDonnees = JSON.parse(localStorage.getItem('fours'));
-  res.json(mesfoursDonnees);
-});
-// Route pour récupérer les données depuis la table fours
-
-// Route pour récupérer les données depuis la table grillePain
-app.get('/recuperergrillePain', function (req, res) {
-  const query = 'SELECT * FROM grillePain';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données grillePain');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recuperergrillePain', function (req, res) {
-  const mesgrillePainDonnees = JSON.parse(localStorage.getItem('grillePain'));
-  res.json(mesgrillePainDonnees);
-});
-// Route pour récupérer les données depuis la table grillePain
-
-// Route pour récupérer les données depuis la table mixeurs
-app.get('/recuperermixeurs', function (req, res) {
-  const query = 'SELECT * FROM mixeurs';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données mixeurs');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recuperermixeurs', function (req, res) {
-  const mesmixeursDonnees = JSON.parse(localStorage.getItem('mixeurs'));
-  res.json(mesmixeursDonnees);
-});
-// Route pour récupérer les données depuis la table mixeurs
-
-// Route pour récupérer les données depuis la table cafetieres
-app.get('/recuperercafetieres', function (req, res) {
-  const query = 'SELECT * FROM cafetieres';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données cafetieres');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recuperercafetieres', function (req, res) {
-  const mescafetieresDonnees = JSON.parse(localStorage.getItem('cafetieres'));
-  res.json(mescafetieresDonnees);
-});
-// Route pour récupérer les données depuis la table cafetieres
-
-// Route pour récupérer les données depuis la table frigideres
-app.get('/recupererfrigideres', function (req, res) {
-  const query = 'SELECT * FROM frigideres';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données frigideres');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererfrigideres', function (req, res) {
-  const mesfrigideresDonnees = JSON.parse(localStorage.getItem('frigideres'));
-  res.json(mesfrigideresDonnees);
-});
-// Route pour récupérer les données depuis la table frigideres
-
-// Route pour récupérer les données depuis la table cusinieres
-app.get('/recuperercusinieres', function (req, res) {
-  const query = 'SELECT * FROM cusinieres';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données cusinieres');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recuperercusinieres', function (req, res) {
-  const mescusinieresDonnees = JSON.parse(localStorage.getItem('cusinieres'));
-  res.json(mescusinieresDonnees);
-});
-// Route pour récupérer les données depuis la table cusinieres
-
-// Route pour récupérer les données depuis la table puff
-app.get('/recupererpuff', function (req, res) {
-  const query = 'SELECT * FROM puff';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données puff');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererpuff', function (req, res) {
-  const mespuffDonnees = JSON.parse(localStorage.getItem('puff'));
-  res.json(mespuffDonnees);
-});
-// Route pour récupérer les données depuis la table puff
-
-// Route pour récupérer les données depuis la table Tecno
-app.get('/recupererTecno', function (req, res) {
-  const query = 'SELECT * FROM tecno';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données tecno');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererTecno', function (req, res) {
-  const mesTecnoDonnees = JSON.parse(localStorage.getItem('tecno'));
-  res.json(mesTecnoDonnees);
-});
-// Route pour récupérer les données depuis la table redmi
-
-// Route pour récupérer les données depuis la table itel
-app.get('/recupererItel', function (req, res) {
-  const query = 'SELECT * FROM itel';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données itel');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererItel', function (req, res) {
-  const mesItelDonnees = JSON.parse(localStorage.getItem('itel'));
-  res.json(mesItelDonnees);
-});
-// Route pour récupérer les données depuis la table itel
-
-// Route pour récupérer les données depuis la table mac
-app.get('/recupererMac', function (req, res) {
-  const query = 'SELECT * FROM mac';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données mac');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererMac', function (req, res) {
-  const mesMacDonnees = JSON.parse(localStorage.getItem('mac'));
-  res.json(mesMacDonnees);
-});
-// Route pour récupérer les données depuis la table mac
-
-// Route pour récupérer les données depuis la table hp
-app.get('/recupererHp', function (req, res) {
-  const query = 'SELECT * FROM hp';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données hp');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererHp', function (req, res) {
-  const mesHpDonnees = JSON.parse(localStorage.getItem('hp'));
-  res.json(mesHpDonnees);
-});
-// Route pour récupérer les données depuis la table hp
-
-// Route pour récupérer les données depuis la table dell
-app.get('/recupererDell', function (req, res) {
-  const query = 'SELECT * FROM dell';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données dell');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererDell', function (req, res) {
-  const mesDellDonnees = JSON.parse(localStorage.getItem('dell'));
-  res.json(mesDellDonnees);
-});
-// Route pour récupérer les données depuis la table dell
-
-// Route pour récupérer les données depuis la table teltools
-app.get('/recupererTeltools', function (req, res) {
-  const query = 'SELECT * FROM teltools';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données teltools');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererTeltools', function (req, res) {
-  const mesTeltoolsDonnees = JSON.parse(localStorage.getItem('teltools'));
-  res.json(mesTeltoolsDonnees);
-});
-// Route pour récupérer les données depuis la table teltools
-
-// Route pour récupérer les données depuis la table teltools
-app.get('/recupererPctools', function (req, res) {
-  const query = 'SELECT * FROM pctools';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données pc tools');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererPctools', function (req, res) {
-  const mesPctoolsDonnees = JSON.parse(localStorage.getItem('pctools'));
-  res.json(mesPctoolsDonnees);
-});
-// Route pour récupérer les données depuis la table teltools
-
-// Route pour récupérer les données depuis la table samsung
-app.get('/recupererOppo', function (req, res) {
-  const query = 'SELECT * FROM oppo';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données oppo');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererOppo', function (req, res) {
-  const mesOppoDonnees = JSON.parse(localStorage.getItem('oppo'));
-  res.json(mesOppoDonnees);
-});
-// Route pour récupérer les données depuis la table redmi
-
-// Route pour récupérer les données depuis la table samsung
-app.get('/recupererSamsung', function (req, res) {
-  const query = 'SELECT * FROM samsung';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données samsung');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererSamsung', function (req, res) {
-  const mesInfinixDonnees = JSON.parse(localStorage.getItem('samsung'));
-  res.json(mesInfinixDonnees);
-});
-// Route pour récupérer les données depuis la table samsung
-
-// Route pour récupérer les données depuis la table infinix
-app.get('/recupererInfinix', function (req, res) {
-  const query = 'SELECT * FROM infinix';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données infinix');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererInfinix', function (req, res) {
-  const mesInfinixDonnees = JSON.parse(localStorage.getItem('infinix'));
-  res.json(mesInfinixDonnees);
-});
-// Route pour récupérer les données depuis la table infinix
-
-app.get('/recupererIphones', function (req, res) {
-  const query = 'SELECT * FROM iphones';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererIphones', function (req, res) {
-  const mesIphonesDonnees = JSON.parse(localStorage.getItem('iphones'));
-  res.json(mesIphoneDonnees);
-});
-
-// Route pour récupérer les données depuis la table iphones
-
-// Route pour récupérer les données depuis la articlevisiter
-app.get('/recupererArticlesVisiter', function (req, res) {
-  const query = 'SELECT * FROM articlesVisiter';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données');
+      res.status(500).send('Erreur lors de la récupération des données articlesvisiter');
     } else {
       // Envoyez les données récupérées au client
       res.json(results);
@@ -438,21 +39,19 @@ app.get('/recupererArticlesVisiter', function (req, res) {
 });
 
 app.get('/recupererArticlesvisiter', function (req, res) {
-  const mesDonnees = JSON.parse(localStorage.getItem('articlesVisiter'));
-  res.json(mesDonnees);
+  const mesRedmiDonnees = JSON.parse(localStorage.getItem('articlesvisiter'));
+  res.json(mesarticlesvisiterDonnees);
 });
+// Route pour récupérer les données depuis la table articlesvisiter
 
-// Route pour récupérer les données depuis la articlevisiter
-
-
-// Route pour récupérer les données depuis la table promo
-app.get('/recupererPromo', function (req, res) {
-  const query = 'SELECT * FROM promo';
+// Route pour récupérer les données depuis la table recupererTelSlider
+app.get('/recuperertelSlider', function (req, res) {
+  const query = 'SELECT * FROM telSlider';
   
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données');
+      res.status(500).send('Erreur lors de la récupération des données telSlider');
     } else {
       // Envoyez les données récupérées au client
       res.json(results);
@@ -460,49 +59,20 @@ app.get('/recupererPromo', function (req, res) {
   });
 });
 
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererPromo', function (req, res) {
-  const mesDonnees = JSON.parse(localStorage.getItem('promo'));
-  res.json(mesDonnees);
-});
-
-// Route pour récupérer les données depuis la table promo
-
-
-
-// Route pour récupérer les données depuis la table telslider
 app.get('/recupererTelSlider', function (req, res) {
-  const query = 'SELECT * FROM telslider';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
+  const telSliderDonnees = JSON.parse(localStorage.getItem('telSlider'));
+  res.json(telSliderDonnees);
 });
+// Route pour récupérer les données depuis la table recupererTelSlider
 
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererTelSlider', function (req, res) {
-  const mesDonnees = JSON.parse(localStorage.getItem('telSlider'));
-  res.json(mesDonnees);
-});
-
-
-// Route pour récupérer les données depuis la table telslider
-
-
-// Route pour récupérer les données depuis la table moment 
+// Route pour récupérer les données depuis la table recupererMoment
 app.get('/recupererMoment', function (req, res) {
   const query = 'SELECT * FROM moment';
   
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données');
+      res.status(500).send('Erreur lors de la récupération des données moment');
     } else {
       // Envoyez les données récupérées au client
       res.json(results);
@@ -510,23 +80,20 @@ app.get('/recupererMoment', function (req, res) {
   });
 });
 
-// Route pour récupérer les données stockées dans le localStorage
 app.get('/recupererMoment', function (req, res) {
   const momentDonnees = JSON.parse(localStorage.getItem('moment'));
   res.json(momentDonnees);
 });
+// Route pour récupérer les données depuis la table recupererMoment
 
-
-// Route pour récupérer les données depuis la table MOMENT
-
-// Route pour récupérer les données depuis la table bigCard 
+// Route pour récupérer les données depuis la table recupererBigCard
 app.get('/recupererBigCard', function (req, res) {
-  const query = 'SELECT * FROM bigCard';
+  const query = 'SELECT * FROM bigcard';
   
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données bigCard');
+      res.status(500).send('Erreur lors de la récupération des données recupererBigCard');
     } else {
       // Envoyez les données récupérées au client
       res.json(results);
@@ -534,631 +101,82 @@ app.get('/recupererBigCard', function (req, res) {
   });
 });
 
-// Route pour récupérer les données stockées dans le localStorage
 app.get('/recupererBigCard', function (req, res) {
-  const bigCardDonnees = JSON.parse(localStorage.getItem('bigCard'));
+  const bigCardDonnees = JSON.parse(localStorage.getItem('promo'));
   res.json(bigCardDonnees);
 });
+// Route pour récupérer les données depuis la table recupererBigCard
 
 
-// Route pour récupérer les données depuis la table bigCard
-
-// Route pour récupérer les données depuis la table hf
-app.get('/recupererHf', function (req, res) {
-  const query = 'SELECT * FROM hf'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+// Route pour récupérer les données depuis la table recupererPromo
+app.get('/recupererPromo', function (req, res) {
+  const query = 'SELECT * FROM promo';
+  
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données h&m depuis la base de données');
+      res.status(500).send('Erreur lors de la récupération des données recupererPromo');
     } else {
-      // Envoyez les données récupérées au client depuis la base de données
+      // Envoyez les données récupérées au client
       res.json(results);
     }
   });
 });
 
+app.get('/recupererPromo', function (req, res) {
+  const promoDonnees = JSON.parse(localStorage.getItem('promo'));
+  res.json(promoDonnees);
+});
+// Route pour récupérer les données depuis la table recupererPromo
 
-// Route pour récupérer les données stockées dans le localStorage
+// Route pour récupérer les données depuis la table recupererHf
 app.get('/recupererHf', function (req, res) {
-  const hmDonnees = JSON.parse(localStorage.getItem('hf'));
-  res.json(hmDonnees);
+  const query = 'SELECT * FROM hf';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données recupererHf');
+    } else {
+      // Envoyez les données récupérées au client
+      res.json(results);
+    }
+  });
 });
 
-// Route pour récupérer les données depuis la table electro
+app.get('/recupererHf', function (req, res) {
+  const hfDonnees = JSON.parse(localStorage.getItem('hf'));
+  res.json(hfDonnees);
+});
+// Route pour récupérer les données depuis la table recupererHf
+
+// Route pour récupérer les données depuis la table recupererElectro
 app.get('/recupererElectro', function (req, res) {
-  const query = 'SELECT * FROM electro'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
+  const query = 'SELECT * FROM electro';
+  
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données electro depuis la base de données');
+      res.status(500).send('Erreur lors de la récupération des données recupererElectro');
     } else {
-      // Envoyez les données récupérées au client depuis la base de données
+      // Envoyez les données récupérées au client
       res.json(results);
     }
   });
 });
 
-
-// Route pour récupérer les données stockées dans le localStorage
 app.get('/recupererElectro', function (req, res) {
   const electroDonnees = JSON.parse(localStorage.getItem('electro'));
   res.json(electroDonnees);
 });
-
-
-// Route pour récupérer les données depuis la table electro
-
-// Route pour récupérer les données depuis la table montre connecter
-app.get('/recupererMontresCo', function (req, res) {
-  const query = 'SELECT * FROM montresco'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données montresCo depuis la base de données');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererMontresCo', function (req, res) {
-  const montresCoDonnees = JSON.parse(localStorage.getItem('montresCo'));
-  res.json(montresCoDonnees);
-});
-
-
-// Route pour récupérer les données depuis la table montresCo
-
-// Route pour récupérer les données depuis la table montre 
-app.get('/recupererMontres', function (req, res) {
-  const query = 'SELECT * FROM montres'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données montres depuis la base de données');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererMontres', function (req, res) {
-  const montresDonnees = JSON.parse(localStorage.getItem('montres'));
-  res.json(montresDonnees);
-});
-
-
-// Route pour récupérer les données depuis la table montres
-
-// Route pour récupérer les données depuis la table bague 
-app.get('/recupererBagues', function (req, res) {
-  const query = 'SELECT * FROM bagues'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données montres depuis la base de données bagues');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererBagues', function (req, res) {
-  const baguesDonnees = JSON.parse(localStorage.getItem('bagues'));
-  res.json(baguesDonnees);
-});
-
-
-// Route pour récupérer les données depuis la table bagues
-
-// Route pour récupérer les données depuis la table chaines 
-app.get('/recupererChaines', function (req, res) {
-  const query = 'SELECT * FROM chaines'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données chaines depuis la base de données bagues');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererChaines', function (req, res) {
-  const chainesDonnees = JSON.parse(localStorage.getItem('chaines'));
-  res.json(chainesDonnees);
-});
-
-
-// Route pour récupérer les données depuis la table chaines
-
-// Route pour récupérer les données depuis la table outfit H
-app.get('/recupererOutfitH', function (req, res) {
-  const query = 'SELECT * FROM outfitH'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données outfitH');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererOutfitH', function (req, res) {
-  const outfitHDonnees = JSON.parse(localStorage.getItem('outfitH'));
-  res.json(outfitHDonnees);
-});
-
-// Route pour récupérer les données depuis la table outfit H
-
-// Route pour récupérer les données depuis la table outfit F
-app.get('/recupereroutfitF', function (req, res) {
-  const query = 'SELECT * FROM outfitF'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données outfitF');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupereroutfitF', function (req, res) {
-  const outfitFDonnees = JSON.parse(localStorage.getItem('outfitF'));
-  res.json(outfitFDonnees);
-});
-
-// Route pour récupérer les données depuis la table Chaussures
-
-// Route pour récupérer les données depuis la table chaussures F
-app.get('/recupererchaussuresF', function (req, res) {
-  const query = 'SELECT * FROM chaussuresF'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données chaussuresF');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererchaussuresF', function (req, res) {
-  const chaussuresFDonnees = JSON.parse(localStorage.getItem('chaussuresF'));
-  res.json(chaussuresFDonnees);
-});
-
-// Route pour récupérer les données depuis la table Chaussures F
-
-// Route pour récupérer les données depuis la table chaussettes
-app.get('/recupererchaussetteF', function (req, res) {
-  const query = 'SELECT * FROM chaussettesF'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données chaussetteF');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererchaussetteF', function (req, res) {
-  const chaussetteFDonnees = JSON.parse(localStorage.getItem('chaussetteF'));
-  res.json(chaussetteFDonnees);
-});
-
-// Route pour récupérer les données depuis la table Chaussures
-
-// Route pour récupérer les données depuis la table sac F
-app.get('/recuperersacF', function (req, res) {
-  const query = 'SELECT * FROM sacF'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données sacF');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recuperersacF', function (req, res) {
-  const sacFDonnees = JSON.parse(localStorage.getItem('sacF'));
-  res.json(sacFDonnees);
-});
-
-// Route pour récupérer les données depuis la table Chaussures
-
-// Route pour récupérer les données depuis la table Enfants
-app.get('/recupererenfants', function (req, res) {
-  const query = 'SELECT * FROM enfants'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données enfants');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererenfants', function (req, res) {
-  const enfantsDonnees = JSON.parse(localStorage.getItem('enfants'));
-  res.json(enfantsDonnees);
-});
-
-// Route pour récupérer les données depuis la table enfants
-
-// Route pour récupérer les données depuis la table Beauter
-app.get('/recupererbeauter', function (req, res) {
-  const query = 'SELECT * FROM beauter'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données beauter');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererbeauter', function (req, res) {
-  const beauterDonnees = JSON.parse(localStorage.getItem('beauter'));
-  res.json(beauterDonnees);
-});
-
-// Route pour récupérer les données depuis la table beauter
-
-// Route pour récupérer les données depuis la table Meubles
-app.get('/recuperermeubles', function (req, res) {
-  const query = 'SELECT * FROM meubles'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données meubles');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recuperermeubles', function (req, res) {
-  const meublesDonnees = JSON.parse(localStorage.getItem('meubles'));
-  res.json(meublesDonnees);
-});
-
-// Route pour récupérer les données depuis la table Meubles
-
-// Route pour récupérer les données depuis la table deco
-app.get('/recupererdeco', function (req, res) {
-  const query = 'SELECT * FROM deco'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données deco');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererdeco', function (req, res) {
-  const decoDonnees = JSON.parse(localStorage.getItem('deco'));
-  res.json(decoDonnees);
-});
-// Route pour récupérer les données depuis la table Deco
-
-// Route pour récupérer les données depuis la table chicha
-app.get('/recupererchicha', function (req, res) {
-  const query = 'SELECT * FROM chicha'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données chicha');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererchicha', function (req, res) {
-  const chichaDonnees = JSON.parse(localStorage.getItem('chicha'));
-  res.json(chichaDonnees);
-});
-// Route pour récupérer les données depuis la table chicha
-
-// Route pour récupérer les données depuis la table charbon
-app.get('/recuperercharbon', function (req, res) {
-  const query = 'SELECT * FROM charbon'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données charbon');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recuperercharbon', function (req, res) {
-  const charbonDonnees = JSON.parse(localStorage.getItem('charbon'));
-  res.json(charbonDonnees);
-});
-// Route pour récupérer les données depuis la table charbon
-
-// Route pour récupérer les données depuis la table arome
-app.get('/recupererarome', function (req, res) {
-  const query = 'SELECT * FROM arome'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données arome');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererarome', function (req, res) {
-  const aromeDonnees = JSON.parse(localStorage.getItem('arome')); 
-  res.json(aromeDonnees);
-});
-// Route pour récupérer les données depuis la table arome
-
-// Route pour récupérer les données depuis la table vehicule
-app.get('/recuperervehicule', function (req, res) {
-  const query = 'SELECT * FROM vehicule'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données vehicule');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recuperervehicule', function (req, res) {
-  const vehiculeDonnees = JSON.parse(localStorage.getItem('vehicule')); 
-  res.json(vehiculeDonnees);
-});
-// Route pour récupérer les données depuis la table vehicule
-
-// Route pour récupérer les données depuis la table chaussures
-app.get('/recupererchaussures', function (req, res) {
-  const query = 'SELECT * FROM chaussures'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données chaussures');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererchaussures', function (req, res) {
-  const chaussuresDonnees = JSON.parse(localStorage.getItem('chaussures'));
-  res.json(chaussuresDonnees);
-});
-
-// Route pour récupérer les données depuis la table chaussures
-
-// Route pour récupérer les données depuis la table ceintureH
-app.get('/recupererceintureH', function (req, res) {
-  const query = 'SELECT * FROM ceintureH'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données ceintureH');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererceintureH', function (req, res) {
-  const ceintureHDonnees = JSON.parse(localStorage.getItem('ceintureH'));
-  res.json(ceintureHDonnees);
-});
-
-// Route pour récupérer les données depuis la table chaussures
-
-// Route pour récupérer les données depuis la table chaussette
-app.get('/recupererchaussettes', function (req, res) {
-  const query = 'SELECT * FROM chaussettes'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données chaussettes');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererchaussettes', function (req, res) {
-  const chaussetteDonnees = JSON.parse(localStorage.getItem('chaussettes'));
-  res.json(chaussetteDonnees);
-});
-
-// Route pour récupérer les données depuis la table chaussures
-
-// Route pour récupérer les données depuis la table appart
-app.get('/recupererappart', function (req, res) {
-  const query = 'SELECT * FROM appart'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données appart');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererappart', function (req, res) {
-  const chaussetteDonnees = JSON.parse(localStorage.getItem('appart'));
-  res.json(chaussetteDonnees);
-});
-
-// Route pour récupérer les données depuis la table chaussures
-
-// Route pour récupérer les données depuis la table chaussette
-
-app.get('/recupererappart', function (req, res) {
-  const query = 'SELECT * FROM appart'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données appart');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererappart', function (req, res) {
-  const appartDonnees = JSON.parse(localStorage.getItem('appart'));
-  res.json(appartDonnees);
-});
-
-// Route pour récupérer les données depuis la table appart
-
-// Route pour récupérer les données depuis la table sacH
-app.get('/recuperersacH', function (req, res) {
-  const query = 'SELECT * FROM sacH'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données sacH');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recuperersacH', function (req, res) {
-  const sacHDonnees = JSON.parse(localStorage.getItem('sacH'));
-  res.json(sacHDonnees);
-});
-
-// Route pour récupérer les données depuis la table SacH
-
-// Route pour récupérer les données depuis la table chapeau
-app.get('/recupererchapeau', function (req, res) {
-  const query = 'SELECT * FROM chapeau'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données chapeau');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recuperersacH', function (req, res) {
-  const sacHDonnees = JSON.parse(localStorage.getItem('sacH'));
-  res.json(sacHDonnees);
-});
-
-// Route pour récupérer les données depuis la table SacH
-
-// Route pour récupérer les données depuis la table chaussette
-app.get('/recupererchaussettes', function (req, res) {
-  const query = 'SELECT * FROM chaussettes'; // Assurez-vous d'utiliser le nom de votre table dans la base de données
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données chaussettes');
-    } else {
-      // Envoyez les données récupérées au client depuis la base de données
-      res.json(results);
-    }
-  });
-});
-
-
-// Route pour récupérer les données stockées dans le localStorage
-app.get('/recupererchaussettes', function (req, res) {
-  const chaussetteDonnees = JSON.parse(localStorage.getItem('chaussettes'));
-  res.json(chaussetteDonnees);
-});
-
-// Route pour récupérer les données depuis la table chaussures
+// Route pour récupérer les données depuis la table recupererElectro
 
 
 // menu routes
 
 app.get('/', function (req, res) {
-  res.render('index.ejs');
+      res.render('index.ejs');
 });
-
 app.get('/habitsH', function (req, res) {
   res.render('habitsH.ejs'); 
 });
@@ -1174,178 +192,680 @@ app.get('/maison', function (req, res) {
 app.get('/frigo', function (req, res) {
   res.render('frigo.ejs'); 
 });
-// menu routes
-
-// les pages pour montre & bijoux
+app.get('/chichastore', function (req, res) {
+  res.render('chichaStore.ejs'); 
+});
 app.get('/montres', function (req, res) {
   res.render('montres.ejs'); 
 });
+// menu routes menu
+
+// les pages pour montre & bijoux
+
 app.get('/montresPage', function (req, res) {
-  res.render('montresPage.ejs'); 
+  const sql = 'SELECT * FROM montres';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données montresPage');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('montresPage.ejs', { montres: results });
+    }
+  });
 });
+
 app.get('/montresCoPage', function (req, res) {
-  res.render('montresCoPage.ejs'); 
+  const sql = 'SELECT * FROM montresco';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données montresCo');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('montresCoPage.ejs', { montresco: results });
+    }
+  });
 });
 app.get('/bague', function (req, res) {
-  res.render('bague.ejs'); 
+  const sql = 'SELECT * FROM bagues';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données bague');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('bague.ejs', { bagues: results });
+    }
+  });
 });
+
 app.get('/chaine', function (req, res) {
-  res.render('chaine.ejs'); 
+  const sql = 'SELECT * FROM chaines';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données chaine');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('chaine.ejs', { chaines: results });
+    }
+  });
 });
 // les pages pour montre & bijoux
 
 // les pages pour tel & pc 
+// Exemple spécifique pour la catégorie "iphone"
 app.get('/iphone', function (req, res) {
-  res.render('iphonePage.ejs'); 
+  const sql = 'SELECT * FROM iphones';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données iphone');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('iphonePage.ejs', { iphones: results });
+    }
+  });
 });
+// Exemple pour la catégorie "samsung"
 app.get('/samsung', function (req, res) {
-  res.render('samsungPage.ejs'); 
+  const sql = 'SELECT * FROM samsung';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données samsung');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('samsungPage.ejs', { samsungs: results });
+    }
+  });
 });
+// Exemple pour la catégorie "oppo"
 app.get('/oppo', function (req, res) {
-  res.render('oppoPage.ejs'); 
+  const sql = 'SELECT * FROM oppo';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données oppo');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('oppoPage.ejs', { oppos: results });
+    }
+  });
 });
+// Exemple pour la catégorie "tecno"
 app.get('/tecno', function (req, res) {
-  res.render('tecnoPage.ejs'); 
+  const sql = 'SELECT * FROM tecno';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données tecno');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('tecnoPage.ejs', { tecnos: results });
+    }
+  });
 });
+
 app.get('/redmi', function (req, res) {
-  res.render('redmiPage.ejs'); 
+  const sql = 'SELECT * FROM redmi';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données redmi');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('redmiPage.ejs', { redmis: results });
+    }
+  });
 });
+
+// Exemple pour la catégorie "itel"
 app.get('/itel', function (req, res) {
-  res.render('itelPage.ejs'); 
+  const sql = 'SELECT * FROM itel';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données itel');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('itelPage.ejs', { itels: results });
+    }
+  });
 });
+
+// Exemple pour la catégorie "infinix"
 app.get('/infinix', function (req, res) {
-  res.render('infinixPage.ejs'); 
+  const sql = 'SELECT * FROM infinix';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données : ' + err.message);
+      res.status(500).send('Erreur lors de la récupération des données infinix');
+    } else {
+      // Envoyez les données récupérées au client
+      res.render('infinixPage.ejs', { infinixs: results });
+    }
+  });
 });
+// Exemple pour la catégorie "mac"
 app.get('/mac', function (req, res) {
-  res.render('macPage.ejs'); 
+  const sql = 'SELECT * FROM mac';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données mac`);
+    } else {
+      res.render('macPage.ejs', { macs: results });
+    }
+  });
 });
+
+// Exemple pour la catégorie "dell"
 app.get('/dell', function (req, res) {
-  res.render('dellPage.ejs'); 
+  const sql = 'SELECT * FROM dell';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données dell`);
+    } else {
+      res.render('dellPage.ejs', { dells: results });
+    }
+  });
 });
+
+// Exemple pour la catégorie "hp"
 app.get('/hp', function (req, res) {
-  res.render('hpPage.ejs'); 
+  const sql = 'SELECT * FROM hp';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données hp`);
+    } else {
+      res.render('hpPage.ejs', { hps: results });
+    }
+  });
 });
+
+// Exemple pour la catégorie "telTools"
 app.get('/telTools', function (req, res) {
-  res.render('telTools.ejs'); 
+  const sql = 'SELECT * FROM telTools';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données telTools`);
+    } else {
+      res.render('telTools.ejs', { telTools: results });
+    }
+  });
 });
+
+// Exemple pour la catégorie "pcTools"
 app.get('/pcTools', function (req, res) {
-  res.render('pcTools.ejs'); 
+  const sql = 'SELECT * FROM pcTools';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données pcTools`);
+    } else {
+      res.render('pcTools.ejs', { pcTools: results });
+    }
+  });
 });
 
-// les pages pour tel & pc 
 
-// chicha store 
-app.get('/chichaStore', function (req, res) {
-  res.render('chichaStore.ejs'); 
-});
-
+// Exemple pour la catégorie "chicha"
 app.get('/chicha', function (req, res) {
-  res.render('chicha.ejs'); 
+  const sql = 'SELECT * FROM chicha';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données chicha`);
+    } else {
+      res.render('chicha.ejs', { chichas: results });
+    }
+  });
 });
+
+// Exemple pour la catégorie "puff"
 app.get('/puff', function (req, res) {
-  res.render('puff.ejs'); 
+  const sql = 'SELECT * FROM puff';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données puff`);
+    } else {
+      res.render('puff.ejs', { puffs: results });
+    }
+  });
 });
+
+// Exemple pour la catégorie "charbon"
 app.get('/charbon', function (req, res) {
-  res.render('charbon.ejs'); 
+  const sql = 'SELECT * FROM charbon';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données charbon`);
+    } else {
+      res.render('charbon.ejs', { charbons: results });
+    }
+  });
 });
+
+// Exemple pour la catégorie "arome"
 app.get('/arome', function (req, res) {
-  res.render('arome.ejs'); 
+  const sql = 'SELECT * FROM arome';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données arome`);
+    } else {
+      res.render('arome.ejs', { aromes: results });
+    }
+  });
 });
-// chicha store 
 
 // vetements hommes 
+// Exemple pour la catégorie "sacH"
 app.get('/sacH', function (req, res) {
-  res.render('sacHPage.ejs'); 
-});
-app.get('/chaussuresH', function (req, res) {
-  res.render('chaussuresHPage.ejs'); 
-});
-app.get('/chaussetteH', function (req, res) {
-  res.render('chaussetteHPage.ejs'); 
-});
-app.get('/chapeau', function (req, res) {
-  res.render('chapeauPage.ejs'); 
-});
-app.get('/outfitH', function (req, res) {
-  res.render('outfitHPage.ejs'); 
-});
-app.get('/ceintureH', function (req, res) {
-  res.render('ceintureHPage.ejs'); 
+  const sql = 'SELECT * FROM sacH';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données sacH`);
+    } else {
+      res.render('sacHPage.ejs', { sacH: results });
+    }
+  });
 });
 
+// Copiez et adaptez ce bloc pour chaque catégorie de vêtements pour hommes
+// Exemple pour la catégorie "chaussuresH"
+app.get('/chaussuresH', function (req, res) {
+  const sql = 'SELECT * FROM chaussures';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données chaussuresH`);
+    } else {
+      res.render('chaussuresHPage.ejs', { chaussuresH: results });
+    }
+  });
+});
+
+// Copiez et adaptez ce bloc pour chaque catégorie de vêtements pour hommes
+// Exemple pour la catégorie "chaussetteH"
+app.get('/chaussetteH', function (req, res) {
+  const sql = 'SELECT * FROM chaussetteH';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données chaussetteH`);
+    } else {
+      res.render('chaussetteHPage.ejs', { chaussetteH: results });
+    }
+  });
+});
+
+
+// Exemple pour la catégorie "chapeau"
+app.get('/chapeau', function (req, res) {
+  const sql = 'SELECT * FROM chapeau';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données chapeau`);
+    } else {
+      res.render('chapeauPage.ejs', { chapeaux: results });
+    }
+  });
+});
+
+// Exemple pour la catégorie "outfith"
+app.get('/outfitH', function (req, res) {
+  const sql = 'SELECT * FROM outfitf';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données outfitH`);
+    } else {
+      res.render('outfitHPage.ejs', { outfitsH: results });
+    }
+  });
+});
+
+// Exemple pour la catégorie "ceintureH"
+app.get('/ceintureH', function (req, res) {
+  const sql = 'SELECT * FROM ceintureH';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données ceintureH`);
+    } else {
+      res.render('ceintureHPage.ejs', { ceinturesH: results });
+    }
+  });
+});
 
 // vetements hommes 
 
 // vetements femmes 
+// Catégorie pour les femmes - "sacF"
 app.get('/sacF', function (req, res) {
-  res.render('sacFPage.ejs'); 
+  const sql = 'SELECT * FROM sacf';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données sacF`);
+    } else {
+      res.render('sacFPage.ejs', { sacFs: results });
+    }
+  });
 });
+
+// Catégorie pour les femmes - "chaussuresF"
 app.get('/chaussuresF', function (req, res) {
-  res.render('chaussuresFPage.ejs'); 
+  const sql = 'SELECT * FROM chaussuresF';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données chaussuresF`);
+    } else {
+      res.render('chaussuresFPage.ejs', { chaussuresF: results });
+    }
+  });
 });
+
+// Catégorie pour les femmes - "chaussetteF"
 app.get('/chaussetteF', function (req, res) {
-  res.render('chaussetteFPage.ejs'); 
+  const sql = 'SELECT * FROM chaussettesF';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données chaussetteF`);
+    } else {
+      res.render('chaussetteFPage.ejs', { chaussetteF: results });
+    }
+  });
 });
+
+// Catégorie pour les femmes - "chapeauF"
 app.get('/chapeauF', function (req, res) {
-  res.render('chapeauFPage.ejs'); 
+  const sql = 'SELECT * FROM chapeauF';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données chapeauF`);
+    } else {
+      res.render('chapeauFPage.ejs', { chapeauFs: results });
+    }
+  });
 });
+
+// Catégorie pour les femmes - "outfitF"
 app.get('/outfitF', function (req, res) {
-  res.render('outfitFPage.ejs'); 
+  const sql = 'SELECT * FROM outfitF';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données outfitF`);
+    } else {
+      res.render('outfitFPage.ejs', { outfitsF: results });
+    }
+  });
 });
+
+// Catégorie pour les femmes - "ceintureF"
 app.get('/ceintureF', function (req, res) {
-  res.render('ceintureFPage.ejs'); 
+  const sql = 'SELECT * FROM ceintureF';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données ceintureF`);
+    } else {
+      res.render('ceintureFPage.ejs', { ceintureFs: results });
+    }
+  });
 });
 
-
-// vetements femmes 
-
-// meuble & deco ici 
+// Catégories de meubles et décoration :
+// "meublePage"
 app.get('/meublePage', function (req, res) {
-  res.render('meublePage.ejs'); 
+  const sql = 'SELECT * FROM meubles';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données meublePage`);
+    } else {
+      res.render('meublePage.ejs', { meublesPage: results });
+    }
+  });
 });
+// Catégories de meubles et décoration :
+// "decoPage"
 app.get('/decoPage', function (req, res) {
-  res.render('decoPage.ejs'); 
+  const sql = 'SELECT * FROM deco';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données decoPage`);
+    } else {
+      res.render('decoPage.ejs', { decos: results });
+    }
+  });
 });
-// meuble & deco ici 
 
-// vehicule & appart & enfant & beauter
+// Catégories de véhicules, appartements, enfants et beauté :
+// "enfant"
 app.get('/enfant', function (req, res) {
-  res.render('enfant.ejs'); 
+  const sql = 'SELECT * FROM enfant';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données enfant`);
+    } else {
+      res.render('enfant.ejs', { enfants: results });
+    }
+  });
 });
-app.get('/appartement', function (req, res) {
-  res.render('appartement.ejs'); 
-});
-app.get('/vehicule', function (req, res) {
-  res.render('vehicule.ejs'); 
-});
-app.get('/beauter', function (req, res) {
-  res.render('beauter.ejs'); 
-});
-// vehicule & appart
 
-//electro-menager
+// Catégories de véhicules, appartements, enfants et beauté :
+// "appartement"
+app.get('/appartement', function (req, res) {
+  const sql = 'SELECT * FROM appartement';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données appartement`);
+    } else {
+      res.render('appartement.ejs', { appartements: results });
+    }
+  });
+});
+
+// Catégories de véhicules, appartements, enfants et beauté :
+// "vehicule"
+app.get('/vehicule', function (req, res) {
+  const sql = 'SELECT * FROM vehicule';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données vehicule`);
+    } else {
+      res.render('vehicule.ejs', { vehicules: results });
+    }
+  });
+});
+
+// Catégories de véhicules, appartements, enfants et beauté :
+// "beauter"
+app.get('/beauter', function (req, res) {
+  const sql = 'SELECT * FROM beauter';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données beauter`);
+    } else {
+      res.render('beauter.ejs', { beauters: results });
+    }
+  });
+});
+
+// Catégorie d'électroménagers :
+// "electro"
 app.get('/electro', function (req, res) {
-  res.render('electroMenager.ejs'); 
+  const sql = 'SELECT * FROM electro';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données electro`);
+    } else {
+      res.render('electroMenager.ejs', { electros: results });
+    }
+  });
 });
+
+// Catégorie d'électroménagers :
+// "fours"
 app.get('/fours', function (req, res) {
-  res.render('fours.ejs'); 
+  const sql = 'SELECT * FROM fours';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données fours`);
+    } else {
+      res.render('fours.ejs', { fours: results });
+    }
+  });
 });
+
+// Catégorie d'électroménagers :
+// "mixeurs"
 app.get('/mixeurs', function (req, res) {
-  res.render('mixeurs.ejs'); 
+  const sql = 'SELECT * FROM mixeurs';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données mixeurs`);
+    } else {
+      res.render('mixeurs.ejs', { mixeurs: results });
+    }
+  });
 });
+
+// Catégorie d'électroménagers :
+// "cusinieres"
 app.get('/cusinieres', function (req, res) {
-  res.render('cusinieres.ejs'); 
+  const sql = 'SELECT * FROM cusinieres';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données cusinieres`);
+    } else {
+      res.render('cusinieres.ejs', { cusinieres: results });
+    }
+  });
 });
+
+// Catégorie d'électroménagers :
+// "frigideres"
 app.get('/frigideres', function (req, res) {
-  res.render('frigideres.ejs'); 
+  const sql = 'SELECT * FROM frigideres';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données frigideres`);
+    } else {
+      res.render('frigideres.ejs', { frigideres: results });
+    }
+  });
 });
+
+// Catégorie d'électroménagers :
+// "cafetieres"
 app.get('/cafetieres', function (req, res) {
-  res.render('cafetieres.ejs'); 
+  const sql = 'SELECT * FROM cafetieres';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données cafetieres`);
+    } else {
+      res.render('cafetieres.ejs', { cafetieres: results });
+    }
+  });
 });
+
+// Catégorie d'électroménagers :
+// "grillesPains"
 app.get('/grillesPains', function (req, res) {
-  res.render('grillesPains.ejs'); 
+  const sql = 'SELECT * FROM grillepain';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(`Erreur lors de la récupération des données : ${err.message}`);
+      res.status(500).send(`Erreur lors de la récupération des données grillesPains`);
+    } else {
+      res.render('grillesPains.ejs', { grillesPains: results });
+    }
+  });
 });
-//electro-menager
+
+// vue de details 
+app.get('/detail/:id', function (req, res) {
+  const productId = req.params.id;
+  // Utilisez l'ID pour récupérer les détails du produit depuis la base de données
+  const productDetails = getProductDetailsById(productId);
+
+  // Rendre la vue avec les détails du produit
+  res.render('detailProduit.ejs', { produit: productDetails });
+});
+
+// vue de details 
 
 //route page de commande 
 app.get('/commander', function (req, res) {

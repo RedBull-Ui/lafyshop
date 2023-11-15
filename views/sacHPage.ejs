@@ -42,7 +42,22 @@
     <br> <br>
     <h3><strong>Sac</strong></h3>
     <br> <br>
-    
+    <% sacH.forEach((produit) => { %>
+      <div class="carte">
+        <div class="card-top">
+          <img src="<%= produit.url %>" width="100">
+      </div>
+      <div class="card-details">
+      <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
+      <span style="color: grey;"><%= produit.info %></span></p>
+      <p style="font-size: 0.8rem; color: gray;">Disponible</p>
+      <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
+      </div>
+      </div>
+
+
+      <% }); %>
+
 
    <br>
 
@@ -64,57 +79,6 @@
 
 </body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
 
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-    fetch('/recuperersacH')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('La réponse du serveur n\'est pas OK');
-        }
-        return response.json();
-      })
-      .then(data => {
-        localStorage.setItem('sacH', JSON.stringify(data));
-        console.log(data);
-        // 2. Une fois les données récupérées, bouclez dans votre slider
-        populatesacH();
-      })
-      .catch(error => console.error('Erreur lors de la récupération des données sacH : ' + error));
-
-    // 3. Créez une fonction pour boucler dans le slider
-    function populatesacH() {
-      // Récupérer les données d'articles visités depuis le localStorage
-      const sacH = JSON.parse(localStorage.getItem('sacH'));
-
-      // Vérifiez si des articles visités existent
-      if (sacH && sacH.length > 0) {
-        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-        const sacHContainer = document.querySelector('.main');
-
-        // Bouclez sur les articles et générez dynamiquement les éléments HTML
-        sacH.forEach((sacHCardItem) => {
-          const sacHDiv = document.createElement('div');
-          sacHDiv.classList.add('carte');
-
-          sacHDiv.innerHTML = `
-    <div class="card-top">
-        <img src="${sacHCardItem.url}" width="100">
-    </div>
-    <div class="card-details">
-    <span style="color: black; font-weight: 500;">${sacHCardItem.nom}</span></br>
-    <span style="color: grey;">${sacHCardItem.info}</span></p>
-    <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-    <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;">${sacHCardItem.prix} CFA</p>
-    </div>
-      `;
-
-          sacHContainer.appendChild(sacHDiv);
-        });
-      }
-    }
-  })
-</script>
 
 </html>

@@ -42,7 +42,21 @@
     <br> <br>
     <h3><strong>Outfit</strong></h3>
     <br> <br>
-    
+    <% outfitsF.forEach((produit) => { %>
+      <div class="carte">
+        <div class="card-top">
+          <img src="<%= produit.url %>" width="100">
+      </div>
+      <div class="card-details">
+      <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
+      <span style="color: grey;"><%= produit.info %></span></p>
+      <p style="font-size: 0.8rem; color: gray;">Disponible</p>
+      <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
+      </div>
+      </div>
+
+
+      <% }); %>
 
    <br>
 
@@ -64,57 +78,5 @@
 
 </body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-    fetch('/recupereroutfitF')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('La réponse du serveur n\'est pas OK');
-        }
-        return response.json();
-      })
-      .then(data => {
-        localStorage.setItem('outfitF', JSON.stringify(data));
-        console.log(data);
-        // 2. Une fois les données récupérées, bouclez dans votre slider
-        populateoutfitF();
-      })
-      .catch(error => console.error('Erreur lors de la récupération des données outfitF : ' + error));
-
-    // 3. Créez une fonction pour boucler dans le slider
-    function populateoutfitF() {
-      // Récupérer les données d'articles visités depuis le localStorage
-      const outfitF = JSON.parse(localStorage.getItem('outfitF'));
-
-      // Vérifiez si des articles visités existent
-      if (outfitF && outfitF.length > 0) {
-        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-        const outfitFContainer = document.querySelector('.main');
-
-        // Bouclez sur les articles et générez dynamiquement les éléments HTML
-        outfitF.forEach((outfitFCardItem) => {
-          const outfitFDiv = document.createElement('div');
-          outfitFDiv.classList.add('carte');
-
-          outfitFDiv.innerHTML = `
-    <div class="card-top">
-        <img src="${outfitFCardItem.url}" width="100">
-    </div>
-    <div class="card-details">
-    <span style="color: black; font-weight: 500;">${outfitFCardItem.nom}</span></br>
-    <span style="color: grey;">${outfitFCardItem.info}</span></p>
-    <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-    <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;">${outfitFCardItem.prix} CFA</p>
-    </div>
-      `;
-
-          outfitFContainer.appendChild(outfitFDiv);
-        });
-      }
-    }
-  })
-</script>
 
 </html>

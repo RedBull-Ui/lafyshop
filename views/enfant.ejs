@@ -41,7 +41,21 @@
     <br> <br>
     <h3><strong>Enfants</strong></h3>
     <br> <br>
-    
+    <% redmis.forEach((produit) => { %>
+      <div class="carte">
+        <div class="card-top">
+          <img src="<%= produit.url %>" width="100">
+      </div>
+      <div class="card-details">
+      <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
+      <span style="color: grey;"><%= produit.info %></span></p>
+      <p style="font-size: 0.8rem; color: gray;">Disponible</p>
+      <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
+      </div>
+      </div>
+
+
+      <% }); %>
 
    <br>
 
@@ -63,57 +77,6 @@
 
 </body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
 
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-    fetch('/recupererenfants')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('La réponse du serveur n\'est pas OK');
-        }
-        return response.json();
-      })
-      .then(data => {
-        localStorage.setItem('enfants', JSON.stringify(data));
-        console.log(data);
-        // 2. Une fois les données récupérées, bouclez dans votre slider
-        populateenfants();
-      })
-      .catch(error => console.error('Erreur lors de la récupération des données enfants : ' + error));
-
-    // 3. Créez une fonction pour boucler dans le slider
-    function populateenfants() {
-      // Récupérer les données d'articles visités depuis le localStorage
-      const enfants = JSON.parse(localStorage.getItem('enfants'));
-
-      // Vérifiez si des articles visités existent
-      if (enfants && enfants.length > 0) {
-        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-        const enfantsContainer = document.querySelector('.main');
-
-        // Bouclez sur les articles et générez dynamiquement les éléments HTML
-        enfants.forEach((enfantsCardItem) => {
-          const enfantsDiv = document.createElement('div');
-          enfantsDiv.classList.add('carte');
-
-          enfantsDiv.innerHTML = `
-    <div class="card-top">
-        <img src="${enfantsCardItem.url}" width="100">
-    </div>
-    <div class="card-details">
-    <span style="color: black; font-weight: 500;">${enfantsCardItem.nom}</span></br>
-    <span style="color: grey;">${enfantsCardItem.info}</span></p>
-    <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-    <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;">${enfantsCardItem.prix} CFA</p>
-    </div>
-      `;
-
-          enfantsContainer.appendChild(enfantsDiv);
-        });
-      }
-    }
-  })
-</script>
 
 </html>

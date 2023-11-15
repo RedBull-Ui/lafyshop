@@ -42,8 +42,21 @@
     <br> <br>
     <h3><strong>Cusinieres</strong></h3>
     <br> <br>
-    
+    <% cusinieres.forEach((produit) => { %>
+      <div class="carte">
+        <div class="card-top">
+          <img src="<%= produit.url %>" width="100">
+      </div>
+      <div class="card-details">
+      <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
+      <span style="color: grey;"><%= produit.info %></span></p>
+      <p style="font-size: 0.8rem; color: gray;">Disponible</p>
+      <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
+      </div>
+      </div>
 
+
+      <% }); %>
    <br>
 
 
@@ -64,57 +77,6 @@
 
 </body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
 
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-    fetch('/recuperercusinieres')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('La réponse du serveur n\'est pas OK');
-        }
-        return response.json();
-      })
-      .then(data => {
-        localStorage.setItem('cusinieres', JSON.stringify(data));
-        console.log(data);
-        // 2. Une fois les données récupérées, bouclez dans votre slider
-        populatecusinieres();
-      })
-      .catch(error => console.error('Erreur lors de la récupération des données cusinieres : ' + error));
-
-    // 3. Créez une fonction pour boucler dans le slider
-    function populatecusinieres() {
-      // Récupérer les données d'articles visités depuis le localStorage
-      const cusinieres = JSON.parse(localStorage.getItem('cusinieres'));
-
-      // Vérifiez si des articles visités existent
-      if (cusinieres && cusinieres.length > 0) {
-        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-        const cusinieresContainer = document.querySelector('.main');
-
-        // Bouclez sur les articles et générez dynamiquement les éléments HTML
-        cusinieres.forEach((cusinieresCardItem) => {
-          const cusinieresDiv = document.createElement('div');
-          cusinieresDiv.classList.add('carte');
-
-          cusinieresDiv.innerHTML = `
-    <div class="card-top">
-        <img src="${cusinieresCardItem.url}" width="100">
-    </div>
-    <div class="card-details">
-    <span style="color: black; font-weight: 500;">${cusinieresCardItem.nom}</span></br>
-    <span style="color: grey;">${cusinieresCardItem.info}</span></p>
-    <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-    <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;">${cusinieresCardItem.prix} CFA</p>
-    </div>
-      `;
-
-          cusinieresContainer.appendChild(cusinieresDiv);
-        });
-      }
-    }
-  })
-</script>
 
 </html>

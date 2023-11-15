@@ -57,62 +57,6 @@
 
 </body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
 
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-    fetch('/recupererappart')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('La réponse du serveur n\'est pas OK');
-        }
-        return response.json();
-      })
-      .then(data => {
-        localStorage.setItem('appart', JSON.stringify(data));
-        console.log(data);
-        // 2. Une fois les données récupérées, bouclez dans votre slider
-        populateappart();
-      })
-      .catch(error => console.error('Erreur lors de la récupération des données appart : ' + error));
-
-    // 3. Créez une fonction pour boucler dans le slider
-    function populateappart() {
-      // Récupérer les données d'articles visités depuis le localStorage
-      const appart = JSON.parse(localStorage.getItem('appart'));
-
-      // Vérifiez si des articles visités existent
-      if (appart && appart.length > 0) {
-        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-        const appartContainer = document.querySelector('.main');
-
-        // Bouclez sur les articles et générez dynamiquement les éléments HTML
-        appart.forEach((appartCardItem) => {
-          const appartDiv = document.createElement('div');
-          appartDiv.classList.add('carte');
-
-          appartDiv.innerHTML = `
-          <div class="carte-top">
-
-<div class="left">
-    <p><strong>${appartCardItem.nom}</strong></p>
-    <span>${appartCardItem.infos}</span> <br> <br>
-    <span><strong><i class="fa-solid fa-location-dot"></i> ${appartCardItem.localisation}</strong></span>
-</div>
-<div class="right">
-    <img src="${appartCardItem.url}" width="130" alt="voiture">
-</div>
-
-</div>
-<hr>
-<h5>${appartCardItem.prix} CFA / Jour</h5>
-      `;
-
-          appartContainer.appendChild(appartDiv);
-        });
-      }
-    }
-  })
-</script>
 
 </html>

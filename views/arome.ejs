@@ -42,7 +42,21 @@
     <br> <br>
     <h3><strong>Arome</strong></h3>
     <br> <br>
-    
+    <% aromes.forEach((produit) => { %>
+      <div class="carte">
+        <div class="card-top">
+          <img src="<%= produit.url %>" width="100">
+      </div>
+      <div class="card-details">
+      <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
+      <span style="color: grey;"><%= produit.info %></span></p>
+      <p style="font-size: 0.8rem; color: gray;">Disponible</p>
+      <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
+      </div>
+      </div>
+
+
+      <% }); %>
 
    <br>
 
@@ -64,57 +78,6 @@
 
 </body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
 
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-    fetch('/recupererarome')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('La réponse du serveur n\'est pas OK');
-        }
-        return response.json();
-      })
-      .then(data => {
-        localStorage.setItem('arome', JSON.stringify(data));
-        console.log(data);
-        // 2. Une fois les données récupérées, bouclez dans votre slider
-        populatearome();
-      })
-      .catch(error => console.error('Erreur lors de la récupération des données arome : ' + error));
-
-    // 3. Créez une fonction pour boucler dans le slider
-    function populatearome() {
-      // Récupérer les données d'articles visités depuis le localStorage
-      const arome = JSON.parse(localStorage.getItem('arome'));
-
-      // Vérifiez si des articles visités existent
-      if (arome && arome.length > 0) {
-        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-        const aromeContainer = document.querySelector('.main');
-
-        // Bouclez sur les articles et générez dynamiquement les éléments HTML
-        arome.forEach((aromeCardItem) => {
-          const aromeDiv = document.createElement('div');
-          aromeDiv.classList.add('carte');
-
-          aromeDiv.innerHTML = `
-    <div class="card-top">
-        <img src="${aromeCardItem.url}" width="100">
-    </div>
-    <div class="card-details">
-    <span style="color: black; font-weight: 500;">${aromeCardItem.nom}</span></br>
-    <span style="color: grey;">${aromeCardItem.info}</span></p>
-    <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-    <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;">${aromeCardItem.prix} CFA</p>
-    </div>
-      `;
-
-          aromeContainer.appendChild(aromeDiv);
-        });
-      }
-    }
-  })
-</script>
 
 </html>

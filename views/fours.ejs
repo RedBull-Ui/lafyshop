@@ -42,7 +42,21 @@
     <br> <br>
     <h3><strong>Fours</strong></h3>
     <br> <br>
-    
+    <% fours.forEach((produit) => { %>
+      <div class="carte">
+        <div class="card-top">
+          <img src="<%= produit.url %>" width="100">
+      </div>
+      <div class="card-details">
+      <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
+      <span style="color: grey;"><%= produit.info %></span></p>
+      <p style="font-size: 0.8rem; color: gray;">Disponible</p>
+      <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
+      </div>
+      </div>
+
+
+      <% }); %>
 
    <br>
 
@@ -64,57 +78,6 @@
 
 </body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
 
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-    fetch('/recupererfours')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('La réponse du serveur n\'est pas OK');
-        }
-        return response.json();
-      })
-      .then(data => {
-        localStorage.setItem('fours', JSON.stringify(data));
-        console.log(data);
-        // 2. Une fois les données récupérées, bouclez dans votre slider
-        populatefours();
-      })
-      .catch(error => console.error('Erreur lors de la récupération des données fours : ' + error));
-
-    // 3. Créez une fonction pour boucler dans le slider
-    function populatefours() {
-      // Récupérer les données d'articles visités depuis le localStorage
-      const fours = JSON.parse(localStorage.getItem('fours'));
-
-      // Vérifiez si des articles visités existent
-      if (fours && fours.length > 0) {
-        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-        const foursContainer = document.querySelector('.main');
-
-        // Bouclez sur les articles et générez dynamiquement les éléments HTML
-        fours.forEach((foursCardItem) => {
-          const foursDiv = document.createElement('div');
-          foursDiv.classList.add('carte');
-
-          foursDiv.innerHTML = `
-    <div class="card-top">
-        <img src="${foursCardItem.url}" width="100">
-    </div>
-    <div class="card-details">
-    <span style="color: black; font-weight: 500;">${foursCardItem.nom}</span></br>
-    <span style="color: grey;">${foursCardItem.info}</span></p>
-    <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-    <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;">${foursCardItem.prix} CFA</p>
-    </div>
-      `;
-
-          foursContainer.appendChild(foursDiv);
-        });
-      }
-    }
-  })
-</script>
 
 </html>

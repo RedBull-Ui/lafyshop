@@ -42,8 +42,22 @@
     <br> <br>
     <h3><strong>Accessoire</strong></h3>
     <br> <br>
-    
 
+    <% pcTools.forEach((produit) => { %>
+      <div class="carte">
+        <div class="card-top">
+          <img src="<%= produit.url %>" width="100">
+      </div>
+      <div class="card-details">
+      <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
+      <span style="color: grey;"><%= produit.info %></span></p>
+      <p style="font-size: 0.8rem; color: gray;">Disponible</p>
+      <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
+      </div>
+      </div>
+
+
+      <% }); %>
    <br>
 
 
@@ -64,57 +78,6 @@
 
 </body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
 
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-    fetch('/recupererPctools')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('La réponse du serveur n\'est pas OK');
-        }
-        return response.json();
-      })
-      .then(data => {
-        localStorage.setItem('pctools', JSON.stringify(data));
-        console.log(data);
-        // 2. Une fois les données récupérées, bouclez dans votre slider
-        populatePctools();
-      })
-      .catch(error => console.error('Erreur lors de la récupération des données pc tools : ' + error));
-
-    // 3. Créez une fonction pour boucler dans le slider
-    function populatePctools() {
-      // Récupérer les données d'articles visités depuis le localStorage
-      const pcTools = JSON.parse(localStorage.getItem('pcTools'));
-
-      // Vérifiez si des articles visités existent
-      if (pcTools && pcTools.length > 0) {
-        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-        const pcToolsContainer = document.querySelector('.main');
-
-        // Bouclez sur les articles et générez dynamiquement les éléments HTML
-        pcTools.forEach((pcToolsCardItem) => {
-          const pcToolsDiv = document.createElement('div');
-          pcToolsDiv.classList.add('carte');
-
-          pcToolsDiv.innerHTML = `
-    <div class="card-top">
-        <img src="${pcToolsCardItem.url}" width="100">
-    </div>
-    <div class="card-details">
-    <span style="color: black; font-weight: 500;">${pcToolsCardItem.nom}</span></br>
-    <span style="color: grey;">${pcToolsCardItem.info}</span></p>
-    <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-    <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;">${pcToolsCardItem.prix} CFA</p>
-    </div>
-      `;
-
-          pcToolsContainer.appendChild(pcToolsDiv);
-        });
-      }
-    }
-  })
-</script>
 
 </html>
