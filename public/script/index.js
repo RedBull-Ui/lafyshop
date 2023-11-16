@@ -248,6 +248,12 @@ function valider(){
 }
 //valider 
 
+// retour 
+function goBack() {
+    window.history.back();
+  }
+// retour 
+
 // details redirection ici 
 // document.addEventListener('DOMContentLoaded', function() {
 //     const cards = document.querySelectorAll('.carte');

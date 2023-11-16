@@ -519,7 +519,7 @@ app.get('/chaussuresH', function (req, res) {
 // Copiez et adaptez ce bloc pour chaque catégorie de vêtements pour hommes
 // Exemple pour la catégorie "chaussetteH"
 app.get('/chaussetteH', function (req, res) {
-  const sql = 'SELECT * FROM chaussetteH';
+  const sql = 'SELECT * FROM chaussettes';
   
   db.query(sql, (err, results) => {
     if (err) {
@@ -693,7 +693,7 @@ app.get('/decoPage', function (req, res) {
 // Catégories de véhicules, appartements, enfants et beauté :
 // "enfant"
 app.get('/enfant', function (req, res) {
-  const sql = 'SELECT * FROM enfant';
+  const sql = 'SELECT * FROM enfants';
   
   db.query(sql, (err, results) => {
     if (err) {
@@ -904,7 +904,7 @@ app.get('/iphone/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('iphoneDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/iphone');
@@ -932,7 +932,7 @@ app.get('/samsung/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('samsungDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/samsung');
@@ -960,7 +960,7 @@ app.get('/oppo/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('oppoDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/oppo');
@@ -988,7 +988,7 @@ app.get('/redmi/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('redmiDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/redmi');
@@ -1016,7 +1016,7 @@ app.get('/tecno/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('tecnoDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/tecno');
@@ -1044,7 +1044,7 @@ app.get('/infinix/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('infinixDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/infinix');
@@ -1072,7 +1072,7 @@ app.get('/itel/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('itelDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/itel');
@@ -1100,7 +1100,7 @@ app.get('/dell/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('dellDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/dell');
@@ -1155,7 +1155,7 @@ app.get('/mac/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('macDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/mac');
@@ -1183,7 +1183,7 @@ app.get('/hp/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('hpDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/hp');
@@ -1211,7 +1211,7 @@ app.get('/pctools/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('pctoolsDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/pctools');
@@ -1239,7 +1239,7 @@ app.get('/teltools/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('teltoolsDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/teltools');
@@ -1253,6 +1253,35 @@ process.on('exit', function() {
   connection.end();
 });
 // les details views ici teltools //
+
+// les details montresCo views ici //
+app.get('/montresCoPage/:id', function(req, res) {
+  const productId = req.params.id;
+
+  // Effectuez une requête à la base de données pour trouver le produit par ID
+  db.query('SELECT * FROM montresco WHERE id = ?', [productId], function(error, results, fields) {
+    if (error) {
+      // Gérez les erreurs de requête à la base de données
+      console.error(error);
+      res.status(500).send('Erreur interne du serveur');
+    } else {
+      if (results.length > 0) {
+        // Si le produit est trouvé, affichez la vue de détails avec les données du produit
+        // res.render('montresCoDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
+      } else {
+        // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
+        res.redirect('/montresCoPage');
+      }
+    }
+  });
+});
+
+// N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
+process.on('exit', function() {
+  connection.end();
+});
+// les details views ici montresCo //
 
 
 

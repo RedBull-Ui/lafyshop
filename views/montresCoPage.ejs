@@ -20,7 +20,7 @@
 
 
   <!-- mon css here -->
-  <link rel="stylesheet" href="/css/montresCoPage.css">
+  <link rel="stylesheet" href="/css/produit-list.css">
   <title>Montres connecter</title>
 </head>
 
@@ -36,14 +36,15 @@
 
   <div class="main">
     <div class="d-flex">
-      <a style="text-decoration: none; color: black;" href="/montres">Montres</a> /
-      <a style="text-decoration: none; color: black;" href="#">Montres co </a>
+      <a style="text-decoration: none; color: black;" href="/montres">Retour</a> /
+      <a style="text-decoration: none; color: black;" href="#">Montres co</a>
     </div>
     <br> <br>
-    <h3><strong>Montres </strong></h3>
+    <h3><strong>Montres</strong></h3>
     <br> <br>
     
     <% montresco.forEach((produit) => { %>
+      <a href="/montresCoPage/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -55,6 +56,7 @@
       <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
       </div>
       </div>
+      </a>
 
 
       <% }); %>
