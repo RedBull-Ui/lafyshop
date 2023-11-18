@@ -24,7 +24,81 @@
 
 <!-- Ajoutez ce script à la fin de votre fichier HTML ou à l'endroit approprié -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+     function removeFromCart(productId) {
+    // Récupérer le panier depuis le localStorage
+    const cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
+
+    // Filtrer les produits pour exclure celui avec l'ID spécifié
+    const updatedCart = cart.filter(product => product.Id !== productId);
+
+    // Mettre à jour le localStorage avec le nouveau panier
+    localStorage.setItem('lafyshop', JSON.stringify(updatedCart));
+
+    // Appeler la fonction pour mettre à jour le panier
+    updateCart();
+}
+
+      // Fonction pour mettre à jour le contenu du panier
+      function updateCart() {
+        // Récupérer l'élément du panier
+        const panierElement = document.getElementById('monPanier');
+  
+        // Récupérer le panier depuis le localStorage
+        const cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
+  
+  
+            // Sélectionner l'élément où vous souhaitez afficher les produits du panier
+      const centerElement = panierElement.querySelector('.center');
+      const footerTopElement = panierElement.querySelector('.footer-top');
+  
+        // Si le panier est vide, afficher un message approprié
+        if (cart.length === 0) {
+          centerElement.innerHTML = `
+                      <div class="panier-vide shadow-sm" onclick="accueil()">
+                          <h4>Votre panier est vide 🛒</h4> <br>
+                          <p style="font-size: 0.7rem;">En manque d'inspiration ?</p>
+                          <button>Voir les meilleures offres</button>
+                      </div>
+                  `;
+                  footerTopElement.innerHTML = '';
+        } else {
+          // Si le panier n'est pas vide, construire le HTML pour chaque produit
+          const cartHTML = cart.map(product => `
+  
+                  <div class="produit-panier" style=" padding: 10px; display: flex; border: 1px solid rgba(128, 128, 128, 0.173); margin: 10px;">
+              <div class="img-box" style="width: 40%; ">
+                  <img src="${product.url}" alt="${product.name}" width="70">
+              </div>
+              <div class="details-box" style="width: 60%;">
+                  <p><strong>${product.name}</strong></p> 
+                  <p>${product.info}</p> 
+                  <i style="color: rgb(7, 192, 7);" class='bx bx-check-circle' ></i> <span>en stock</span>
+                  <p>Quantite : ${product.quantity}</p>
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                      <p style="color: rgb(159, 9, 9);"><strong>${product.price} CFA</strong></p>
+                      <i style="font-size: 1.3rem;" class='bx bx-trash' onclick="removeFromCart('${product.Id}')" ></i>
+                  </div>
+              </div>
+          </div>
+  
+                  `).join('');
+  
+          // Injecter le HTML dans l'élément du panier
+          centerElement.innerHTML = cartHTML;
+  
+           // Mettre à jour le total et le nombre de produits
+        const total = cart.reduce((acc, product) => acc + parseFloat(product.price) * parseInt(product.quantity), 0);
+        const totalQuantity = cart.reduce((acc, product) => acc + parseInt(product.quantity), 0);
+        footerTopElement.innerHTML = `<span><strong>Total: ${total.toFixed(2)} CFA</strong></span> <span>Nombre de produits: ${totalQuantity}</span>`;
     
+        }
+  
+        // Mettre à jour d'autres éléments du panier (total, nombre de produits, etc.) si nécessaire
+        // ...
+  
+        // Vous pouvez également ajouter des événements ou des fonctionnalités supplémentaires ici
+      }
+  document.addEventListener('DOMContentLoaded', function() {
+
   });
 </script>
