@@ -2,7 +2,6 @@ const express = require('express');
 const ejs = require('ejs');
 const app = express();
 const mysql = require('mysql');
-const uuid = require('uuid'); 
 
 
 
