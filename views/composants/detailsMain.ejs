@@ -1,12 +1,12 @@
-<div class="details-main">
-
+<div class="details-main" id="productDetails" data-product-id="<%= product.nom %>-<%= product.id %>">
     <br> <br>
     <div class="details-img">
-        <img src="<%= product.url %>" alt="<%= product.nom %>" width="150">
+        <img id="productImageUrl" src="<%= product.url %>" alt="<%= product.nom %>" width="150">
     </div>
     <div class="details-info">
         <h2><strong><%= product.nom %></strong></h2>
         <h2><%= product.prix %> CFA</h2>
+        <h3 id="h3" style="color: grey;"><%= product.info %></h3>
         <br>
         <p><%= product.details %></p>
         <span>Quantite :</span> <br>
@@ -23,7 +23,7 @@
             <option value="10">10</option>
         </select>
 <br>
-        <button>Ajouter au panier</button>
+<button id="addToCartBtn" type="button">Ajouter au panier</button>
 <br>
         <input type="submit" value="Acheter maintenant">
 <br> <br> <br> <br>

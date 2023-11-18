@@ -1,3 +1,8 @@
+// Appeler la fonction pour afficher les produits lors du chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+});
+
+
 const burger = document.getElementById('burger-nav');
 const x = document.getElementById('x');
 const right = document.getElementById('rigth');
@@ -7,6 +12,26 @@ var mon_panier = document.getElementById('monPanier');
 var body = document.getElementById('body');
 burger.style.width = '0%'; // Vous pouvez ajuster la largeur souhaitée ici
 x.style.display = 'none'; // Vous pouvez ajuster la largeur souhaitée ici
+
+
+// point_rouge 
+
+// Récupérez la valeur de la clé point_rouge du localStorage
+const pointRougeValue = localStorage.getItem('point_rouge');
+
+// Récupérez l'élément point-rouge
+const pointRouge = document.querySelector('.point-rouge');
+
+// Vérifiez la valeur et définissez le style en conséquence
+if (pointRougeValue === 'on') {
+    pointRouge.style.display = 'block';
+} else {
+    pointRouge.style.display = 'none';
+}
+
+// point_rouge 
+
+
 
 function menu(){
     burger.style.width = '90%'; // Vous pouvez ajuster la largeur souhaitée ici

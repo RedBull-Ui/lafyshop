@@ -2,6 +2,8 @@ const express = require('express');
 const ejs = require('ejs');
 const app = express();
 const mysql = require('mysql');
+const uuid = require('uuid'); 
+
 
 
 app.set('view engine', 'ejs');
@@ -1128,7 +1130,7 @@ app.get('/mac/:id', function(req, res) {
     } else {
       if (results.length > 0) {
         // Si le produit est trouvé, affichez la vue de détails avec les données du produit
-        res.render('macDetail.ejs', { product: results[0] });
+        res.render('Detail.ejs', { product: results[0] });
       } else {
         // Sinon, redirigez vers une page d'erreur ou une autre page par défaut
         res.redirect('/mac');

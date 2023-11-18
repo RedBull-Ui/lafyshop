@@ -44,7 +44,7 @@
     <br> <br>
     <% iphones.forEach((produit) => { %>
       <a href="/iphone/<%= produit.id %>">
-      <div class="carte" data-product-id="<%= produit.id %>">
+      <div class="carte" data-product-id="iphone_<%= produit.id %>">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
         </div>

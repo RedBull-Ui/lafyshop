@@ -263,7 +263,7 @@ nav #bx-search{
 
 /* mon panier ici  */
 .monPanier {
-  background-color: #f1f0f8;
+  background-color: white;
   width: 0%; /* Ajusté pour occuper toute la largeur */
   min-height: 100vh;
   max-height: 100vh;
@@ -299,6 +299,8 @@ nav #bx-search{
   padding: 10px;
   max-height: calc(100vh - 100px); /* Ajusté la hauteur maximale */
   overflow-y: auto; /* Défilement si nécessaire */
+  padding-bottom: 200px;
+
 }
 
 .monPanier .panier-vide {
