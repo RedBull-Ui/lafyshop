@@ -314,7 +314,7 @@ margin-right: 20px;
 
 /* mon panier ici  */
 .monPanier {
-  background-color: #f1f0f8;
+  background-color: white;
   width: 0%; /* Ajusté pour occuper toute la largeur */
   min-height: 100vh;
   max-height: 100vh;

@@ -24,7 +24,7 @@
 
 <!-- Ajoutez ce script à la fin de votre fichier HTML ou à l'endroit approprié -->
 <script>
-     function removeFromCart(productId) {
+  function removeFromCart(productId) {
     // Récupérer le panier depuis le localStorage
     const cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
 
@@ -33,37 +33,56 @@
 
     // Mettre à jour le localStorage avec le nouveau panier
     localStorage.setItem('lafyshop', JSON.stringify(updatedCart));
-
+   
     // Appeler la fonction pour mettre à jour le panier
     updateCart();
-}
+  }
 
-      // Fonction pour mettre à jour le contenu du panier
-      function updateCart() {
-        // Récupérer l'élément du panier
-        const panierElement = document.getElementById('monPanier');
-  
-        // Récupérer le panier depuis le localStorage
-        const cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
-  
-  
-            // Sélectionner l'élément où vous souhaitez afficher les produits du panier
-      const centerElement = panierElement.querySelector('.center');
-      const footerTopElement = panierElement.querySelector('.footer-top');
-  
-        // Si le panier est vide, afficher un message approprié
-        if (cart.length === 0) {
-          centerElement.innerHTML = `
+
+
+
+  // Fonction pour mettre à jour le contenu du panier
+  function updateCart() {
+    // Récupérer l'élément du panier
+    const panierElement = document.getElementById('monPanier');
+
+    // Récupérer le panier depuis le localStorage
+    const cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
+
+
+    // Sélectionner l'élément où vous souhaitez afficher les produits du panier
+    const centerElement = panierElement.querySelector('.center');
+    const footerTopElement = panierElement.querySelector('.footer-top');
+
+    // Si le panier est vide, afficher un message approprié
+    if (cart.length === 0) {
+      centerElement.innerHTML = `
                       <div class="panier-vide shadow-sm" onclick="accueil()">
                           <h4>Votre panier est vide 🛒</h4> <br>
                           <p style="font-size: 0.7rem;">En manque d'inspiration ?</p>
                           <button>Voir les meilleures offres</button>
                       </div>
                   `;
-                  footerTopElement.innerHTML = '';
-        } else {
-          // Si le panier n'est pas vide, construire le HTML pour chaque produit
-          const cartHTML = cart.map(product => `
+      footerTopElement.innerHTML = '';
+
+      localStorage.setItem('point_rouge', 'off');
+
+    // Récupérez la valeur de la clé point_rouge du localStorage
+    const pointRougeValue = localStorage.getItem('point_rouge');
+
+    // Récupérez l'élément point-rouge
+    const pointRouge = document.querySelector('.point-rouge');
+
+    // Vérifiez la valeur et définissez le style en conséquence
+    if (pointRougeValue === 'on') {
+      pointRouge.style.display = 'block';
+
+    } else {
+      pointRouge.style.display = 'none';
+    }
+    } else {
+      // Si le panier n'est pas vide, construire le HTML pour chaque produit
+      const cartHTML = cart.map(product => `
   
                   <div class="produit-panier" style=" padding: 10px; display: flex; border: 1px solid rgba(128, 128, 128, 0.173); margin: 10px;">
               <div class="img-box" style="width: 40%; ">
@@ -82,22 +101,23 @@
           </div>
   
                   `).join('');
-  
-          // Injecter le HTML dans l'élément du panier
-          centerElement.innerHTML = cartHTML;
-  
-           // Mettre à jour le total et le nombre de produits
-        const total = cart.reduce((acc, product) => acc + parseFloat(product.price) * parseInt(product.quantity), 0);
-        const totalQuantity = cart.reduce((acc, product) => acc + parseInt(product.quantity), 0);
-        footerTopElement.innerHTML = `<span><strong>Total: ${total.toFixed(2)} CFA</strong></span> <span>Nombre de produits: ${totalQuantity}</span>`;
-    
-        }
-  
-        // Mettre à jour d'autres éléments du panier (total, nombre de produits, etc.) si nécessaire
-        // ...
-  
-        // Vous pouvez également ajouter des événements ou des fonctionnalités supplémentaires ici
-      }
+
+      // Injecter le HTML dans l'élément du panier
+      centerElement.innerHTML = cartHTML;
+
+      // Mettre à jour le total et le nombre de produits
+      const total = cart.reduce((acc, product) => acc + parseFloat(product.price) * parseInt(product.quantity), 0);
+      const totalQuantity = cart.reduce((acc, product) => acc + parseInt(product.quantity), 0);
+      footerTopElement.innerHTML = `<span><strong>Total: ${total.toFixed(2)} 0CFA</strong></span> <span>Nombre: ${totalQuantity}</span>`;
+
+    }
+
+    // Mettre à jour d'autres éléments du panier (total, nombre de produits, etc.) si nécessaire
+    // ...
+
+    // Vous pouvez également ajouter des événements ou des fonctionnalités supplémentaires ici
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
 
   });
