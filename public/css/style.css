@@ -12,7 +12,7 @@
 body {
   position: relative;
   background-color: rgba(240, 255, 255, 0.568);
-
+  overflow: visible; /* Assurez-vous que le défilement est autorisé sur le corps et le HTML */
 }
 
 body .page-top{
@@ -267,11 +267,11 @@ nav #bx-search{
   width: 0%; /* Ajusté pour occuper toute la largeur */
   min-height: 100vh;
   max-height: 100vh;
-  z-index: 10;
+  z-index: 100;
   position: fixed;
   top: 0;
   right: 0;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   max-height: 100vh;
   transition: 0.3s ease-in-out;
   padding-bottom: 90px; /* Ajoutez une marge inférieure pour .panier-footer */

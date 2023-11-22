@@ -265,8 +265,11 @@ margin-right: 20px;
 /* burger menu ici  */
 
 /* mon panier ici  */
+.scroll-annule{
+  overflow: hidden;
+}
 .monPanier {
-  background-color: #f1f0f8;
+  background-color: white;
   width: 0%; /* Ajusté pour occuper toute la largeur */
   min-height: 100vh;
   max-height: 100vh;
@@ -274,7 +277,7 @@ margin-right: 20px;
   position: fixed;
   top: 0;
   right: 0;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   max-height: 100vh;
   transition: 0.3s ease-in-out;
   padding-bottom: 90px; /* Ajoutez une marge inférieure pour .panier-footer */

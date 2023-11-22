@@ -12,6 +12,7 @@
 /* la navigation ici  */
 body {
 background-color: rgba(240, 255, 255, 0.568);
+overflow: visible; /* Assurez-vous que le défilement est autorisé sur le corps et le HTML */
 
 }
 body .page-top{
@@ -308,15 +309,15 @@ margin-right: 20px;
 
 /* mon panier ici  */
 .monPanier {
-  background-color: #f1f0f8;
+  background-color: white;
   width: 0%; /* Ajusté pour occuper toute la largeur */
   min-height: 100vh;
   max-height: 100vh;
-  z-index: 10;
+  z-index: 100;
   position: fixed;
   top: 0;
   right: 0;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   max-height: 100vh;
   transition: 0.3s ease-in-out;
   padding-bottom: 90px; /* Ajoutez une marge inférieure pour .panier-footer */
@@ -344,6 +345,8 @@ margin-right: 20px;
   padding: 10px;
   max-height: calc(100vh - 100px); /* Ajusté la hauteur maximale */
   overflow-y: auto; /* Défilement si nécessaire */
+  padding-bottom: 200px;
+
 }
 
 .monPanier .panier-vide {
@@ -400,6 +403,9 @@ margin-right: 20px;
   margin-bottom: 20px;
   margin-right: 10px; /* Ajouté un peu d'espacement à droite */
   font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.scroll-annule{
+  overflow: hidden;
 }
 /* mon panier ici  */
 
