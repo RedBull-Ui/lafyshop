@@ -39,8 +39,8 @@
     updateCart();
   }
 
-// Définir la couleur par défaut du bouton "Commander"
-  const defaultButtonColor = 'blue';  // Vous pouvez définir la couleur par défaut ici
+  // Définir la couleur par défaut du bouton "Commander"
+  const defaultButtonColor = 'blue'; // Vous pouvez définir la couleur par défaut ici
 
 
   // Fonction pour mettre à jour le contenu du panier
@@ -60,12 +60,12 @@
 
     // Si le panier est vide, afficher un message approprié
     if (cart.length === 0) {
-          // Désactiver le bouton si le panier est vide
-    commanderButton.disabled ;
-    commanderButton.style.backgroundColor = cart.length === 0 ? 'grey' : defaultButtonColor;
-    panierFooter.style.display = 'none';
-     
-    centerElement.innerHTML = `
+      // Désactiver le bouton si le panier est vide
+      commanderButton.disabled;
+      commanderButton.style.backgroundColor = cart.length === 0 ? 'grey' : defaultButtonColor;
+      panierFooter.style.display = 'none';
+
+      centerElement.innerHTML = `
                       <div class="panier-vide shadow-sm" onclick="accueil()">
                           <h4>Votre panier est vide 🛒</h4> <br>
                           <p style="font-size: 0.7rem;">En manque d'inspiration ?</p>
@@ -89,6 +89,8 @@
       } else {
         pointRouge.style.display = 'none';
       }
+
+
     } else {
       // Si le panier n'est pas vide, construire le HTML pour chaque produit
 
@@ -119,12 +121,11 @@
 
       // Injecter le HTML dans l'élément du panier
       centerElement.innerHTML = cartHTML;
-      
-      // Mettre à jour le total et le nombre de produits
-      const total = cart.reduce((acc, product) => acc + parseFloat(product.price) * parseInt(product.quantity), 0);
-      const totalQuantity = cart.reduce((acc, product) => acc + parseInt(product.quantity), 0);
-      footerTopElement.innerHTML = `<span><strong>Total: ${total.toFixed(2)}0 CFA</strong></span> <span>Nombre: ${totalQuantity}</span>`;
 
+      // Mettre à jour le total et le nombre de produits
+      const totalItems = cart.length; // Utiliser la longueur du panier pour obtenir le nombre total d'articles
+      const total = cart.reduce((acc, product) => acc + parseFloat(product.price) * parseInt(product.quantity), 0);
+      footerTopElement.innerHTML = `<span><strong>Total: ${total.toFixed(2)}0 CFA</strong></span> <span>Nombre: ${totalItems}</span>`;
 
     }
 
@@ -139,6 +140,6 @@
 
 
   document.addEventListener('DOMContentLoaded', function() {
-     updateCart();
+    updateCart();
   });
 </script>
