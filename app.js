@@ -2,6 +2,9 @@ const express = require('express');
 const ejs = require('ejs');
 const app = express();
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
+const TelegramBot = require('node-telegram-bot-api');
+
 
 
 
@@ -27,7 +30,7 @@ db.connect((err) => {
 // Route pour récupérer les données depuis la table articlesvisiter
 app.get('/recupererArticlesvisiter', function (req, res) {
   const query = 'SELECT * FROM articlesvisiter';
-  
+
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -48,7 +51,7 @@ app.get('/recupererArticlesvisiter', function (req, res) {
 // Route pour récupérer les données depuis la table recupererTelSlider
 app.get('/recuperertelSlider', function (req, res) {
   const query = 'SELECT * FROM telSlider';
-  
+
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -69,7 +72,7 @@ app.get('/recupererTelSlider', function (req, res) {
 // Route pour récupérer les données depuis la table recupererMoment
 app.get('/recupererMoment', function (req, res) {
   const query = 'SELECT * FROM moment';
-  
+
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -90,7 +93,7 @@ app.get('/recupererMoment', function (req, res) {
 // Route pour récupérer les données depuis la table recupererBigCard
 app.get('/recupererBigCard', function (req, res) {
   const query = 'SELECT * FROM bigcard';
-  
+
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -112,7 +115,7 @@ app.get('/recupererBigCard', function (req, res) {
 // Route pour récupérer les données depuis la table recupererPromo
 app.get('/recupererPromo', function (req, res) {
   const query = 'SELECT * FROM promo';
-  
+
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -133,7 +136,7 @@ app.get('/recupererPromo', function (req, res) {
 // Route pour récupérer les données depuis la table recupererHf
 app.get('/recupererHf', function (req, res) {
   const query = 'SELECT * FROM hf';
-  
+
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -154,7 +157,7 @@ app.get('/recupererHf', function (req, res) {
 // Route pour récupérer les données depuis la table recupererElectro
 app.get('/recupererElectro', function (req, res) {
   const query = 'SELECT * FROM electro';
-  
+
   db.query(query, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -176,28 +179,28 @@ app.get('/recupererElectro', function (req, res) {
 // menu routes
 
 app.get('/', function (req, res) {
-      res.render('index.ejs');
+  res.render('index.ejs');
 });
 app.get('/habitsH', function (req, res) {
-  res.render('habitsH.ejs'); 
+  res.render('habitsH.ejs');
 });
 app.get('/habitsF', function (req, res) {
-  res.render('habitsF.ejs'); 
+  res.render('habitsF.ejs');
 });
 app.get('/phone', function (req, res) {
-  res.render('phone.ejs'); 
+  res.render('phone.ejs');
 });
 app.get('/maison', function (req, res) {
-  res.render('maison.ejs'); 
+  res.render('maison.ejs');
 });
 app.get('/frigo', function (req, res) {
-  res.render('frigo.ejs'); 
+  res.render('frigo.ejs');
 });
 app.get('/chichastore', function (req, res) {
-  res.render('chichaStore.ejs'); 
+  res.render('chichaStore.ejs');
 });
 app.get('/montres', function (req, res) {
-  res.render('montres.ejs'); 
+  res.render('montres.ejs');
 });
 // menu routes menu
 
@@ -205,7 +208,7 @@ app.get('/montres', function (req, res) {
 
 app.get('/montresPage', function (req, res) {
   const sql = 'SELECT * FROM montres';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -219,7 +222,7 @@ app.get('/montresPage', function (req, res) {
 
 app.get('/montresCoPage', function (req, res) {
   const sql = 'SELECT * FROM montresco';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -232,7 +235,7 @@ app.get('/montresCoPage', function (req, res) {
 });
 app.get('/bague', function (req, res) {
   const sql = 'SELECT * FROM bagues';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -246,7 +249,7 @@ app.get('/bague', function (req, res) {
 
 app.get('/chaine', function (req, res) {
   const sql = 'SELECT * FROM chaines';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -263,7 +266,7 @@ app.get('/chaine', function (req, res) {
 // Exemple spécifique pour la catégorie "iphone"
 app.get('/iphone', function (req, res) {
   const sql = 'SELECT * FROM iphones';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -277,7 +280,7 @@ app.get('/iphone', function (req, res) {
 // Exemple pour la catégorie "samsung"
 app.get('/samsung', function (req, res) {
   const sql = 'SELECT * FROM samsung';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -291,7 +294,7 @@ app.get('/samsung', function (req, res) {
 // Exemple pour la catégorie "oppo"
 app.get('/oppo', function (req, res) {
   const sql = 'SELECT * FROM oppo';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -305,7 +308,7 @@ app.get('/oppo', function (req, res) {
 // Exemple pour la catégorie "tecno"
 app.get('/tecno', function (req, res) {
   const sql = 'SELECT * FROM tecno';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -319,7 +322,7 @@ app.get('/tecno', function (req, res) {
 
 app.get('/redmi', function (req, res) {
   const sql = 'SELECT * FROM redmi';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -334,7 +337,7 @@ app.get('/redmi', function (req, res) {
 // Exemple pour la catégorie "itel"
 app.get('/itel', function (req, res) {
   const sql = 'SELECT * FROM itel';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -349,7 +352,7 @@ app.get('/itel', function (req, res) {
 // Exemple pour la catégorie "infinix"
 app.get('/infinix', function (req, res) {
   const sql = 'SELECT * FROM infinix';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Erreur lors de la récupération des données : ' + err.message);
@@ -363,7 +366,7 @@ app.get('/infinix', function (req, res) {
 // Exemple pour la catégorie "mac"
 app.get('/mac', function (req, res) {
   const sql = 'SELECT * FROM mac';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -377,7 +380,7 @@ app.get('/mac', function (req, res) {
 // Exemple pour la catégorie "dell"
 app.get('/dell', function (req, res) {
   const sql = 'SELECT * FROM dell';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -391,7 +394,7 @@ app.get('/dell', function (req, res) {
 // Exemple pour la catégorie "hp"
 app.get('/hp', function (req, res) {
   const sql = 'SELECT * FROM hp';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -405,7 +408,7 @@ app.get('/hp', function (req, res) {
 // Exemple pour la catégorie "telTools"
 app.get('/telTools', function (req, res) {
   const sql = 'SELECT * FROM telTools';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -419,7 +422,7 @@ app.get('/telTools', function (req, res) {
 // Exemple pour la catégorie "pcTools"
 app.get('/pcTools', function (req, res) {
   const sql = 'SELECT * FROM pcTools';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -434,7 +437,7 @@ app.get('/pcTools', function (req, res) {
 // Exemple pour la catégorie "chicha"
 app.get('/chicha', function (req, res) {
   const sql = 'SELECT * FROM chicha';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -448,7 +451,7 @@ app.get('/chicha', function (req, res) {
 // Exemple pour la catégorie "puff"
 app.get('/puff', function (req, res) {
   const sql = 'SELECT * FROM puff';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -462,7 +465,7 @@ app.get('/puff', function (req, res) {
 // Exemple pour la catégorie "charbon"
 app.get('/charbon', function (req, res) {
   const sql = 'SELECT * FROM charbon';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -476,7 +479,7 @@ app.get('/charbon', function (req, res) {
 // Exemple pour la catégorie "arome"
 app.get('/arome', function (req, res) {
   const sql = 'SELECT * FROM arome';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -491,7 +494,7 @@ app.get('/arome', function (req, res) {
 // Exemple pour la catégorie "sacH"
 app.get('/sacH', function (req, res) {
   const sql = 'SELECT * FROM sacH';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -506,7 +509,7 @@ app.get('/sacH', function (req, res) {
 // Exemple pour la catégorie "chaussuresH"
 app.get('/chaussuresH', function (req, res) {
   const sql = 'SELECT * FROM chaussures';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -521,7 +524,7 @@ app.get('/chaussuresH', function (req, res) {
 // Exemple pour la catégorie "chaussetteH"
 app.get('/chaussetteH', function (req, res) {
   const sql = 'SELECT * FROM chaussettes';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -536,7 +539,7 @@ app.get('/chaussetteH', function (req, res) {
 // Exemple pour la catégorie "chapeau"
 app.get('/chapeau', function (req, res) {
   const sql = 'SELECT * FROM chapeau';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -550,7 +553,7 @@ app.get('/chapeau', function (req, res) {
 // Exemple pour la catégorie "outfith"
 app.get('/outfitH', function (req, res) {
   const sql = 'SELECT * FROM outfitf';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -564,7 +567,7 @@ app.get('/outfitH', function (req, res) {
 // Exemple pour la catégorie "ceintureH"
 app.get('/ceintureH', function (req, res) {
   const sql = 'SELECT * FROM ceintureH';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -581,7 +584,7 @@ app.get('/ceintureH', function (req, res) {
 // Catégorie pour les femmes - "sacF"
 app.get('/sacF', function (req, res) {
   const sql = 'SELECT * FROM sacf';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -595,7 +598,7 @@ app.get('/sacF', function (req, res) {
 // Catégorie pour les femmes - "chaussuresF"
 app.get('/chaussuresF', function (req, res) {
   const sql = 'SELECT * FROM chaussuresF';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -609,7 +612,7 @@ app.get('/chaussuresF', function (req, res) {
 // Catégorie pour les femmes - "chaussetteF"
 app.get('/chaussetteF', function (req, res) {
   const sql = 'SELECT * FROM chaussettesF';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -623,7 +626,7 @@ app.get('/chaussetteF', function (req, res) {
 // Catégorie pour les femmes - "chapeauF"
 app.get('/chapeauF', function (req, res) {
   const sql = 'SELECT * FROM chapeauF';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -637,7 +640,7 @@ app.get('/chapeauF', function (req, res) {
 // Catégorie pour les femmes - "outfitF"
 app.get('/outfitF', function (req, res) {
   const sql = 'SELECT * FROM outfitF';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -651,7 +654,7 @@ app.get('/outfitF', function (req, res) {
 // Catégorie pour les femmes - "ceintureF"
 app.get('/ceintureF', function (req, res) {
   const sql = 'SELECT * FROM ceintureF';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -666,7 +669,7 @@ app.get('/ceintureF', function (req, res) {
 // "meublePage"
 app.get('/meublePage', function (req, res) {
   const sql = 'SELECT * FROM meubles';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -680,7 +683,7 @@ app.get('/meublePage', function (req, res) {
 // "decoPage"
 app.get('/decoPage', function (req, res) {
   const sql = 'SELECT * FROM deco';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -695,7 +698,7 @@ app.get('/decoPage', function (req, res) {
 // "enfant"
 app.get('/enfant', function (req, res) {
   const sql = 'SELECT * FROM enfants';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -710,7 +713,7 @@ app.get('/enfant', function (req, res) {
 // "appartement"
 app.get('/appartement', function (req, res) {
   const sql = 'SELECT * FROM appartement';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -725,7 +728,7 @@ app.get('/appartement', function (req, res) {
 // "vehicule"
 app.get('/vehicule', function (req, res) {
   const sql = 'SELECT * FROM vehicule';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -740,7 +743,7 @@ app.get('/vehicule', function (req, res) {
 // "beauter"
 app.get('/beauter', function (req, res) {
   const sql = 'SELECT * FROM beauter';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -755,7 +758,7 @@ app.get('/beauter', function (req, res) {
 // "electro"
 app.get('/electro', function (req, res) {
   const sql = 'SELECT * FROM electro';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -770,7 +773,7 @@ app.get('/electro', function (req, res) {
 // "fours"
 app.get('/fours', function (req, res) {
   const sql = 'SELECT * FROM fours';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -785,7 +788,7 @@ app.get('/fours', function (req, res) {
 // "mixeurs"
 app.get('/mixeurs', function (req, res) {
   const sql = 'SELECT * FROM mixeurs';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -800,7 +803,7 @@ app.get('/mixeurs', function (req, res) {
 // "cusinieres"
 app.get('/cusinieres', function (req, res) {
   const sql = 'SELECT * FROM cusinieres';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -815,7 +818,7 @@ app.get('/cusinieres', function (req, res) {
 // "frigideres"
 app.get('/frigideres', function (req, res) {
   const sql = 'SELECT * FROM frigideres';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -830,7 +833,7 @@ app.get('/frigideres', function (req, res) {
 // "cafetieres"
 app.get('/cafetieres', function (req, res) {
   const sql = 'SELECT * FROM cafetieres';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -845,7 +848,7 @@ app.get('/cafetieres', function (req, res) {
 // "grillesPains"
 app.get('/grillesPains', function (req, res) {
   const sql = 'SELECT * FROM grillepain';
-  
+
   db.query(sql, (err, results) => {
     if (err) {
       console.error(`Erreur lors de la récupération des données : ${err.message}`);
@@ -871,8 +874,8 @@ app.post('/ajouter-au-panier', (req, res) => {
   // Recherchez le produit par son ID (vous devez implémenter cette recherche)
   const produit = /* Recherchez le produit par son ID dans la base de données */
 
-  // Ajoutez le produit au tableau des produits dans le panier
-  produitsDansLePanier.push(produit);
+    // Ajoutez le produit au tableau des produits dans le panier
+    produitsDansLePanier.push(produit);
 
   // Envoyez une réponse pour indiquer le succès de l'ajout
   res.json({ success: true });
@@ -882,22 +885,22 @@ app.post('/ajouter-au-panier', (req, res) => {
 
 //route page de commande 
 app.get('/commander', function (req, res) {
-  res.render('commander.ejs'); 
+  res.render('commander.ejs');
 });
 // route page de commande 
 //route vers valider 
 app.get('/valider', function (req, res) {
-  res.render('valider.ejs'); 
+  res.render('valider.ejs');
 });
 // route vers valider 
 
 
 // les details iphones views ici //
-app.get('/iphone/:id', function(req, res) {
+app.get('/iphone/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM iphones WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM iphones WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -915,17 +918,17 @@ app.get('/iphone/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici iphones //
 
 // les details samsung views ici //
-app.get('/samsung/:id', function(req, res) {
+app.get('/samsung/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM samsung WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM samsung WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -943,17 +946,17 @@ app.get('/samsung/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici samsung //
 
 // les details oppo views ici //
-app.get('/oppo/:id', function(req, res) {
+app.get('/oppo/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM oppo WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM oppo WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -971,17 +974,17 @@ app.get('/oppo/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici oppo //
 
 // les details redmi views ici //
-app.get('/redmi/:id', function(req, res) {
+app.get('/redmi/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM redmi WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM redmi WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -999,17 +1002,17 @@ app.get('/redmi/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici redmi //
 
 // les details tecno views ici //
-app.get('/tecno/:id', function(req, res) {
+app.get('/tecno/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM tecno WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM tecno WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -1027,17 +1030,17 @@ app.get('/tecno/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici tecno //
 
 // les details infinix views ici //
-app.get('/infinix/:id', function(req, res) {
+app.get('/infinix/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM infinix WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM infinix WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -1055,17 +1058,17 @@ app.get('/infinix/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici infinix //
 
 // les details itel views ici //
-app.get('/itel/:id', function(req, res) {
+app.get('/itel/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM itel WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM itel WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -1083,17 +1086,17 @@ app.get('/itel/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici itel //
 
 // les details dell views ici //
-app.get('/dell/:id', function(req, res) {
+app.get('/dell/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM dell WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM dell WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -1111,17 +1114,17 @@ app.get('/dell/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici dell //
 
 // les details mac views ici //
-app.get('/mac/:id', function(req, res) {
+app.get('/mac/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM mac WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM mac WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -1139,16 +1142,16 @@ app.get('/mac/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici mac //
 // les details mac views ici //
-app.get('/mac/:id', function(req, res) {
+app.get('/mac/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM mac WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM mac WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -1166,17 +1169,17 @@ app.get('/mac/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici mac //
 
 // les details hp views ici //
-app.get('/hp/:id', function(req, res) {
+app.get('/hp/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM hp WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM hp WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -1194,17 +1197,17 @@ app.get('/hp/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici hp //
 
 // les details pctools views ici //
-app.get('/pctools/:id', function(req, res) {
+app.get('/pctools/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM pctools WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM pctools WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -1222,17 +1225,17 @@ app.get('/pctools/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici pctools //
 
 // les details teltools views ici //
-app.get('/teltools/:id', function(req, res) {
+app.get('/teltools/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM teltools WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM teltools WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -1250,17 +1253,17 @@ app.get('/teltools/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici teltools //
 
 // les details montresCo views ici //
-app.get('/montresCoPage/:id', function(req, res) {
+app.get('/montresCoPage/:id', function (req, res) {
   const productId = req.params.id;
 
   // Effectuez une requête à la base de données pour trouver le produit par ID
-  db.query('SELECT * FROM montresco WHERE id = ?', [productId], function(error, results, fields) {
+  db.query('SELECT * FROM montresco WHERE id = ?', [productId], function (error, results, fields) {
     if (error) {
       // Gérez les erreurs de requête à la base de données
       console.error(error);
@@ -1279,10 +1282,50 @@ app.get('/montresCoPage/:id', function(req, res) {
 });
 
 // N'oubliez pas de fermer la connexion à la base de données lorsque votre application se termine
-process.on('exit', function() {
+process.on('exit', function () {
   connection.end();
 });
 // les details views ici montresCo //
+
+app.use(bodyParser.json());
+
+
+
+// Ajoutez une route pour recevoir les données du client
+app.post('/envoyer-sur-telegram', bodyParser.json(), async (req, res) => {
+  const { nom, tel, adresse } = req.body;
+
+  // Construisez le message à envoyer sur Telegram en utilisant les données reçues
+  const message = `🎀 Commande de ${nom} (${tel}) :\n\n` +
+    produits.map((produit) => {
+      return `${produit.nom} - ${produit.prix} CFA\nDescription : ${produit.description}\n`;
+    }).join('\n');
+
+  // Remplacez 'YOUR_BOT_TOKEN' et 'CHAT_ID' par les valeurs appropriées
+  // const botToken = '5244781796:AAGCvFJnb8M6TcmUGidpMs4Ox8Rs72PVi-U';
+  // const chatId = '1016981131';
+  const botToken = '5244781796:AAGCvFJnb8M6TcmUGidpMs4Ox8Rs72PVi-U' ;
+  const chatId = '1016981131';
+
+  // Utilisez botToken et chatId dans votre code
+
+
+  try {
+    const response = await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`);
+
+    if (response.status === 200) {
+      res.json({ success: true });
+    } else {
+      console.error('Erreur lors de l\'envoi de la commande sur Telegram.');
+      res.status(500).json({ error: 'Erreur lors de l\'envoi de la commande sur Telegram' });
+    }
+  } catch (error) {
+    console.error('Erreur lors de l\'envoi de la commande sur Telegram :', error);
+    res.status(500).json({ error: 'Erreur lors de l\'envoi de la commande sur Telegram' });
+  }
+
+});
+
 
 
 

@@ -44,19 +44,12 @@
 
         <br> <br> <br>
 
-            <button class="btn btn-primary">Retourner sur la page d'accueil</button>
+            <button class="btn btn-primary" onclick="clearCart()">Retourner sur la page d'accueil</button>
             <br> <br> <br>
             <h6 style="font-size: 0.7rem; text-align: center;">Copyright © 2023 LafyShop
                 Powered by <strong>Privat's labs</strong></h6>
 
     </div>
-
-
-
-
-
-
-
 
 
 
@@ -67,7 +60,13 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <script src="/script/index.js"></script>
+    <script>
+        function clearCart() {
+  // Remove all items stored under the key 'lafyshop'
+  localStorage.removeItem('lafyshop');
+  window.location.href ='/';
+ }
+    </script>
 
 </body>
 

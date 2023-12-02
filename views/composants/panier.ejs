@@ -61,8 +61,6 @@
     // Si le panier est vide, afficher un message approprié
     if (cart.length === 0) {
       // Désactiver le bouton si le panier est vide
-      commanderButton.disabled;
-      commanderButton.style.backgroundColor = cart.length === 0 ? 'grey' : defaultButtonColor;
       panierFooter.style.display = 'none';
 
       centerElement.innerHTML = `
@@ -118,7 +116,6 @@
 
 
 
-
       // Injecter le HTML dans l'élément du panier
       centerElement.innerHTML = cartHTML;
 
@@ -137,6 +134,17 @@
   }
 
   updateCart();
+
+  function commander(){
+    const cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
+
+    // Si le panier est vide, afficher un message approprié
+    if (cart.length === 0) {
+      alert('Votre panier est vide !')
+    } else {
+      window.location.href = "/commander";
+    }
+  }
 
 
   document.addEventListener('DOMContentLoaded', function() {

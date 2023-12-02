@@ -256,23 +256,12 @@ function chicha() {
 // chicha store 
 
 
-//commander 
+//electro 
 function electroMenager() {
     window.location.href = '/electro'
 }
-//commander 
+//electro 
 
-//commander 
-function commander() {
-    window.location.href = '/commander'
-}
-//commander 
-
-//valider 
-function valider() {
-    window.location.href = '/valider'
-}
-//valider 
 
 // retour 
 function goBack() {
