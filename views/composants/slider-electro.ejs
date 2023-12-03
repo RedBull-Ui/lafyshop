@@ -1,19 +1,19 @@
-<div class="sliderElectro-container">
+<div class="slider-containerVisiter">
     <h3 style="text-align: start; margin-left: 10px;">Electro-menager</h3>
-    <div class="sliderElectro">
-        
-       
-        <div class=" article-carte">
-            <img src="/img/phone.jpg" alt="Nom de l'article">
-            <br>
-            <p style="text-align: start;">Iphone 12 simple</br>-
-                <span>Rouge 250G.</span>
-            <div class="prix">
-                <span class="prix-actuel"
-                    style="color: #293847; font-weight: bolder; font-size: 1.2rem;">250.999
-                    CFA</span>
-            </div>
-            <button>Ajouter</button>
+    <div class="sliderVisiter">
+      <% electro.forEach((produit) => { %>
+      <div class="article-carte">
+        <img src="<%= produit.url %>" alt="<%= produit.nom %>">
+        <br>
+        <p style="text-align: center; text-transform: uppercase;"> <strong> <%= produit.nom %> </strong> </p>
+        <span><%= produit.info %></span>
+        <div class="prix">
+          <span class="prix-actuel" style="color: #293847; font-weight: bolder; font-size: 1.2rem;"><%= produit.prix %> CFA</span>
         </div>
+        <button>Ajouter</button>
+      </div>
+      <% }); %>
+      <div>
+  
+      </div>
     </div>
-</div>

@@ -1,0 +1,19 @@
+<div class="slider-containerVisiter">
+    <h3 style="text-align: start; margin-left: 10px;">Articles du moment</h3>
+    <div class="sliderVisiter">
+      <% moment.forEach((produit) => { %>
+      <div class="article-carte">
+        <img src="<%= produit.url %>" alt="<%= produit.nom %>">
+        <br>
+        <p style="text-align: center; text-transform: uppercase;"> <strong> <%= produit.nom %> </strong> </p>
+          <span><%= produit.info %></span>
+        <div class="prix">
+          <span class="prix-actuel" style="color: #293847; font-weight: bolder; font-size: 1.2rem;"><%= produit.prix %> CFA</span>
+        </div>
+        <button>Ajouter</button>
+      </div>
+      <% }); %>
+      <div>
+  
+      </div>
+    </div>

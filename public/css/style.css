@@ -558,19 +558,19 @@ body .promo {
    padding: 10px;
    box-sizing: border-box;
    text-align: center;
-    width: 150px; /* 4 est le nombre d'éléments .article-carte par ligne */
+    width: auto; /* 4 est le nombre d'éléments .article-carte par ligne */
     padding: 5px;
     margin: 10px;
     box-sizing: border-box;
     text-align: center;
     animation: defilement 15s linear infinite; /* Définir une animation de défilement automatique */
-
+    border: 1px solid ;
 }
 
-.article-carte img {
+/* .article-carte img {
    width: 100%;
    height: auto;
-}
+} */
 
 .prix {
    margin-top: 10px;
@@ -612,7 +612,7 @@ body .promo {
 
  .article-carte img {
    margin-top: 10px;
-   width: 100px;
+   width: auto;
    height: 150px;
 }
 

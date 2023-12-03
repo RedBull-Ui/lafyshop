@@ -1,51 +1,100 @@
 const express = require('express');
 const ejs = require('ejs');
 const app = express();
-const mysql = require('mysql');
 const bodyParser = require('body-parser');
+const admin = require('firebase-admin');
 const TelegramBot = require('node-telegram-bot-api');
-
-
+const { v4: uuidv4 } = require('uuid'); // Importe uuid
 
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'lafyshop_bd'
+
+// Configuration de la connexion à la base de données 
+
+const serviceAccount = require('./lafyshop.json'); // Remplacez par le chemin vers votre fichier de configuration Firebase
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
 });
 
-db.connect((err) => {
-  if (err) {
-    console.error('Erreur de connexion à la base de données : ' + err.message);
-  } else {
-    console.log('Connecté à la base de données MySQL');
+const db = admin.firestore();
+
+
+// Route pour récupérer les données depuis la table articlesvisiter
+app.get('/', async (req, res) => {
+  try {
+    // Récupérer les données depuis la collection 'articlesvisiter'
+    const visiterSnapshot = await db.collection('articlesvisiter').get();
+    const visiter = visiterSnapshot.docs.map((doc) => {
+      const produitData = doc.data();
+      return {
+        ...produitData,
+        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+      };
+    });
+
+    // Récupérer les données depuis la collection 'telephone'
+    const telSnapshot = await db.collection('telephone').get();
+    const tel = telSnapshot.docs.map((doc) => {
+      const produitData = doc.data();
+      return {
+        ...produitData,
+        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+      };
+    });
+
+    // Récupérer les données depuis la collection 'moment'
+    const momentSnapshot = await db.collection('moment').get();
+    const moment = momentSnapshot.docs.map((doc) => {
+      const produitData = doc.data();
+      return {
+        ...produitData,
+        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+      };
+    });
+
+    // Récupérer les données depuis la collection 'bigCard'
+    const bigCardSnapshot = await db.collection('bigCard').get();
+    const bigCard = bigCardSnapshot.docs.map((doc) => {
+      const produitData = doc.data();
+      return {
+        ...produitData,
+        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+      };
+    });
+
+    // Récupérer les données depuis la collection 'femme'
+    const femmeSnapshot = await db.collection('femme').get();
+    const femme = femmeSnapshot.docs.map((doc) => {
+      const produitData = doc.data();
+      return {
+        ...produitData,
+        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+      };
+    });
+
+    // Récupérer les données depuis la collection 'electro'
+    const electroSnapshot = await db.collection('electro').get();
+    const electro = electroSnapshot.docs.map((doc) => {
+      const produitData = doc.data();
+      return {
+        ...produitData,
+        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+      };
+    });
+
+    // Rendre la vue en utilisant les données récupérées
+    res.render('index.ejs', { visiter, tel, moment, bigCard, femme, electro });
+
+  } catch (error) {
+    console.error('Erreur lors de la récupération des données :', error);
+    res.status(500).json({ error: 'Erreur de base de données' });
   }
 });
 
 
-// Route pour récupérer les données depuis la table articlesvisiter
-app.get('/recupererArticlesvisiter', function (req, res) {
-  const query = 'SELECT * FROM articlesvisiter';
-
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données articlesvisiter');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererArticlesvisiter', function (req, res) {
-  const mesRedmiDonnees = JSON.parse(localStorage.getItem('articlesvisiter'));
-  res.json(mesarticlesvisiterDonnees);
-});
 // Route pour récupérer les données depuis la table articlesvisiter
 
 // Route pour récupérer les données depuis la table recupererTelSlider
@@ -178,9 +227,6 @@ app.get('/recupererElectro', function (req, res) {
 
 // menu routes
 
-app.get('/', function (req, res) {
-  res.render('index.ejs');
-});
 app.get('/habitsH', function (req, res) {
   res.render('habitsH.ejs');
 });
