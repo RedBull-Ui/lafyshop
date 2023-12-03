@@ -629,17 +629,21 @@ app.get('/chaussuresF', function (req, res) {
 });
 
 // Catégorie pour les femmes - "chaussetteF"
-app.get('/chaussetteF', function (req, res) {
-  const sql = 'SELECT * FROM chaussettesF';
+app.get('/chaussetteF', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données chaussetteF`);
-    } else {
-      res.render('chaussetteFPage.ejs', { chaussetteF: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'chaussetteF'
+ const chaussetteFSnapshot = await db.collection('chausettesf').get();
+ const chaussetteF = chaussetteFSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('chaussetteFPage.ejs', { chaussetteF });
+
 });
 
 // Catégorie  - "chapeau"
