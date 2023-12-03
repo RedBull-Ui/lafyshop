@@ -438,17 +438,21 @@ app.get('/dell', function (req, res) {
 });
 
 // Exemple pour la catégorie "hp"
-app.get('/hp', function (req, res) {
-  const sql = 'SELECT * FROM hp';
+app.get('/hp', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données hp`);
-    } else {
-      res.render('hpPage.ejs', { hps: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'hp'
+ const hpSnapshot = await db.collection('hp').get();
+ const hp = hpSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('hp.ejs', { hp });
+
 });
 
 // Exemple pour la catégorie "telTools"
