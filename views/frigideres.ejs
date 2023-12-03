@@ -43,6 +43,7 @@
     <h3><strong>frigideres</strong></h3>
     <br> <br>
     <% frigideres.forEach((produit) => { %>
+      <a href="/electro/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -55,6 +56,7 @@
       </div>
       </div>
 
+      </a>
 
       <% }); %>
 

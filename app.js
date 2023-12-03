@@ -806,62 +806,78 @@ app.get('/mixeurs', async (req, res)=> {
 
 // Catégorie d'électroménagers :
 // "cusinieres"
-app.get('/cusinieres', function (req, res) {
-  const sql = 'SELECT * FROM cusinieres';
+app.get('/cusinieres', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données cusinieres`);
-    } else {
-      res.render('cusinieres.ejs', { cusinieres: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'cusiniere'
+ const cusiniereSnapshot = await db.collection('cusinieres').get();
+ const cusiniere = cusiniereSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('cusinieres.ejs', { cusiniere });
+
 });
 
 // Catégorie d'électroménagers :
 // "frigideres"
-app.get('/frigideres', function (req, res) {
-  const sql = 'SELECT * FROM frigideres';
+app.get('/frigideres', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données frigideres`);
-    } else {
-      res.render('frigideres.ejs', { frigideres: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'frigideres'
+ const frigideresSnapshot = await db.collection('frigideres').get();
+ const frigideres = frigideresSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('frigideres.ejs', { frigideres });
+
 });
 
 // Catégorie d'électroménagers :
 // "cafetieres"
-app.get('/cafetieres', function (req, res) {
-  const sql = 'SELECT * FROM cafetieres';
+app.get('/cafetieres', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données cafetieres`);
-    } else {
-      res.render('cafetieres.ejs', { cafetieres: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'cafetiere'
+ const cafetiereSnapshot = await db.collection('cafetieres').get();
+ const cafetieres = cafetiereSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('cafetieres.ejs', { cafetieres });
+
 });
 
 // Catégorie d'électroménagers :
 // "grillesPains"
-app.get('/grillesPains', function (req, res) {
-  const sql = 'SELECT * FROM grillepain';
+app.get('/grillesPains', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données grillesPains`);
-    } else {
-      res.render('grillesPains.ejs', { grillesPains: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'grillesPains'
+ const grillesPainsSnapshot = await db.collection('grillepain').get();
+ const grillesPains = grillesPainsSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('grillesPains.ejs', { grillesPains });
+
 });
 
 
