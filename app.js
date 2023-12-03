@@ -495,17 +495,21 @@ app.get('/chicha', function (req, res) {
 });
 
 // Exemple pour la catégorie "puff"
-app.get('/puff', function (req, res) {
-  const sql = 'SELECT * FROM puff';
+app.get('/puff', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données puff`);
-    } else {
-      res.render('puff.ejs', { puffs: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'puff'
+ const puffSnapshot = await db.collection('chausettesf').get();
+ const puff = puffSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('puff.ejs', { puff });
+
 });
 
 // Exemple pour la catégorie "charbon"
