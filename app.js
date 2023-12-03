@@ -266,45 +266,54 @@ app.get('/montresPage', function (req, res) {
   });
 });
 
-app.get('/montresCoPage', function (req, res) {
-  const sql = 'SELECT * FROM montresco';
+app.get('/montresCoPage', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données montresCo');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('montresCoPage.ejs', { montresco: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'montresCo'
+ const montresCoSnapshot = await db.collection('montresco').get();
+ const montresCo = montresCoSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('montresCoPage.ejs', { montresCo });
+
 });
-app.get('/bague', function (req, res) {
-  const sql = 'SELECT * FROM bagues';
+app.get('/bague', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données bague');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('bague.ejs', { bagues: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'bague'
+ const bagueSnapshot = await db.collection('bagues').get();
+ const bague = bagueSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('bague.ejs', { bague });
+
 });
 
-app.get('/chaine', function (req, res) {
-  const sql = 'SELECT * FROM chaines';
+app.get('/chaine', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données chaine');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('chaine.ejs', { chaines: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'chaine'
+ const chaineSnapshot = await db.collection('chaines').get();
+ const chaine = chaineSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('chaine.ejs', { chaine });
+
 });
 // les pages pour montre & bijoux
 
