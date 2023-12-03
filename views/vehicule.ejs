@@ -34,11 +34,25 @@
 
 
 
-  <h4 style="text-align: start;"><strong>Vehicule</strong></h4>
+  <h4 style="text-align: start;"><strong>Vehicules</strong></h4>
   <div class="main">
-    
-    <br>
+    <div class="carte">
+      <% vehicule.forEach((produit) => { %>
+      <div class="carte-top">
+        <div class="left">
+          <p><strong><%= produit.nom %></strong></p>
+          <span><%= produit.info %></span> <br> <br>
+          <span><strong><i class="fa-solid fa-location-dot"></i> <%= produit.location %></strong></span>
+        </div>
+        <div class="right">
+          <img src="<%= produit.url %>" width="130" alt="voiture">
+        </div>
 
+      </div>
+      <hr>
+      <h5><%= produit.prix %> CFA / Jour</h5>
+    </div>
+    <% }); %>
 
   </div>
 
@@ -56,63 +70,5 @@
   <script src="/script/index.js"></script>
 
 </body>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-
-    // 1. Récupérez les données depuis le serveur et stockez-les dans le localStorage
-    fetch('/recuperervehicule')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('La réponse du serveur n\'est pas OK');
-        }
-        return response.json();
-      })
-      .then(data => {
-        localStorage.setItem('vehicule', JSON.stringify(data));
-        console.log(data);
-        // 2. Une fois les données récupérées, bouclez dans votre slider
-        populatevehicule();
-      })
-      .catch(error => console.error('Erreur lors de la récupération des données vehicule : ' + error));
-
-    // 3. Créez une fonction pour boucler dans le slider
-    function populatevehicule() {
-      // Récupérer les données d'articles visités depuis le localStorage
-      const vehicule = JSON.parse(localStorage.getItem('vehicule'));
-
-      // Vérifiez si des articles visités existent
-      if (vehicule && vehicule.length > 0) {
-        // Sélectionnez l'élément parent où vous souhaitez ajouter les articles
-        const vehiculeContainer = document.querySelector('.main');
-
-        // Bouclez sur les articles et générez dynamiquement les éléments HTML
-        vehicule.forEach((vehiculeCardItem) => {
-          const vehiculeDiv = document.createElement('div');
-          vehiculeDiv.classList.add('carte');
-
-          vehiculeDiv.innerHTML = `
-          <div class="carte-top">
-
-<div class="left">
-    <p><strong>${vehiculeCardItem.nom}</strong></p>
-    <span>${vehiculeCardItem.infos}</span> <br> <br>
-    <span><strong><i class="fa-solid fa-location-dot"></i> ${vehiculeCardItem.localisation}</strong></span>
-</div>
-<div class="right">
-    <img src="${vehiculeCardItem.url}" width="130" alt="voiture">
-</div>
-
-</div>
-<hr>
-<h5>${vehiculeCardItem.prix} CFA / Jour</h5>
-      `;
-
-          vehiculeContainer.appendChild(vehiculeDiv);
-        });
-      }
-    }
-  })
-</script>
 
 </html>

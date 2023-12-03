@@ -252,18 +252,21 @@ app.get('/montres', function (req, res) {
 
 // les pages pour montre & bijoux
 
-app.get('/montresPage', function (req, res) {
-  const sql = 'SELECT * FROM montres';
+app.get('/montresPage', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données montresPage');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('montresPage.ejs', { montres: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'montre'
+ const montreSnapshot = await db.collection('montres').get();
+ const montre = montreSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('montresPage.ejs', { montre });
+
 });
 
 app.get('/montresCoPage', async (req, res)=> {
@@ -792,32 +795,40 @@ app.get('/meublePage', async (req, res) => {
 });
 // Catégories de meubles et décoration :
 // "decoPage"
-app.get('/decoPage', function (req, res) {
-  const sql = 'SELECT * FROM deco';
+app.get('/decoPage', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données decoPage`);
-    } else {
-      res.render('decoPage.ejs', { decos: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'deco'
+ const decoSnapshot = await db.collection('deco').get();
+ const deco = decoSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('decoPage.ejs', { deco });
+
 });
 
 // Catégories de véhicules, appartements, enfants et beauté :
 // "enfant"
-app.get('/enfant', function (req, res) {
-  const sql = 'SELECT * FROM enfants';
+app.get('/enfant', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données enfant`);
-    } else {
-      res.render('enfant.ejs', { enfants: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'enfant'
+ const enfantSnapshot = await db.collection('enfants').get();
+ const enfant = enfantSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('enfant.ejs', { enfant });
+
 });
 
 // Catégories de véhicules, appartements, enfants et beauté :
@@ -837,35 +848,44 @@ app.get('/appartement', function (req, res) {
 
 // Catégories de véhicules, appartements, enfants et beauté :
 // "vehicule"
-app.get('/vehicule', function (req, res) {
-  const sql = 'SELECT * FROM vehicule';
+app.get('/vehicule', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données vehicule`);
-    } else {
-      res.render('vehicule.ejs', { vehicules: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'vehicule'
+ const vehiculeSnapshot = await db.collection('vehicule').get();
+ const vehicule = vehiculeSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('vehicule.ejs', { vehicule });
+
 });
 
 // Catégories de véhicules, appartements, enfants et beauté :
 // "beauter"
-app.get('/beauter', function (req, res) {
-  const sql = 'SELECT * FROM beauter';
+app.get('/beauter', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données beauter`);
-    } else {
-      res.render('beauter.ejs', { beauters: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'beauter'
+ const beauterSnapshot = await db.collection('beauter').get();
+ const beauter = beauterSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('beauter.ejs', { beauter });
+
 });
 
 // Catégorie d'électroménagers :
+
 // "electro"
 app.get('/electro', function (req, res) {
   const sql = 'SELECT * FROM electro';
