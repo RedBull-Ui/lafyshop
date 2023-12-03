@@ -310,46 +310,54 @@ app.get('/chaine', function (req, res) {
 
 // les pages pour tel & pc 
 // Exemple spécifique pour la catégorie "iphone"
-app.get('/iphone', function (req, res) {
-  const sql = 'SELECT * FROM iphones';
+app.get('/iphone', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données iphone');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('iphonePage.ejs', { iphones: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'iphone'
+ const iphoneSnapshot = await db.collection('iphone').get();
+ const iphone = iphoneSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('iphonePage.ejs', { iphone });
+
 });
 // Exemple pour la catégorie "samsung"
-app.get('/samsung', function (req, res) {
-  const sql = 'SELECT * FROM samsung';
+app.get('/samsung', async (req, res)=> {
+  // Récupérer les données depuis la collection 'samsung'
+ const samsungSnapshot = await db.collection('samsung').get();
+ const samsung = samsungSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données samsung');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('samsungPage.ejs', { samsungs: results });
-    }
-  });
+ // Rendre la vue en utilisant les données récupérées
+ res.render('samsungPage.ejs', { samsung });
+
 });
 // Exemple pour la catégorie "oppo"
-app.get('/oppo', function (req, res) {
-  const sql = 'SELECT * FROM oppo';
+app.get('/oppo', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données oppo');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('oppoPage.ejs', { oppos: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'oppo'
+ const oppoSnapshot = await db.collection('oppo').get();
+ const oppo = oppoSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('oppoPage.ejs', { oppo });
+
 });
 // Exemple pour la catégorie "tecno"
 app.get('/tecno', async (req, res)=> {
