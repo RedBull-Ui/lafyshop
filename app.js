@@ -410,17 +410,21 @@ app.get('/infinix', function (req, res) {
   });
 });
 // Exemple pour la catégorie "mac"
-app.get('/mac', function (req, res) {
-  const sql = 'SELECT * FROM mac';
+app.get('/mac', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données mac`);
-    } else {
-      res.render('macPage.ejs', { macs: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'mac'
+ const macSnapshot = await db.collection('mac').get();
+ const mac = macSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('macPage.ejs', { mac });
+
 });
 
 // Exemple pour la catégorie "dell"
