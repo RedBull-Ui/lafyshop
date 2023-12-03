@@ -553,17 +553,21 @@ app.get('/sacH', function (req, res) {
 
 // Copiez et adaptez ce bloc pour chaque catégorie de vêtements pour hommes
 // Exemple pour la catégorie "chaussuresH"
-app.get('/chaussuresH', function (req, res) {
-  const sql = 'SELECT * FROM chaussures';
+app.get('/chaussuresH', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données chaussuresH`);
-    } else {
-      res.render('chaussuresHPage.ejs', { chaussuresH: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'chaussuresH'
+ const chaussuresHSnapshot = await db.collection('chaussures').get();
+ const chaussuresH = chaussuresHSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('chaussuresHPage.ejs', { chaussuresH });
+
 });
 
 // Copiez et adaptez ce bloc pour chaque catégorie de vêtements pour hommes
