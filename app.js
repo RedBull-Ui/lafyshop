@@ -582,20 +582,6 @@ app.get('/chaussetteH', function (req, res) {
 });
 
 
-// Exemple pour la catégorie "chapeau"
-app.get('/chapeau', function (req, res) {
-  const sql = 'SELECT * FROM chapeau';
-
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données chapeau`);
-    } else {
-      res.render('chapeauPage.ejs', { chapeaux: results });
-    }
-  });
-});
-
 // Exemple pour la catégorie "outfith"
 app.get('/outfitH', function (req, res) {
   const sql = 'SELECT * FROM outfitf';
@@ -656,37 +642,46 @@ app.get('/chaussetteF', function (req, res) {
   });
 });
 
-// Catégorie pour les femmes - "chapeauF"
-app.get('/chapeauF', function (req, res) {
-  const sql = 'SELECT * FROM chapeauF';
+// Catégorie  - "chapeau"
+app.get('/chapeau', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données chapeauF`);
-    } else {
-      res.render('chapeauFPage.ejs', { chapeauFs: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'chapeau'
+ const chapeauSnapshot = await db.collection('chapeau').get();
+ const chapeau = chapeauSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('chapeauPage.ejs', { chapeau });
+
 });
 
-// Catégorie pour les femmes - "outfitF"
-app.get('/outfitF', function (req, res) {
-  const sql = 'SELECT * FROM outfitF';
+// Catégorie  - "outfitF"
+app.get('/outfitF', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données outfitF`);
-    } else {
-      res.render('outfitFPage.ejs', { outfitsF: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'outfitF'
+ const outfitFSnapshot = await db.collection('outfitF').get();
+ const outfitF = outfitFSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('outfitFpage.ejs', { outfitF });
+
 });
 
 // Catégorie pour les femmes - "ceintureH"
 
 app.get('/ceintureH', async (req, res)=> {
+
  // Récupérer les données depuis la collection 'ceintureH'
  const ceintureHSnapshot = await db.collection('ceintureh').get();
  const ceintureH = ceintureHSnapshot.docs.map((doc) => {
