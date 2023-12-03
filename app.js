@@ -424,17 +424,21 @@ app.get('/mac', function (req, res) {
 });
 
 // Exemple pour la catégorie "dell"
-app.get('/dell', function (req, res) {
-  const sql = 'SELECT * FROM dell';
+app.get('/dell', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données dell`);
-    } else {
-      res.render('dellPage.ejs', { dells: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'dell'
+ const dellSnapshot = await db.collection('dell').get();
+ const dell = dellSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('dellPage.ejs', { dell });
+
 });
 
 // Exemple pour la catégorie "hp"
