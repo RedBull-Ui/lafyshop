@@ -352,20 +352,22 @@ app.get('/oppo', function (req, res) {
   });
 });
 // Exemple pour la catégorie "tecno"
-app.get('/tecno', function (req, res) {
-  const sql = 'SELECT * FROM tecno';
+app.get('/tecno', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données tecno');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('tecnoPage.ejs', { tecnos: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'tecno'
+ const tecnoSnapshot = await db.collection('tecno').get();
+ const tecno = tecnoSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('tecnoPage.ejs', { tecno });
+
 });
-
 app.get('/redmi', async (req, res)=> {
 
   // Récupérer les données depuis la collection 'redmi'
