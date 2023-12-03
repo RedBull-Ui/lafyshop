@@ -523,17 +523,21 @@ app.get('/charbon', function (req, res) {
 });
 
 // Exemple pour la catégorie "arome"
-app.get('/arome', function (req, res) {
-  const sql = 'SELECT * FROM arome';
+app.get('/arome', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données arome`);
-    } else {
-      res.render('arome.ejs', { aromes: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'arome'
+ const aromeSnapshot = await db.collection('arome').get();
+ const arome = aromeSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('arome.ejs', { arome });
+
 });
 
 // vetements hommes 
