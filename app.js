@@ -22,8 +22,8 @@ admin.initializeApp({
 const db = admin.firestore();
 
 
-// Route pour récupérer les données depuis la table articlesvisiter
-app.get('/', async (req, res) => {
+// Route 
+app.get('/', async (reeq, res) => {
   try {
     // Récupérer les données depuis la collection 'articlesvisiter'
     const visiterSnapshot = await db.collection('articlesvisiter').get();
@@ -94,135 +94,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-
-// Route pour récupérer les données depuis la table articlesvisiter
-
-// Route pour récupérer les données depuis la table recupererTelSlider
-app.get('/recuperertelSlider', function (req, res) {
-  const query = 'SELECT * FROM telSlider';
-
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données telSlider');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererTelSlider', function (req, res) {
-  const telSliderDonnees = JSON.parse(localStorage.getItem('telSlider'));
-  res.json(telSliderDonnees);
-});
-// Route pour récupérer les données depuis la table recupererTelSlider
-
-// Route pour récupérer les données depuis la table recupererMoment
-app.get('/recupererMoment', function (req, res) {
-  const query = 'SELECT * FROM moment';
-
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données moment');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererMoment', function (req, res) {
-  const momentDonnees = JSON.parse(localStorage.getItem('moment'));
-  res.json(momentDonnees);
-});
-// Route pour récupérer les données depuis la table recupererMoment
-
-// Route pour récupérer les données depuis la table recupererBigCard
-app.get('/recupererBigCard', function (req, res) {
-  const query = 'SELECT * FROM bigcard';
-
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données recupererBigCard');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererBigCard', function (req, res) {
-  const bigCardDonnees = JSON.parse(localStorage.getItem('promo'));
-  res.json(bigCardDonnees);
-});
-// Route pour récupérer les données depuis la table recupererBigCard
-
-
-// Route pour récupérer les données depuis la table recupererPromo
-app.get('/recupererPromo', function (req, res) {
-  const query = 'SELECT * FROM promo';
-
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données recupererPromo');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererPromo', function (req, res) {
-  const promoDonnees = JSON.parse(localStorage.getItem('promo'));
-  res.json(promoDonnees);
-});
-// Route pour récupérer les données depuis la table recupererPromo
-
-// Route pour récupérer les données depuis la table recupererHf
-app.get('/recupererHf', function (req, res) {
-  const query = 'SELECT * FROM hf';
-
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données recupererHf');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererHf', function (req, res) {
-  const hfDonnees = JSON.parse(localStorage.getItem('hf'));
-  res.json(hfDonnees);
-});
-// Route pour récupérer les données depuis la table recupererHf
-
-// Route pour récupérer les données depuis la table recupererElectro
-app.get('/recupererElectro', function (req, res) {
-  const query = 'SELECT * FROM electro';
-
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données recupererElectro');
-    } else {
-      // Envoyez les données récupérées au client
-      res.json(results);
-    }
-  });
-});
-
-app.get('/recupererElectro', function (req, res) {
-  const electroDonnees = JSON.parse(localStorage.getItem('electro'));
-  res.json(electroDonnees);
-});
-// Route pour récupérer les données depuis la table recupererElectro
+// Route
 
 
 // menu routes
@@ -247,6 +119,9 @@ app.get('/chichastore', function (req, res) {
 });
 app.get('/montres', function (req, res) {
   res.render('montres.ejs');
+});
+app.get('/electro', function (req, res) {
+  res.render('electroMenager.ejs');
 });
 // menu routes menu
 
@@ -886,48 +761,47 @@ app.get('/beauter', async (req, res)=> {
 
 // Catégorie d'électroménagers :
 
-// "electro"
-app.get('/electro', function (req, res) {
-  const sql = 'SELECT * FROM electro';
-
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données electro`);
-    } else {
-      res.render('electroMenager.ejs', { electros: results });
-    }
-  });
-});
 
 // Catégorie d'électroménagers :
 // "fours"
-app.get('/fours', function (req, res) {
-  const sql = 'SELECT * FROM fours';
+app.get('/fours', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données fours`);
-    } else {
-      res.render('fours.ejs', { fours: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'fours'
+ const foursSnapshot = await db.collection('fours').get();
+ const fours = foursSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('fours.ejs', { fours });
+
 });
+// "fours"
+
+
+
 
 // Catégorie d'électroménagers :
 // "mixeurs"
-app.get('/mixeurs', function (req, res) {
-  const sql = 'SELECT * FROM mixeurs';
+app.get('/mixeurs', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données mixeurs`);
-    } else {
-      res.render('mixeurs.ejs', { mixeurs: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'mixeurs'
+ const mixeursSnapshot = await db.collection('mixeurs').get();
+ const mixeurs = mixeursSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('mixeurs.ejs', { mixeurs });
+
 });
 
 // Catégorie d'électroménagers :
