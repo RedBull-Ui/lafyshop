@@ -538,17 +538,21 @@ app.get('/arome', function (req, res) {
 
 // vetements hommes 
 // Exemple pour la catégorie "sacH"
-app.get('/sacH', function (req, res) {
-  const sql = 'SELECT * FROM sacH';
+app.get('/sacH', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données sacH`);
-    } else {
-      res.render('sacHPage.ejs', { sacH: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'sacH'
+ const sacHSnapshot = await db.collection('sach').get();
+ const sacH = sacHSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('sacHPage.ejs', { sacH });
+
 });
 
 // Copiez et adaptez ce bloc pour chaque catégorie de vêtements pour hommes

@@ -44,6 +44,7 @@
     <br> <br>
     
     <% outfitH.forEach((produit) => { %>
+      <a href="/habitsH/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -56,7 +57,7 @@
       </div>
       </div>
 
-
+      </a>
       <% }); %>
 
    <br>
