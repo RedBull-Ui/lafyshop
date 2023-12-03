@@ -583,17 +583,21 @@ app.get('/chaussetteH', function (req, res) {
 
 
 // Exemple pour la catégorie "outfith"
-app.get('/outfitH', function (req, res) {
-  const sql = 'SELECT * FROM outfitf';
+app.get('/outfitH', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données outfitH`);
-    } else {
-      res.render('outfitHPage.ejs', { outfitsH: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'outfitH'
+ const outfitHSnapshot = await db.collection('chausettesf').get();
+ const outfitH = outfitHSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('outfitHPage.ejs', { outfitH });
+
 });
 
 
