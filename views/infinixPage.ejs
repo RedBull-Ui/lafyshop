@@ -32,8 +32,6 @@
   <%- include('composants/panier.ejs') %>
 
 
-
-
   <div class="main">
     <div class="d-flex">
       <a style="text-decoration: none; color: black;" href="/phone">Telephone</a> /
@@ -42,7 +40,7 @@
     <br> <br>
     <h3><strong>Infinix</strong></h3>
     <br> <br>
-    <% infinixs.forEach((produit) => { %>
+    <% infinix.forEach((produit) => { %>
       <a href="/infinix/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">

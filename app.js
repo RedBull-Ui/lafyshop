@@ -366,48 +366,57 @@ app.get('/tecno', function (req, res) {
   });
 });
 
-app.get('/redmi', function (req, res) {
-  const sql = 'SELECT * FROM redmi';
+app.get('/redmi', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données redmi');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('redmiPage.ejs', { redmis: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'redmi'
+ const redmiSnapshot = await db.collection('redmi').get();
+ const redmi = redmiSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('redmiPage.ejs', { redmi });
+
 });
 
 // Exemple pour la catégorie "itel"
-app.get('/itel', function (req, res) {
-  const sql = 'SELECT * FROM itel';
+app.get('/itel', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données itel');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('itelPage.ejs', { itels: results });
-    }
-  });
+  // Récupérer les données depuis la collection 'itel'
+ const itelSnapshot = await db.collection('itel').get();
+ const itel = itelSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('itelPage.ejs', { itel });
+
 });
 
 // Exemple pour la catégorie "infinix"
-app.get('/infinix', function (req, res) {
-  const sql = 'SELECT * FROM infinix';
+app.get('/infinix', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erreur lors de la récupération des données : ' + err.message);
-      res.status(500).send('Erreur lors de la récupération des données infinix');
-    } else {
-      // Envoyez les données récupérées au client
-      res.render('infinixPage.ejs', { infinixs: results });
-    }
-  });
+ // Récupérer les données depuis la collection 'infinix'
+ const infinixSnapshot = await db.collection('infinix').get();
+ const infinix = infinixSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('infinixPage.ejs', { infinix });
+
 });
 // Exemple pour la catégorie "mac"
 app.get('/mac', async (req, res)=> {
