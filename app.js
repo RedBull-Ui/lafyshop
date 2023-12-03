@@ -610,19 +610,6 @@ app.get('/outfitH', function (req, res) {
   });
 });
 
-// Exemple pour la catégorie "ceintureH"
-app.get('/ceintureH', function (req, res) {
-  const sql = 'SELECT * FROM ceintureH';
-
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données ceintureH`);
-    } else {
-      res.render('ceintureHPage.ejs', { ceinturesH: results });
-    }
-  });
-});
 
 // vetements hommes 
 
@@ -697,33 +684,42 @@ app.get('/outfitF', function (req, res) {
   });
 });
 
-// Catégorie pour les femmes - "ceintureF"
-app.get('/ceintureF', function (req, res) {
-  const sql = 'SELECT * FROM ceintureF';
+// Catégorie pour les femmes - "ceintureH"
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données ceintureF`);
-    } else {
-      res.render('ceintureFPage.ejs', { ceintureFs: results });
-    }
-  });
+app.get('/ceintureH', async (req, res)=> {
+ // Récupérer les données depuis la collection 'ceintureH'
+ const ceintureHSnapshot = await db.collection('ceintureh').get();
+ const ceintureH = ceintureHSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
+
+ // Rendre la vue en utilisant les données récupérées
+ res.render('ceintureHpage.ejs', { ceintureH });
+
 });
 
 // Catégories de meubles et décoration :
 // "meublePage"
-app.get('/meublePage', function (req, res) {
-  const sql = 'SELECT * FROM meubles';
-
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données meublePage`);
-    } else {
-      res.render('meublePage.ejs', { meublesPage: results });
-    }
+app.get('/meublePage', async (req, res) => {
+ 
+  // Récupérer les données depuis la collection 'meubleP'
+  const meublePSnapshot = await db.collection('meubles').get();
+  const meubleP = meublePSnapshot.docs.map((doc) => {
+    const produitData = doc.data();
+    return {
+      ...produitData,
+      id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+    };
   });
+
+  // Rendre la vue en utilisant les données récupérées
+  res.render('meublePage.ejs', { meubleP });
+
+
 });
 // Catégories de meubles et décoration :
 // "decoPage"

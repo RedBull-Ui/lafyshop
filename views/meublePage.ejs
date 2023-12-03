@@ -43,7 +43,9 @@
     <h3><strong>Meubles</strong></h3>
     <br> <br>
     
-    <% meublesPage.forEach((produit) => { %>
+    <% meubleP.forEach((produit) => { %>
+      <a href="/meublePage/<%= produit.id %>">
+
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -56,7 +58,7 @@
       </div>
       </div>
 
-
+      </a>
       <% }); %>
    <br>
 

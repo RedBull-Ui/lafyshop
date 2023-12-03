@@ -43,7 +43,8 @@
     <h3><strong>Ceintures</strong></h3>
     <br> <br>
     
-    <% ceinturesH.forEach((produit) => { %>
+    <% ceintureH.forEach((produit) => { %>
+      <a href="/ceintureH/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -56,7 +57,7 @@
       </div>
       </div>
 
-
+      </a>
       <% }); %>
    <br>
 

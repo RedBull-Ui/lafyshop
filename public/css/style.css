@@ -564,7 +564,6 @@ body .promo {
     box-sizing: border-box;
     text-align: center;
     animation: defilement 15s linear infinite; /* Définir une animation de défilement automatique */
-    border: 1px solid ;
 }
 
 /* .article-carte img {
