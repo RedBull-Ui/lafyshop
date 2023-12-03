@@ -42,7 +42,9 @@
     <br> <br>
     <h3><strong>Chicha</strong></h3>
     <br> <br>
-    <% chichas.forEach((produit) => { %>
+    <% chicha.forEach((produit) => { %>
+      <a href="/chichaStore/<%= produit.id %>">
+
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -56,6 +58,7 @@
       </div>
 
 
+      </a>
       <% }); %>
 
    <br>
