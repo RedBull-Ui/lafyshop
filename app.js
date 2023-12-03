@@ -451,7 +451,7 @@ app.get('/hp', async (req, res)=> {
  });
 
  // Rendre la vue en utilisant les données récupérées
- res.render('hp.ejs', { hp });
+ res.render('hpPage.ejs', { hp });
 
 });
 
