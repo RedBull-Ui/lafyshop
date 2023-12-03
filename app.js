@@ -601,31 +601,21 @@ app.get('/outfitH', function (req, res) {
 
 // vetements femmes 
 // Catégorie pour les femmes - "sacF"
-app.get('/sacF', function (req, res) {
-  const sql = 'SELECT * FROM sacf';
+app.get('/sacF', async (req, res)=> {
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données sacF`);
-    } else {
-      res.render('sacFPage.ejs', { sacFs: results });
-    }
-  });
-});
+  // Récupérer les données depuis la collection 'sacF'
+ const sacFSnapshot = await db.collection('chausettesf').get();
+ const sacF = sacFSnapshot.docs.map((doc) => {
+   const produitData = doc.data();
+   return {
+     ...produitData,
+     id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+   };
+ });
 
-// Catégorie pour les femmes - "chaussuresF"
-app.get('/chaussuresF', function (req, res) {
-  const sql = 'SELECT * FROM chaussuresF';
+ // Rendre la vue en utilisant les données récupérées
+ res.render('sacFPage.ejs', { sacF });
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données chaussuresF`);
-    } else {
-      res.render('chaussuresFPage.ejs', { chaussuresF: results });
-    }
-  });
 });
 
 // Catégorie pour les femmes - "chaussetteF"
