@@ -1633,6 +1633,98 @@ app.get('/chaine/:id', async (req, res) => {
 });
 // les details views ici chaine //
 
+// les details chicha views ici //
+app.get('/chichaStore/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chicha depuis Firestore en utilisant l'ID
+    const docRef = db.collection('chicha').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/chicha');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici chaine //
+
+// les details puff views ici //
+app.get('/puff/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de puff depuis Firestore en utilisant l'ID
+    const docRef = db.collection('puff').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/puff');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici puff //
+
+// les details arome views ici //
+app.get('/arome/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de arome depuis Firestore en utilisant l'ID
+    const docRef = db.collection('arome').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/arome');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici arome //
+
+
+
 app.use(bodyParser.json());
 
 
