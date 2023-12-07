@@ -842,7 +842,7 @@ app.get('/meublePage', async (req, res) => {
  
   try {
     // Récupérer les données depuis la collection 'meuble'
-    const meubleSnapshot = await db.collection('meuble').get();
+    const meubleSnapshot = await db.collection('meubles').get();
     const meuble = meubleSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -889,7 +889,7 @@ app.get('/enfant', async (req, res)=> {
 
   try {
     // Récupérer les données depuis la collection 'enfant'
-    const enfantSnapshot = await db.collection('enfant').get();
+    const enfantSnapshot = await db.collection('enfants').get();
     const enfant = enfantSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -898,7 +898,7 @@ app.get('/enfant', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('enfantPage.ejs', { enfant});
+    res.render('enfant.ejs', { enfant});
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données enfant :', error);
@@ -961,7 +961,7 @@ app.get('/beauter', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('beauterPage.ejs', { beauter});
+    res.render('beauter.ejs', { beauter});
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données beauter :', error);
@@ -988,7 +988,7 @@ app.get('/fours', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('foursPage.ejs', { fours});
+    res.render('fours.ejs', { fours});
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données fours :', error);
@@ -1016,7 +1016,7 @@ app.get('/mixeurs', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('mixeursPage.ejs', { mixeurs});
+    res.render('mixeurs.ejs', { mixeurs});
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données mixeurs :', error);
@@ -1040,7 +1040,7 @@ app.get('/cusinieres', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('cusinieresPage.ejs', { cusinieres});
+    res.render('cusinieres.ejs', { cusinieres});
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données cusinieres :', error);
@@ -1050,6 +1050,7 @@ app.get('/cusinieres', async (req, res)=> {
 });
 
 // Catégorie d'électroménagers :
+
 // "frigideres"
 app.get('/frigideres', async (req, res)=> {
 
@@ -1064,7 +1065,7 @@ app.get('/frigideres', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('frigideresPage.ejs', { frigideres});
+    res.render('frigideres.ejs', { frigideres});
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données frigideres :', error);
@@ -1074,6 +1075,7 @@ app.get('/frigideres', async (req, res)=> {
 });
 
 // Catégorie d'électroménagers :
+
 // "cafetieres"
 app.get('/cafetieres', async (req, res)=> {
 
@@ -1088,7 +1090,7 @@ app.get('/cafetieres', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('cafetieresPage.ejs', { cafetieres});
+    res.render('cafetieres.ejs', { cafetieres});
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données cafetieres :', error);
@@ -1103,7 +1105,7 @@ app.get('/grillesPains', async (req, res)=> {
 
   try {
     // Récupérer les données depuis la collection 'grillesPains'
-    const grillesPainsSnapshot = await db.collection('grillesPains').get();
+    const grillesPainsSnapshot = await db.collection('grillepain').get();
     const grillesPains = grillesPainsSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -1112,7 +1114,7 @@ app.get('/grillesPains', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('grillesPainsPage.ejs', { grillesPains});
+    res.render('grillesPains.ejs', { grillesPains});
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données grillesPains :', error);
@@ -1597,6 +1599,36 @@ app.get('/montresPage/:id', async (req, res) => {
 });
 // les details views ici montres //
 
+// les details meublePage views ici //
+app.get('/meublePage/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de meublePage depuis Firestore en utilisant l'ID
+    const docRef = db.collection('meubles').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/meublePage');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici meuble page //
+
 // les details bague views ici //
 app.get('/bague/:id', async (req, res) => {
   const productId = req.params.id;
@@ -1957,6 +1989,66 @@ app.get('/chaussetteH/:id', async (req, res) => {
 });
 // les details views ici chausettes H //
 
+// les details grille pain  views ici //
+app.get('/grillesPains/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de grillepain depuis Firestore en utilisant l'ID
+    const docRef = db.collection('grillepain').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/grillesPains');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici grille pain //
+
+// les details chausettes F  views ici //
+app.get('/chaussetteF/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chausettes depuis Firestore en utilisant l'ID
+    const docRef = db.collection('chausettesf').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/chaussetteF');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici chausettes F //
+
 // les details outfitf H  views ici //
 app.get('/outfitF/:id', async (req, res) => {
   const productId = req.params.id;
@@ -2017,6 +2109,36 @@ app.get('/ceintureH/:id', async (req, res) => {
 });
 // les details views ici ceinture H //
 
+// les details beauter views ici //
+app.get('/beauter/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de ceinture depuis Firestore en utilisant l'ID
+    const docRef = db.collection('beauter').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/beauter');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici beauter //
+
 // les details chausettes F views ici //
 app.get('/chaussettesF/:id', async (req, res) => {
   const productId = req.params.id;
@@ -2046,6 +2168,186 @@ app.get('/chaussettesF/:id', async (req, res) => {
   }
 });
 // les details views ici chausettes F  //
+
+// les details enfant views ici //
+app.get('/enfant/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chausettes depuis Firestore en utilisant l'ID
+    const docRef = db.collection('enfants').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/enfant');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici chausettes F  //
+
+// les details deco views ici //
+app.get('/decoPage/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chausettes depuis Firestore en utilisant l'ID
+    const docRef = db.collection('deco').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/deco');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici deco   //
+
+// les details fours views ici //
+app.get('/fours/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chausettes depuis Firestore en utilisant l'ID
+    const docRef = db.collection('fours').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/fours');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici fours   //
+
+// les details mixeurs views ici //
+app.get('/mixeurs/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chausettes depuis Firestore en utilisant l'ID
+    const docRef = db.collection('mixeurs').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/mixeurs');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici mixeurs   //
+
+// les details cafetieres views ici //
+app.get('/cafetieres/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chausettes depuis Firestore en utilisant l'ID
+    const docRef = db.collection('cafetieres').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/cafetieres');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici cafetieres   //
+
+// les details cusinieres views ici //
+app.get('/cusinieres/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chausettes depuis Firestore en utilisant l'ID
+    const docRef = db.collection('cusinieres').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/cusinieres');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici cafetieres   //
 
 
 

@@ -42,6 +42,7 @@
     <h3><strong>Beauter</strong></h3>
     <br> <br>
     <% beauter.forEach((produit) => { %>
+      <a href="/beauter/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -54,7 +55,7 @@
       </div>
       </div>
 
-
+      </a>
       <% }); %>
 
    <br>

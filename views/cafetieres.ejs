@@ -43,6 +43,7 @@
     <h3><strong>Cafetieres</strong></h3>
     <br> <br>
     <% cafetieres.forEach((produit) => { %>
+      <a href="/cafetieres/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
@@ -54,7 +55,7 @@
       <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
       </div>
       </div>
-
+      </a>
 
       <% }); %>
     
