@@ -43,24 +43,24 @@
     <h3><strong>Chaussettes</strong></h3>
     <br> <br>
     <% chaussetteF.forEach((produit) => { %>
-      <a href="/habitsF/<%= produit.id %>">
+    <a href="/chaussetteF/<%= produit.id %>">
 
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
-      </div>
-      <div class="card-details">
-      <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
-      <span style="color: grey;"><%= produit.info %></span></p>
-      <p style="font-size: 0.8rem; color: gray;">Disponible</p>
-      <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
-      </div>
+        </div>
+        <div class="card-details">
+          <span style="color: black; font-weight: 500;"><%= produit.nom %></span></br>
+          <span style="color: grey;"><%= produit.info %></span></p>
+          <p style="font-size: 0.8rem; color: gray;">Disponible</p>
+          <p style="color: rgb(6, 6, 6);margin-top: 10px; font-weight: 600;"><%= produit.prix %> CFA</p>
+        </div>
       </div>
 
-      </a>
-      <% }); %>
+    </a>
+    <% }); %>
 
-   <br>
+    <br>
 
 
   </div>

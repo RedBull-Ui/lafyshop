@@ -149,11 +149,11 @@ app.get('/montresPage', async (req, res)=> {
 
 });
 
-app.get('/montresCo', async (req, res)=> {
+app.get('/montresCoPage', async (req, res)=> {
 
   try {
     // Récupérer les données depuis la collection 'montresCo'
-    const montresCoSnapshot = await db.collection('montresCo').get();
+    const montresCoSnapshot = await db.collection('montresco').get();
     const montresCo = montresCoSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -596,7 +596,7 @@ app.get('/sacH', async (req, res)=> {
 
   try {
     // Récupérer les données depuis la collection 'sacH'
-    const sacHSnapshot = await db.collection('sacH').get();
+    const sacHSnapshot = await db.collection('sach').get();
     const sacH = sacHSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -622,7 +622,7 @@ app.get('/chaussuresH', async (req, res)=> {
 
   try {
     // Récupérer les données depuis la collection 'chaussuresH'
-    const chaussuresHSnapshot = await db.collection('chaussuresH').get();
+    const chaussuresHSnapshot = await db.collection('chaussures').get();
     const chaussuresH = chaussuresHSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -640,13 +640,37 @@ app.get('/chaussuresH', async (req, res)=> {
 
 });
 
+// Exemple pour la catégorie "chaussuresf"
+app.get('/chaussuresf', async (req, res)=> {
+
+  try {
+    // Récupérer les données depuis la collection 'chaussuresf'
+    const chaussuresfSnapshot = await db.collection('chaussuresf').get();
+    const chaussuresf = chaussuresfSnapshot.docs.map((doc) => {
+      const produitData = doc.data();
+      return {
+        ...produitData,
+        id: doc.id, // Utilise l'ID réel du document dans Firestore
+      };
+    });
+    // Rendre la vue en utilisant les données récupérées
+    res.render('chaussuresfPage.ejs', { chaussuresf});
+  } catch (error) {
+    // Gérez les erreurs
+    console.error('Erreur lors de la récupération des données chaussuresf :', error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+
+});
+
 // Copiez et adaptez ce bloc pour chaque catégorie de vêtements pour hommes
+
 // Exemple pour la catégorie "chaussetteH"
 app.get('/chaussetteH', async (req, res)=> {
 
   try {
     // Récupérer les données depuis la collection 'chaussetteH'
-    const chaussetteHSnapshot = await db.collection('chaussetteH').get();
+    const chaussetteHSnapshot = await db.collection('chausettes').get();
     const chaussetteH = chaussetteHSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -671,7 +695,7 @@ app.get('/outfitH', async (req, res)=> {
 
   try {
     // Récupérer les données depuis la collection 'outfitH'
-    const outfitHSnapshot = await db.collection('outfitH').get();
+    const outfitHSnapshot = await db.collection('outfith').get();
     const outfitH = outfitHSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -696,7 +720,7 @@ app.get('/outfitH', async (req, res)=> {
 app.get('/sacF', async (req, res)=> {
   try {
     // Récupérer les données depuis la collection 'sacF'
-    const sacFSnapshot = await db.collection('sacF').get();
+    const sacFSnapshot = await db.collection('sacf').get();
     const sacF = sacFSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -720,7 +744,7 @@ app.get('/chaussetteF', async (req, res)=> {
 
   try {
     // Récupérer les données depuis la collection 'chaussetteF'
-    const chaussetteFSnapshot = await db.collection('chaussetteF').get();
+    const chaussetteFSnapshot = await db.collection('chausettesf').get();
     const chaussetteF = chaussetteFSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -768,7 +792,7 @@ app.get('/outfitF', async (req, res)=> {
 
   try {
     // Récupérer les données depuis la collection 'outfitF'
-    const outfitFSnapshot = await db.collection('outfitF').get();
+    const outfitFSnapshot = await db.collection('outfitf').get();
     const outfitF = outfitFSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -794,7 +818,7 @@ app.get('/ceintureH', async (req, res)=> {
  
   try {
     // Récupérer les données depuis la collection 'ceintureH'
-    const ceintureHSnapshot = await db.collection('ceintureH').get();
+    const ceintureHSnapshot = await db.collection('ceintureh').get();
     const ceintureH = ceintureHSnapshot.docs.map((doc) => {
       const produitData = doc.data();
       return {
@@ -1693,6 +1717,36 @@ app.get('/puff/:id', async (req, res) => {
 });
 // les details views ici puff //
 
+// les details charbon views ici //
+app.get('/charbon/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de charbon depuis Firestore en utilisant l'ID
+    const docRef = db.collection('charbon').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/charbon');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici puff //
+
 // les details arome views ici //
 app.get('/arome/:id', async (req, res) => {
   const productId = req.params.id;
@@ -1722,6 +1776,276 @@ app.get('/arome/:id', async (req, res) => {
   }
 });
 // les details views ici arome //
+
+// les details chapeau views ici //
+app.get('/chapeau/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chapeau depuis Firestore en utilisant l'ID
+    const docRef = db.collection('chapeau').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/chapeau');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici chapeau //
+
+// les details sacH views ici //
+app.get('/sacH/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de sacH depuis Firestore en utilisant l'ID
+    const docRef = db.collection('sach').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/sacH');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici sacH //
+
+// les details sacF views ici //
+app.get('/sacF/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de sacF depuis Firestore en utilisant l'ID
+    const docRef = db.collection('sacf').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/sacF');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici sacF //
+
+// les details chaussures views ici //
+app.get('/chaussuresH/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chaussures depuis Firestore en utilisant l'ID
+    const docRef = db.collection('chaussures').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/chaussuresH');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici chaussures //
+
+// les details chaussures f views ici //
+app.get('/chaussuresF/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chaussures depuis Firestore en utilisant l'ID
+    const docRef = db.collection('chaussuresf').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/chaussuresf');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici chaussures f //
+
+// les details chausettes H  views ici //
+app.get('/chaussetteH/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chausettes depuis Firestore en utilisant l'ID
+    const docRef = db.collection('chausettes').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/chaussetteH');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici chausettes H //
+
+// les details outfitf H  views ici //
+app.get('/outfitF/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de outfitf depuis Firestore en utilisant l'ID
+    const docRef = db.collection('outfitf').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/outfitF');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici outfit F //
+
+// les details ceinture H  views ici //
+app.get('/ceintureH/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de ceinture depuis Firestore en utilisant l'ID
+    const docRef = db.collection('ceintureh').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/ceintureH');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici ceinture H //
+
+// les details chausettes F views ici //
+app.get('/chaussettesF/:id', async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    // Récupérez les détails de chausettes depuis Firestore en utilisant l'ID
+    const docRef = db.collection('chausettesF').doc(productId);
+    const doc = await docRef.get();
+
+    if (doc.exists) {
+      // Si le document existe, récupérez les données et affichez la vue de détails
+      const product = {
+        id: doc.id,
+        ...doc.data(),
+      };
+
+      res.render('Detail.ejs', { product });
+    } else {
+      // Si le document n'existe pas, redirigez vers une page d'erreur ou autre page par défaut
+      res.redirect('/chaussettesF');
+
+    }
+  } catch (error) {
+    // Gérez les erreurs
+    console.error(error);
+    res.status(500).send('Erreur interne du serveur');
+  }
+});
+// les details views ici chausettes F  //
 
 
 

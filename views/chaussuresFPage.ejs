@@ -42,7 +42,8 @@
     <br> <br>
     <h3><strong>Chaussures</strong></h3>
     <br> <br>
-    <% chaussuresF.forEach((produit) => { %>
+    <% chaussuresf.forEach((produit) => { %>
+      <a href="/chaussuresF/<%= produit.id %>">
       <div class="carte">
         <div class="card-top">
           <img src="<%= produit.url %>" width="100">
