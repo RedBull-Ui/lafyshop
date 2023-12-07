@@ -2,132 +2,133 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <!-- <meta http-equiv="refresh" content="2"> -->
-    <meta name="theme-color" content="#293847">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-   
-    <!-- awesome cdn  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- box icon here  -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-    <!-- boostrap here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="refresh" content="2"> -->
+  <meta name="theme-color" content="#293847">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
-    <!-- mon css here -->
-    <link rel="stylesheet" href="/css/categories.css">
+  <!-- awesome cdn  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- box icon here  -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Electro-menager</title>
+  <!-- boostrap here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- mon css here -->
+  <link rel="stylesheet" href="/css/categories.css">
+
+  <title>Electro-menager</title>
 </head>
 
 <body id="body">
-    <!-- la navigation ici  -->
-    <%- include('composants/nav.ejs') %>
-        <!-- la navigation ici  -->
-        <!-- le burger menu ici -->
-        <%- include('composants/burger-menu.ejs') %>
-            <!-- le burger menu ici -->
-            <%- include('composants/panier.ejs') %>
+  <!-- la navigation ici  -->
+  <%- include('composants/nav.ejs') %>
+  <!-- la navigation ici  -->
+  <!-- le burger menu ici -->
+  <%- include('composants/burger-menu.ejs') %>
+  <!-- le burger menu ici -->
+  <%- include('composants/panier.ejs') %>
 
 
-            <div class="header" style="margin-top: 115px; margin-bottom: 20px; padding: 5px; height: 20px;">
-                <h3>Categories</h3>
-            </div>
-
-
-
-            <!-- les carte categories  -->
-            <div class="categories row">
-                <div class="col-6" >
-                    <div class="carte shadow-sm" onclick="fours()">
-                        <div class="carte-top"> 
-                            <img src="./img/xr.jpg" width="75" alt="">
-                        </div>
-                        <div class="carte-details">
-                            <p>Fours</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="carte shadow-sm" onclick="grille_pain()">
-                        <div class="carte-top">
-                            <img src="./img/s22.jpg" width="75" alt="">
-                        </div>
-                        <div class="carte-details">
-                            <p>Grille-pains</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="carte shadow-sm" onclick="mixeurs()">
-                        <div class="carte-top">
-                            <img src="./img/oppo.jpg" width="75" alt="">
-                        </div>
-                        <div class="carte-details">
-                            <p>Mixeurs</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="carte shadow-sm" onclick="cafetieres()">
-                        <div class="carte-top">
-                            <img src="./img/xiomi.jpg" width="75" alt="">
-                        </div>
-                        <div class="carte-details">
-                            <p>Cafetieres</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="carte shadow-sm" onclick="frigidere()">
-                        <div class="carte-top">
-                            <img src="./img/xiomi.jpg" width="75" alt="">
-                        </div>
-                        <div class="carte-details">
-                            <p>Frigo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="carte shadow-sm" onclick="cusinieres()">
-                        <div class="carte-top">
-                            <img src="./img/xiomi.jpg" width="75" alt="">
-                        </div>
-                        <div class="carte-details">
-                            <p>Cusiniere</p>
-                        </div>
-                    </div>
-                </div>
-
-                
-                 
-                
-            </div>
-            <!-- les carte categories  -->
-
-
-            <!-- les deux carte du haut  -->
-            <!-- <%- //include('composants/deuxCarteIn.ejs') %> <br> -->
-                <!-- les deux carte du haut  -->
+  <div class="header" style="margin-top: 115px; margin-bottom: 20px; padding: 5px; height: 20px;">
+    <h3>Categories</h3>
+  </div>
 
 
 
-                <%- include('composants/footer.ejs') %>
+  <!-- les carte categories  -->
+  <div class="categories row">
+    <div class="col-6">
+      <div class="carte shadow-sm" onclick="fours()">
+        <div class="carte-top">
+          <img src="./img/xr.jpg" width="75" alt="">
+        </div>
+        <div class="carte-details">
+          <p>Fours</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="carte shadow-sm" onclick="grille_pain()">
+        <div class="carte-top">
+          <img src="./img/s22.jpg" width="75" alt="">
+        </div>
+        <div class="carte-details">
+          <p>Grille-pains</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="carte shadow-sm" onclick="mixeurs()">
+        <div class="carte-top">
+          <img src="./img/oppo.jpg" width="75" alt="">
+        </div>
+        <div class="carte-details">
+          <p>Mixeurs</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="carte shadow-sm" onclick="cafetieres()">
+        <div class="carte-top">
+          <img src="./img/xiomi.jpg" width="75" alt="">
+        </div>
+        <div class="carte-details">
+          <p>Cafetieres</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="carte shadow-sm" onclick="frigidere()">
+        <div class="carte-top">
+          <img src="./img/xiomi.jpg" width="75" alt="">
+        </div>
+        <div class="carte-details">
+          <p>Frigo</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="carte shadow-sm" onclick="cusinieres()">
+        <div class="carte-top">
+          <img src="./img/xiomi.jpg" width="75" alt="">
+        </div>
+        <div class="carte-details">
+          <p>Cusiniere</p>
+        </div>
+      </div>
+    </div>
 
 
 
-                <!-- boostrap here -->
 
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-                    crossorigin="anonymous"></script>
+  </div>
+  <!-- les carte categories  -->
 
-                <script src="/script/index.js"></script>
+
+  <!-- les deux carte du haut  -->
+  <!-- <%- //include('composants/deuxCarteIn.ejs') %> <br> -->
+  <!-- les deux carte du haut  -->
+
+
+
+  <%- include('composants/footer.ejs') %>
+
+
+
+  <!-- boostrap here -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  <script src="/script/index.js"></script>
 
 </body>
 

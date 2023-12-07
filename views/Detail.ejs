@@ -8,6 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <!-- awesome cdn  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -175,7 +179,7 @@
           centerElement.innerHTML = cartHTML
           localStorage.setItem('point_rouge', 'on');
 
-         
+
 
           // Mettre à jour le total et le nombre de produits
           const total = cart.reduce((acc, product) => acc + parseFloat(product.price) * parseInt(product.quantity), 0);
@@ -190,28 +194,27 @@
         // Vous pouvez également ajouter des événements ou des fonctionnalités supplémentaires ici
 
       }
-      
+
       function pointRouge() {
-            // point_rouge 
+        // point_rouge 
 
-            // Récupérez la valeur de la clé point_rouge du localStorage
-            const pointRougeValue = localStorage.getItem('point_rouge');
+        // Récupérez la valeur de la clé point_rouge du localStorage
+        const pointRougeValue = localStorage.getItem('point_rouge');
 
-            // Récupérez l'élément point-rouge
-            const pointRouge = document.querySelector('.point-rouge');
+        // Récupérez l'élément point-rouge
+        const pointRouge = document.querySelector('.point-rouge');
 
-            // Vérifiez la valeur et définissez le style en conséquence
-            if (pointRougeValue === 'on') {
-              pointRouge.style.display = 'block';
-            } else {
-              pointRouge.style.display = 'none';
-            }
+        // Vérifiez la valeur et définissez le style en conséquence
+        if (pointRougeValue === 'on') {
+          pointRouge.style.display = 'block';
+        } else {
+          pointRouge.style.display = 'none';
+        }
 
-            // point_rouge 
-          }
+        // point_rouge 
+      }
       // Appeler la fonction pour mettre à jour le panier au chargement de la page
       updateCart();
-
 
 
 

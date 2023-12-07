@@ -937,7 +937,7 @@ app.get('/vehicule', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('vehiculePage.ejs', { vehicule});
+    res.render('vehicule.ejs', { vehicule});
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données vehicule :', error);
