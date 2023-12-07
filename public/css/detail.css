@@ -39,19 +39,6 @@ a{
 }
 button{
     width: 100%;
-    height: 9vh;
-    text-align: center;
-    border: 2px solid rgba(128, 128, 128, 0.181);
-    border-radius: 5px;
-    background-color: transparent;
-    margin-bottom: 10px;
-    outline: none;
-    font-family: 'Heebo', sans-serif;
-    font-weight: bolder;
-    color: black;
-}
-input {
-    width: 100%;
     height: 10vh;
     text-align: center;
     border: 2px solid rgba(128, 128, 128, 0.181);
@@ -62,5 +49,6 @@ input {
     background-color: #3564DE;
     color: white;
     font-family: 'Heebo', sans-serif;
+    font-size: 1.1rem;
     font-weight: 100;
 }
