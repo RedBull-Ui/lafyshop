@@ -80,9 +80,9 @@
     // Gérer le clic sur le bouton "envoyerTelegram"
     document.getElementById("btn").addEventListener("click", function(e) {
       e.preventDefault();
-      var nom = document.getElementById('nom');
-      var adresse = document.getElementById('adresse');
-      var tel = document.getElementById('tel');
+      const nom = document.getElementById('nom').value;
+      const adresse = document.getElementById('adresse').value;
+      const tel = document.getElementById('tel').value;
 
       // Récupérer les données du localStorage
       var produits = JSON.parse(localStorage.getItem('lafyshop')) || [];
@@ -102,8 +102,10 @@
         var data = {
           nom: nom,
           adresse: adresse,
-          tel: tel
+          tel: tel,
+          produits : produits
         };
+
 
         fetch('/envoyer-sur-telegram', {
             method: 'POST',

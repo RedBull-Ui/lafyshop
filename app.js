@@ -4,6 +4,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const admin = require('firebase-admin');
 const TelegramBot = require('node-telegram-bot-api');
+const axios = require('axios');
+
 const { v4: uuidv4 } = require('uuid'); // Importe uuid
 
 
@@ -2358,12 +2360,12 @@ app.use(bodyParser.json());
 // Ajoutez une route pour recevoir les données du client
 app.post('/envoyer-sur-telegram', bodyParser.json(), async (req, res) => {
   // Récupérez les détails du client (nom, tel, adresse) depuis le corps de la requête
-  const { nom, tel, adresse } = req.body;
+  const { nom, tel, adresse, produits } = req.body;
 
   // Construisez le message à envoyer sur Telegram en utilisant les données reçues
-  const message = `🎀 Commande de ${nom} (${tel}) :\n\n` +
+  const message = `🎀 Commande de ${nom} (${tel}) livrer a ${adresse}   :\n\n` +
     produits.map((produit) => {
-      return `${produit.name} - ${produit.price} CFA\nDescription : ${produit.info}\n`;
+      return `${produit.name} - Prix: ${produit.price} CFA\nDescription : ${produit.info}\nQuantiter : ${produit.quantity}`;
     }).join('\n');
 
   // Remplacez 'YOUR_BOT_TOKEN' et 'CHAT_ID' par les valeurs appropriées
