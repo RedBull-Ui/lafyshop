@@ -120,22 +120,36 @@
       centerElement.innerHTML = cartHTML;
 
       // Mettre à jour le total et le nombre de produits
-      const totalItems = cart.length; // Utiliser la longueur du panier pour obtenir le nombre total d'articles
-      const total = cart.reduce((acc, product) => acc + parseFloat(product.price) * parseInt(product.quantity), 0);
-      footerTopElement.innerHTML = `<span><strong>Total: ${total.toFixed(2)}0 CFA</strong></span> <span>Nombre: ${totalItems}</span>`;
+      const total = cart.reduce((acc, product) => {
+        // Supprimer les espaces du prix et convertir en nombre
+        const priceWithoutSpaces = parseFloat(product.price.replace(/\s/g, ''));
+        return acc + priceWithoutSpaces * parseInt(product.quantity);
+      }, 0);
 
-    }
+      const totalQuantity = cart.reduce((acc, product) => acc + parseInt(product.quantity), 0);
+
+      // Formater le total avec la fonction toLocaleString
+      const formattedTotal = total.toLocaleString('fr-FR', {
+        style: 'currency',
+        currency: 'XOF'
+      });
+
+      // ...
+
+      footerTopElement.innerHTML = `<span><strong>Total: ${formattedTotal}</strong></span> <span>Nombre: ${totalQuantity}</span>`;
+    
+  }
 
 
-    // Mettre à jour d'autres éléments du panier (total, nombre de produits, etc.) si nécessaire
-    // ...
+  // Mettre à jour d'autres éléments du panier (total, nombre de produits, etc.) si nécessaire
+  // ...
 
-    // Vous pouvez également ajouter des événements ou des fonctionnalités supplémentaires ici
+  // Vous pouvez également ajouter des événements ou des fonctionnalités supplémentaires ici
   }
 
   updateCart();
 
-  function commander(){
+  function commander() {
     const cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
 
     // Si le panier est vide, afficher un message approprié

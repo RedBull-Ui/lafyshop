@@ -127,7 +127,7 @@ app.get('/electro', function (req, res) {
 
 // les pages pour montre & bijoux
 
-app.get('/montresPage', async (req, res)=> {
+app.get('/montresPage', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'montres'
@@ -140,7 +140,7 @@ app.get('/montresPage', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('montresPage.ejs', { montres});
+    res.render('montresPage.ejs', { montres });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données montres :', error);
@@ -149,7 +149,7 @@ app.get('/montresPage', async (req, res)=> {
 
 });
 
-app.get('/montresCoPage', async (req, res)=> {
+app.get('/montresCoPage', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'montresCo'
@@ -162,7 +162,7 @@ app.get('/montresCoPage', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('montresCoPage.ejs', { montresCo});
+    res.render('montresCoPage.ejs', { montresCo });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données montresCo :', error);
@@ -170,7 +170,7 @@ app.get('/montresCoPage', async (req, res)=> {
   }
 
 });
-app.get('/bague', async (req, res)=> {
+app.get('/bague', async (req, res) => {
   try {
     // Récupérer les données depuis la collection 'bague'
     const bagueSnapshot = await db.collection('bagues').get();
@@ -182,7 +182,7 @@ app.get('/bague', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('bague.ejs', { bague});
+    res.render('bague.ejs', { bague });
 
   } catch (error) {
     // Gérez les erreurs
@@ -192,7 +192,7 @@ app.get('/bague', async (req, res)=> {
 
 });
 
-app.get('/chaine', async (req, res)=> {
+app.get('/chaine', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'chaine'
@@ -205,7 +205,7 @@ app.get('/chaine', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('chaine.ejs', { chaines});
+    res.render('chaine.ejs', { chaines });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données chaine :', error);
@@ -218,7 +218,7 @@ app.get('/chaine', async (req, res)=> {
 // les pages pour tel & pc 
 
 // Exemple spécifique pour la catégorie "iphone"
-app.get('/iphone', async (req, res)=> {
+app.get('/iphone', async (req, res) => {
   try {
     // Récupérer les données depuis la collection 'iphone'
     const iphoneSnapshot = await db.collection('iphones').get();
@@ -230,7 +230,7 @@ app.get('/iphone', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('iphonePage.ejs', { iphone});
+    res.render('iphonePage.ejs', { iphone });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données iPhone :', error);
@@ -240,7 +240,7 @@ app.get('/iphone', async (req, res)=> {
 
 
 // Exemple pour la catégorie "samsung"
-app.get('/samsung', async (req, res)=> {
+app.get('/samsung', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'samsung'
@@ -253,7 +253,7 @@ app.get('/samsung', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('samsungPage.ejs', { samsung});
+    res.render('samsungPage.ejs', { samsung });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données samsung :', error);
@@ -262,9 +262,9 @@ app.get('/samsung', async (req, res)=> {
 
 });
 // Exemple pour la catégorie "oppo"
-app.get('/oppo', async (req, res)=> {
+app.get('/oppo', async (req, res) => {
 
- try {
+  try {
     // Récupérer les données depuis la collection 'oppo'
     const oppoSnapshot = await db.collection('oppo').get();
     const oppo = oppoSnapshot.docs.map((doc) => {
@@ -275,7 +275,7 @@ app.get('/oppo', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('oppoPage.ejs', { oppo});
+    res.render('oppoPage.ejs', { oppo });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données oppo :', error);
@@ -284,7 +284,7 @@ app.get('/oppo', async (req, res)=> {
 
 });
 // Exemple pour la catégorie "tecno"
-app.get('/tecno', async (req, res)=> {
+app.get('/tecno', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'tecno'
@@ -297,7 +297,7 @@ app.get('/tecno', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('tecnoPage.ejs', { tecno});
+    res.render('tecnoPage.ejs', { tecno });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données tecno :', error);
@@ -306,7 +306,7 @@ app.get('/tecno', async (req, res)=> {
 
 });
 
-app.get('/redmi', async (req, res)=> {
+app.get('/redmi', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'redmi'
@@ -319,7 +319,7 @@ app.get('/redmi', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('redmiPage.ejs', { redmi});
+    res.render('redmiPage.ejs', { redmi });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données redmi :', error);
@@ -330,7 +330,7 @@ app.get('/redmi', async (req, res)=> {
 });
 
 // Exemple pour la catégorie "itel"
-app.get('/itel', async (req, res)=> {
+app.get('/itel', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'itel'
@@ -343,7 +343,7 @@ app.get('/itel', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('itelPage.ejs', { itel});
+    res.render('itelPage.ejs', { itel });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données itel :', error);
@@ -354,7 +354,7 @@ app.get('/itel', async (req, res)=> {
 });
 
 // Exemple pour la catégorie "infinix"
-app.get('/infinix', async (req, res)=> {
+app.get('/infinix', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'infinix'
@@ -367,7 +367,7 @@ app.get('/infinix', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('infinixPage.ejs', { infinix});
+    res.render('infinixPage.ejs', { infinix });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données infinix :', error);
@@ -377,7 +377,7 @@ app.get('/infinix', async (req, res)=> {
 
 });
 // Exemple pour la catégorie "mac"
-app.get('/mac', async (req, res)=> {
+app.get('/mac', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'mac'
@@ -390,7 +390,7 @@ app.get('/mac', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('macPage.ejs', { mac});
+    res.render('macPage.ejs', { mac });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données mac :', error);
@@ -401,7 +401,7 @@ app.get('/mac', async (req, res)=> {
 });
 
 // Exemple pour la catégorie "dell"
-app.get('/dell', async (req, res)=> {
+app.get('/dell', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'dell'
@@ -414,7 +414,7 @@ app.get('/dell', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('dellPage.ejs', { dell});
+    res.render('dellPage.ejs', { dell });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données dell :', error);
@@ -425,7 +425,7 @@ app.get('/dell', async (req, res)=> {
 });
 
 // Exemple pour la catégorie "hp"
-app.get('/hp', async (req, res)=> {
+app.get('/hp', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'hp'
@@ -438,7 +438,7 @@ app.get('/hp', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('hpPage.ejs', { hp});
+    res.render('hpPage.ejs', { hp });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données hp :', error);
@@ -448,7 +448,7 @@ app.get('/hp', async (req, res)=> {
 });
 
 // Exemple pour la catégorie "telTools"
-app.get('/telTools', async (req, res)=> {
+app.get('/telTools', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'teltools'
@@ -461,7 +461,7 @@ app.get('/telTools', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('telTools.ejs', { teltools});
+    res.render('telTools.ejs', { teltools });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données teltools :', error);
@@ -471,7 +471,7 @@ app.get('/telTools', async (req, res)=> {
 });
 
 // Exemple pour la catégorie "pcTools"
-app.get('/pcTools', async (req, res)=> {
+app.get('/pcTools', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'pctools'
@@ -484,7 +484,7 @@ app.get('/pcTools', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('pcTools.ejs', { pctools});
+    res.render('pcTools.ejs', { pctools });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données pctools :', error);
@@ -496,7 +496,7 @@ app.get('/pcTools', async (req, res)=> {
 
 
 // Exemple pour la catégorie "chicha"
-app.get('/chicha', async (req, res)=> {
+app.get('/chicha', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'chicha'
@@ -509,7 +509,7 @@ app.get('/chicha', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('chicha.ejs', { chicha});
+    res.render('chicha.ejs', { chicha });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données chicha :', error);
@@ -520,7 +520,7 @@ app.get('/chicha', async (req, res)=> {
 });
 
 // Exemple pour la catégorie "puff"
-app.get('/puff', async (req, res)=> {
+app.get('/puff', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'puff'
@@ -533,7 +533,7 @@ app.get('/puff', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('puff.ejs', { puff});
+    res.render('puff.ejs', { puff });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données puff :', error);
@@ -544,7 +544,7 @@ app.get('/puff', async (req, res)=> {
 });
 
 // Exemple pour la catégorie "charbon"
-app.get('/charbon', async (req, res)=> {
+app.get('/charbon', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'charbon'
@@ -557,7 +557,7 @@ app.get('/charbon', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('charbon.ejs', { charbon});
+    res.render('charbon.ejs', { charbon });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données charbon :', error);
@@ -568,7 +568,7 @@ app.get('/charbon', async (req, res)=> {
 });
 
 // Exemple pour la catégorie "arome"
-app.get('/arome', async (req, res)=> {
+app.get('/arome', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'arome'
@@ -581,7 +581,7 @@ app.get('/arome', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('arome.ejs', { arome});
+    res.render('arome.ejs', { arome });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données arome :', error);
@@ -592,7 +592,7 @@ app.get('/arome', async (req, res)=> {
 
 // vetements hommes 
 // Exemple pour la catégorie "sacH"
-app.get('/sacH', async (req, res)=> {
+app.get('/sacH', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'sacH'
@@ -605,7 +605,7 @@ app.get('/sacH', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('sacHPage.ejs', { sacH});
+    res.render('sacHPage.ejs', { sacH });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données sacH :', error);
@@ -618,7 +618,7 @@ app.get('/sacH', async (req, res)=> {
 // Copiez et adaptez ce bloc pour chaque catégorie de vêtements pour hommes
 
 // Exemple pour la catégorie "chaussuresH"
-app.get('/chaussuresH', async (req, res)=> {
+app.get('/chaussuresH', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'chaussuresH'
@@ -631,7 +631,7 @@ app.get('/chaussuresH', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('chaussuresHPage.ejs', { chaussuresH});
+    res.render('chaussuresHPage.ejs', { chaussuresH });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données chaussuresH :', error);
@@ -641,7 +641,7 @@ app.get('/chaussuresH', async (req, res)=> {
 });
 
 // Exemple pour la catégorie "chaussuresf"
-app.get('/chaussuresf', async (req, res)=> {
+app.get('/chaussuresf', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'chaussuresf'
@@ -654,7 +654,7 @@ app.get('/chaussuresf', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('chaussuresfPage.ejs', { chaussuresf});
+    res.render('chaussuresfPage.ejs', { chaussuresf });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données chaussuresf :', error);
@@ -666,7 +666,7 @@ app.get('/chaussuresf', async (req, res)=> {
 // Copiez et adaptez ce bloc pour chaque catégorie de vêtements pour hommes
 
 // Exemple pour la catégorie "chaussetteH"
-app.get('/chaussetteH', async (req, res)=> {
+app.get('/chaussetteH', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'chaussetteH'
@@ -679,7 +679,7 @@ app.get('/chaussetteH', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('chaussetteHPage.ejs', { chaussetteH});
+    res.render('chaussetteHPage.ejs', { chaussetteH });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données chaussetteH :', error);
@@ -691,7 +691,7 @@ app.get('/chaussetteH', async (req, res)=> {
 
 
 // Exemple pour la catégorie "outfith"
-app.get('/outfitH', async (req, res)=> {
+app.get('/outfitH', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'outfitH'
@@ -704,7 +704,7 @@ app.get('/outfitH', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('outfitHPage.ejs', { outfitH});
+    res.render('outfitHPage.ejs', { outfitH });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données outfitH :', error);
@@ -717,7 +717,7 @@ app.get('/outfitH', async (req, res)=> {
 
 // vetements femmes 
 // Catégorie pour les femmes - "sacF"
-app.get('/sacF', async (req, res)=> {
+app.get('/sacF', async (req, res) => {
   try {
     // Récupérer les données depuis la collection 'sacF'
     const sacFSnapshot = await db.collection('sacf').get();
@@ -729,7 +729,7 @@ app.get('/sacF', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('sacFPage.ejs', { sacF});
+    res.render('sacFPage.ejs', { sacF });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données sacF :', error);
@@ -740,7 +740,7 @@ app.get('/sacF', async (req, res)=> {
 });
 
 // Catégorie pour les femmes - "chaussetteF"
-app.get('/chaussetteF', async (req, res)=> {
+app.get('/chaussetteF', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'chaussetteF'
@@ -753,7 +753,7 @@ app.get('/chaussetteF', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('chaussetteFPage.ejs', { chaussetteF});
+    res.render('chaussetteFPage.ejs', { chaussetteF });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données chaussetteF :', error);
@@ -764,7 +764,7 @@ app.get('/chaussetteF', async (req, res)=> {
 });
 
 // Catégorie  - "chapeau"
-app.get('/chapeau', async (req, res)=> {
+app.get('/chapeau', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'chapeau'
@@ -777,7 +777,7 @@ app.get('/chapeau', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('chapeauPage.ejs', { chapeau});
+    res.render('chapeauPage.ejs', { chapeau });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données chapeau :', error);
@@ -788,7 +788,7 @@ app.get('/chapeau', async (req, res)=> {
 });
 
 // Catégorie  - "outfitF"
-app.get('/outfitF', async (req, res)=> {
+app.get('/outfitF', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'outfitF'
@@ -801,7 +801,7 @@ app.get('/outfitF', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('outfitFPage.ejs', { outfitF});
+    res.render('outfitFPage.ejs', { outfitF });
 
   } catch (error) {
     // Gérez les erreurs
@@ -814,8 +814,8 @@ app.get('/outfitF', async (req, res)=> {
 
 // Catégorie pour les femmes - "ceintureH"
 
-app.get('/ceintureH', async (req, res)=> {
- 
+app.get('/ceintureH', async (req, res) => {
+
   try {
     // Récupérer les données depuis la collection 'ceintureH'
     const ceintureHSnapshot = await db.collection('ceintureh').get();
@@ -827,7 +827,7 @@ app.get('/ceintureH', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('ceintureHPage.ejs', { ceintureH});
+    res.render('ceintureHPage.ejs', { ceintureH });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données ceintureH :', error);
@@ -839,7 +839,7 @@ app.get('/ceintureH', async (req, res)=> {
 // Catégories de meubles et décoration :
 // "meublePage"
 app.get('/meublePage', async (req, res) => {
- 
+
   try {
     // Récupérer les données depuis la collection 'meuble'
     const meubleSnapshot = await db.collection('meubles').get();
@@ -851,7 +851,7 @@ app.get('/meublePage', async (req, res) => {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('meublePage.ejs', { meuble});
+    res.render('meublePage.ejs', { meuble });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données meuble :', error);
@@ -861,7 +861,7 @@ app.get('/meublePage', async (req, res) => {
 });
 // Catégories de meubles et décoration :
 // "decoPage"
-app.get('/decoPage', async (req, res)=> {
+app.get('/decoPage', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'deco'
@@ -874,7 +874,7 @@ app.get('/decoPage', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('decoPage.ejs', { deco});
+    res.render('decoPage.ejs', { deco });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données deco :', error);
@@ -885,7 +885,7 @@ app.get('/decoPage', async (req, res)=> {
 
 // Catégories de véhicules, appartements, enfants et beauté :
 // "enfant"
-app.get('/enfant', async (req, res)=> {
+app.get('/enfant', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'enfant'
@@ -898,7 +898,7 @@ app.get('/enfant', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('enfant.ejs', { enfant});
+    res.render('enfant.ejs', { enfant });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données enfant :', error);
@@ -924,7 +924,7 @@ app.get('/appartement', function (req, res) {
 
 // Catégories de véhicules, appartements, enfants et beauté :
 // "vehicule"
-app.get('/vehicule', async (req, res)=> {
+app.get('/vehicule', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'vehicule'
@@ -937,7 +937,7 @@ app.get('/vehicule', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('vehicule.ejs', { vehicule});
+    res.render('vehicule.ejs', { vehicule });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données vehicule :', error);
@@ -948,7 +948,7 @@ app.get('/vehicule', async (req, res)=> {
 
 // Catégories de véhicules, appartements, enfants et beauté :
 // "beauter"
-app.get('/beauter', async (req, res)=> {
+app.get('/beauter', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'beauter'
@@ -961,7 +961,7 @@ app.get('/beauter', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('beauter.ejs', { beauter});
+    res.render('beauter.ejs', { beauter });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données beauter :', error);
@@ -975,7 +975,7 @@ app.get('/beauter', async (req, res)=> {
 
 // Catégorie d'électroménagers :
 // "fours"
-app.get('/fours', async (req, res)=> {
+app.get('/fours', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'fours'
@@ -988,7 +988,7 @@ app.get('/fours', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('fours.ejs', { fours});
+    res.render('fours.ejs', { fours });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données fours :', error);
@@ -1003,7 +1003,7 @@ app.get('/fours', async (req, res)=> {
 
 // Catégorie d'électroménagers :
 // "mixeurs"
-app.get('/mixeurs', async (req, res)=> {
+app.get('/mixeurs', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'mixeurs'
@@ -1016,7 +1016,7 @@ app.get('/mixeurs', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('mixeurs.ejs', { mixeurs});
+    res.render('mixeurs.ejs', { mixeurs });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données mixeurs :', error);
@@ -1027,7 +1027,7 @@ app.get('/mixeurs', async (req, res)=> {
 
 // Catégorie d'électroménagers :
 // "cusinieres"
-app.get('/cusinieres', async (req, res)=> {
+app.get('/cusinieres', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'cusinieres'
@@ -1040,7 +1040,7 @@ app.get('/cusinieres', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('cusinieres.ejs', { cusinieres});
+    res.render('cusinieres.ejs', { cusinieres });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données cusinieres :', error);
@@ -1052,7 +1052,7 @@ app.get('/cusinieres', async (req, res)=> {
 // Catégorie d'électroménagers :
 
 // "frigideres"
-app.get('/frigideres', async (req, res)=> {
+app.get('/frigideres', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'frigideres'
@@ -1065,7 +1065,7 @@ app.get('/frigideres', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('frigideres.ejs', { frigideres});
+    res.render('frigideres.ejs', { frigideres });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données frigideres :', error);
@@ -1077,7 +1077,7 @@ app.get('/frigideres', async (req, res)=> {
 // Catégorie d'électroménagers :
 
 // "cafetieres"
-app.get('/cafetieres', async (req, res)=> {
+app.get('/cafetieres', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'cafetieres'
@@ -1090,7 +1090,7 @@ app.get('/cafetieres', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('cafetieres.ejs', { cafetieres});
+    res.render('cafetieres.ejs', { cafetieres });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données cafetieres :', error);
@@ -1101,7 +1101,7 @@ app.get('/cafetieres', async (req, res)=> {
 
 // Catégorie d'électroménagers :
 // "grillesPains"
-app.get('/grillesPains', async (req, res)=> {
+app.get('/grillesPains', async (req, res) => {
 
   try {
     // Récupérer les données depuis la collection 'grillesPains'
@@ -1114,7 +1114,7 @@ app.get('/grillesPains', async (req, res)=> {
       };
     });
     // Rendre la vue en utilisant les données récupérées
-    res.render('grillesPains.ejs', { grillesPains});
+    res.render('grillesPains.ejs', { grillesPains });
   } catch (error) {
     // Gérez les erreurs
     console.error('Erreur lors de la récupération des données grillesPains :', error);
@@ -1226,7 +1226,7 @@ app.get('/samsung/:id', async (req, res) => {
 // les details views ici samsung //
 
 // les details oppo views ici //
-app.get('/oppo/:id', async (req, res) =>{
+app.get('/oppo/:id', async (req, res) => {
   const productId = req.params.id;
 
   try {
@@ -1252,13 +1252,13 @@ app.get('/oppo/:id', async (req, res) =>{
     console.error(error);
     res.status(500).send('Erreur interne du serveur');
   }
- 
+
 });
 
 // les details views ici oppo //
 
 // les details redmi views ici //
-app.get('/redmi/:id', async (req, res)=> {
+app.get('/redmi/:id', async (req, res) => {
   const productId = req.params.id;
 
   try {
@@ -1503,7 +1503,7 @@ app.get('/pctools/:id', async (req, res) => {
     console.error(error);
     res.status(500).send('Erreur interne du serveur');
   }
-  
+
 });
 
 // les details views ici pctools //
@@ -2357,22 +2357,18 @@ app.use(bodyParser.json());
 
 // Ajoutez une route pour recevoir les données du client
 app.post('/envoyer-sur-telegram', bodyParser.json(), async (req, res) => {
+  // Récupérez les détails du client (nom, tel, adresse) depuis le corps de la requête
   const { nom, tel, adresse } = req.body;
 
   // Construisez le message à envoyer sur Telegram en utilisant les données reçues
   const message = `🎀 Commande de ${nom} (${tel}) :\n\n` +
     produits.map((produit) => {
-      return `${produit.nom} - ${produit.prix} CFA\nDescription : ${produit.description}\n`;
+      return `${produit.name} - ${produit.price} CFA\nDescription : ${produit.info}\n`;
     }).join('\n');
 
   // Remplacez 'YOUR_BOT_TOKEN' et 'CHAT_ID' par les valeurs appropriées
-  // const botToken = '5244781796:AAGCvFJnb8M6TcmUGidpMs4Ox8Rs72PVi-U';
-  // const chatId = '1016981131';
-  const botToken = '5244781796:AAGCvFJnb8M6TcmUGidpMs4Ox8Rs72PVi-U' ;
+  const botToken = '5244781796:AAGCvFJnb8M6TcmUGidpMs4Ox8Rs72PVi-U';
   const chatId = '1016981131';
-
-  // Utilisez botToken et chatId dans votre code
-
 
   try {
     const response = await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`);
@@ -2387,8 +2383,10 @@ app.post('/envoyer-sur-telegram', bodyParser.json(), async (req, res) => {
     console.error('Erreur lors de l\'envoi de la commande sur Telegram :', error);
     res.status(500).json({ error: 'Erreur lors de l\'envoi de la commande sur Telegram' });
   }
-
 });
+
+
+
 
 
 

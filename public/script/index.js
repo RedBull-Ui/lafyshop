@@ -1,7 +1,26 @@
-// Appeler la fonction pour afficher les produits lors du chargement de la page
+// Définir une fonction pour gérer le point rouge
+function handlePointRouge() {
+    // Récupérez la valeur de la clé point_rouge du localStorage
+    const pointRougeValue = localStorage.getItem('point_rouge');
+
+    // Récupérez l'élément point-rouge
+    var pointRouge = document.querySelector('.point-rouge');
+
+    // Vérifiez la valeur et définissez le style en conséquence
+    if (pointRougeValue === 'on') {
+        pointRouge.style.display = 'block';
+    } else {
+        pointRouge.style.display = 'none';
+    }
+}
+
+// Appeler la fonction pour gérer le point rouge lors du chargement de la page
 document.addEventListener('DOMContentLoaded', function () {
-        
+    handlePointRouge();
+    
+    // ... (le reste de votre code)
 });
+
 
 
 
@@ -16,22 +35,7 @@ burger.style.width = '0%'; // Vous pouvez ajuster la largeur souhaitée ici
 x.style.display = 'none'; // Vous pouvez ajuster la largeur souhaitée ici
 
 
-// point_rouge 
 
-// Récupérez la valeur de la clé point_rouge du localStorage
-const pointRougeValue = localStorage.getItem('point_rouge');
-
-// Récupérez l'élément point-rouge
-const pointRouge = document.querySelector('.point-rouge');
-
-// Vérifiez la valeur et définissez le style en conséquence
-if (pointRougeValue === 'on') {
-    pointRouge.style.display = 'block';
-} else {
-    pointRouge.style.display = 'none';
-}
-
-// point_rouge 
 
 
 
