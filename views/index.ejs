@@ -128,7 +128,7 @@
     let cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
 
     // Vérifie si le produit est déjà dans le panier en fonction de son ID
-    const existingProduct = cart.find(item => item.id === productId);
+    const existingProduct = cart.find(item => item.Id === productId);
 
     if (existingProduct) {
       // Si le produit existe, incrémente la quantité
