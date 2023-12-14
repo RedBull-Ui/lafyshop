@@ -11,7 +11,7 @@
         <span class="prix-actuel" style="color: #293847; font-weight: bolder; font-size: 1.2rem;"><%= produit.prix %> CFA</span>
       </div>
 
-      <button class="add-to-cart-btn" data-product-id="<%= produit.id %>">Ajouter</button>
+      <button class="add-to-cart-btn" data-product-id="<%= produit.id %>" data-product-nom="<%= produit.nom %>" data-product-prix="<%= produit.prix %>" data-product-url="<%= produit.url %>" data-product-info="<%= produit.info %>" onclick="addToCart(this)">Ajouter</button>
     </div>
     <% }); %>
     <div>

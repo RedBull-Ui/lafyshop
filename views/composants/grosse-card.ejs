@@ -3,7 +3,7 @@
 
   <div class="img-box shadow-sm">
     <img src="<%= produit.url %>" width="99%" alt="<%= produit.nom %>">
-    <i style="position: absolute; right: 10px; z-index: 3; color: rgb(23, 195, 23); font-size: 3rem;" class='bx bxs-cart-add add-to-cart-btn'></i>
+    <i style="position: absolute; right: 10px; z-index: 3; color: rgb(23, 195, 23); font-size: 3rem;" class='bx bxs-cart-add add-to-cart-btn' data-product-id="<%= produit.id %>" data-product-nom="<%= produit.nom %>" data-product-prix="<%= produit.prix %>" data-product-url="<%= produit.url %>" data-product-info="<%= produit.info %>" onclick="addToCart(this)"></i>
   </div>
 
   <div class="details">
