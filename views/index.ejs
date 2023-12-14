@@ -115,7 +115,7 @@
 
     // Construit un objet produit avec les données récupérées
     const product = {
-      id: productId,
+      Id: productId,
       name: productNom,
       price: productPrix,
       url: productUrl,
@@ -150,12 +150,26 @@
   }
 
   // Fonction pour retirer un produit du panier
- function removeFromCart(productId) {
- let cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
- cart = cart.filter(product => product.id !== productId); // Correction ici
- localStorage.setItem('lafyshop', JSON.stringify(cart));
- updateCart();
- }
+//  function removeFromCart(productId) {
+//  let cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
+//  cart = cart.filter(product => product.id !== productId); // Correction ici
+//  localStorage.setItem('lafyshop', JSON.stringify(cart));
+//  updateCart();
+//  }
+
+  function removeFromCart(productId) {
+  // Récupérer le panier depuis le localStorage
+  const cart = JSON.parse(localStorage.getItem('lafyshop')) || [];
+
+  // Filtrer les produits pour exclure celui avec l'ID spécifié
+  const updatedCart = cart.filter(product => product.Id !== productId);
+
+  // Mettre à jour le localStorage avec le nouveau panier
+  localStorage.setItem('lafyshop', JSON.stringify(updatedCart));
+
+  // Appeler la fonction pour mettre à jour le panier
+  updateCart();
+  }
 
 
   // Fonction pour mettre à jour le contenu du panier
@@ -198,7 +212,7 @@
       <p>Quantité : ${product.quantity}</p>
       <div style="display: flex; align-items: center; justify-content: space-between;">
         <p style="color: rgb(159, 9, 9);"><strong>${product.price} CFA</strong></p>
-<i style="font-size: 1.3rem;" class='bx bx-trash' onclick="removeFromCart('${product.id}')"></i>
+<i style="font-size: 1.3rem;" class='bx bx-trash' onclick="removeFromCart('${product.Id}')"></i>
       </div>
     </div>
   </div>
