@@ -3,14 +3,16 @@
   <div class="sliderVisiter">
     <% visiter.forEach((produit) => { %>
     <div class="article-carte">
-      <img src="<%= produit.url %>" alt="<%= produit.nom %>">
+      <img id="url" src="<%= produit.url %>" alt="<%= produit.nom %>">
       <br>
-      <p style="text-align: center; text-transform: uppercase;"> <strong> <%= produit.nom %> </strong> </p>
-      <span><%= produit.info %></span>
+      <p style="text-align: center; text-transform: uppercase;" id="nom"> <strong> <%= produit.nom %> </strong> </p>
+      <span id="info"><%= produit.info %></span>
       <div class="prix">
-        <span class="prix-actuel" style="color: #293847; font-weight: bolder; font-size: 1.2rem;"><%= produit.prix %> CFA</span>
+        <span class="prix-actuel" style="color: #293847; font-weight: bolder; font-size: 1.2rem;" id="prix"><%= produit.prix %> CFA</span>
       </div>
-      <button>Ajouter</button>
+
+      <button class="add-to-cart-btn" data-product-id="<%= produit.id %>" data-product-nom="<%= produit.nom %>" data-product-prix="<%= produit.prix %>" data-product-url="<%= produit.url %>" data-product-info="<%= produit.info %>" onclick="addToCart(this)">Ajouter</button>
+
     </div>
     <% }); %>
     <div>

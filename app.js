@@ -6,9 +6,6 @@ const admin = require('firebase-admin');
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 
-const { v4: uuidv4 } = require('uuid'); // Importe uuid
-
-
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
@@ -31,9 +28,11 @@ app.get('/', async (reeq, res) => {
     const visiterSnapshot = await db.collection('articlesvisiter').get();
     const visiter = visiterSnapshot.docs.map((doc) => {
       const produitData = doc.data();
+      const produitId = doc.id; // Utilise l'ID de la base de données comme ID du produit
+
       return {
         ...produitData,
-        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+        id: produitId,
       };
     });
 
@@ -41,9 +40,11 @@ app.get('/', async (reeq, res) => {
     const telSnapshot = await db.collection('telephone').get();
     const tel = telSnapshot.docs.map((doc) => {
       const produitData = doc.data();
+      const produitId = doc.id; // Utilise l'ID de la base de données comme ID du produit
+
       return {
         ...produitData,
-        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+        id: produitId,
       };
     });
 
@@ -51,19 +52,25 @@ app.get('/', async (reeq, res) => {
     const momentSnapshot = await db.collection('moment').get();
     const moment = momentSnapshot.docs.map((doc) => {
       const produitData = doc.data();
+      const produitId = doc.id; // Utilise l'ID de la base de données comme ID du produit
+    
       return {
         ...produitData,
-        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+        id: produitId,
       };
     });
+    
+
 
     // Récupérer les données depuis la collection 'bigCard'
     const bigCardSnapshot = await db.collection('bigCard').get();
     const bigCard = bigCardSnapshot.docs.map((doc) => {
       const produitData = doc.data();
+      const produitId = doc.id; // Utilise l'ID de la base de données comme ID du produit
+
       return {
         ...produitData,
-        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+        id: produitId,
       };
     });
 
@@ -71,9 +78,11 @@ app.get('/', async (reeq, res) => {
     const femmeSnapshot = await db.collection('femme').get();
     const femme = femmeSnapshot.docs.map((doc) => {
       const produitData = doc.data();
+     const produitId = doc.id; // Utilise l'ID de la base de données comme ID du produit
+
       return {
         ...produitData,
-        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+        id: produitId,
       };
     });
 
@@ -81,9 +90,11 @@ app.get('/', async (reeq, res) => {
     const electroSnapshot = await db.collection('electro').get();
     const electro = electroSnapshot.docs.map((doc) => {
       const produitData = doc.data();
+      const produitId = doc.id; // Utilise l'ID de la base de données comme ID du produit
+
       return {
         ...produitData,
-        id: uuidv4(), // Ajoute un nouvel ID unique à chaque produit
+        id: produitId,
       };
     });
 

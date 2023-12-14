@@ -65,7 +65,6 @@
   <!-- Script d'ajout au panier -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Attendre que la bibliothèque UUID soit chargée
       window.onload = function() {
         const addToCartBtn = document.getElementById('addToCartBtn');
 
@@ -98,6 +97,7 @@
         });
       };
     });
+
 
     function addToCart(product) {
       // Récupérer le panier depuis le localStorage
