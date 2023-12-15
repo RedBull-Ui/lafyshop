@@ -1,39 +1,42 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
 /* la navigation ici  */
 body {
-background-color: white;
-position: relative;
-overflow: visible; /* Assurez-vous que le défilement est autorisé sur le corps et le HTML */
+  background-color: white;
+  position: relative;
+  overflow: visible;
+  /* Assurez-vous que le défilement est autorisé sur le corps et le HTML */
 
 }
-a{
+
+a {
   text-decoration: none;
 }
-body .page-top{
-background-color: #293847;
-height: auto;
-padding-bottom: 5px;
-display: flex;
-flex-direction: column;
-align-items: center;
-position: fixed; 
-  z-index: 5; 
-  top: 0;         
-  left: 0;         
-  width: 100%;  
+
+body .page-top {
+  background-color: #293847;
+  height: auto;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
-body nav{
+body nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,37 +44,42 @@ body nav{
   padding: 9px;
   color: white;
   background-color: #293847;
-  position: fixed; 
-  z-index: 5; 
-  top: 0;         
-  left: 0;         
-  width: 100%;    
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
-nav i{
+
+nav i {
   font-size: 2rem;
 }
-nav .bar-vertical{
+
+nav .bar-vertical {
   height: 30px;
   border: 1px solid;
   color: rgba(128, 128, 128, 0.294);
   margin-left: 5px;
   margin-right: 5px;
 }
-nav .nav-right{
+
+nav .nav-right {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 70px;
   margin-right: 5px;
 }
-nav .nav-left{
+
+nav .nav-left {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 180px;
 
 }
-nav #bx-search{
+
+nav #bx-search {
   display: none;
 }
 
@@ -85,131 +93,136 @@ nav #bx-search{
 /* == type to see fully interactive and click the close buttom to remove the text  == */
 
 .form {
---input-bg: #FFf;
-/*  background of input */
---padding: 1.5em;
---rotate: 80deg;
-/*  rotation degree of input*/
---gap: 2em;
-/*  gap of items in input */
---icon-change-color: #15A986;
-/*  when rotating changed icon color */
---height: 40px;
-/*  height */
-width:95%;
-margin-top: 65px;
-padding-inline-end: 1em;
-/*  change this for padding in the end of input */
-background: var(--input-bg);
-position: relative;
-border-radius: 4px;
+  --input-bg: #FFf;
+  /*  background of input */
+  --padding: 1.5em;
+  --rotate: 80deg;
+  /*  rotation degree of input*/
+  --gap: 2em;
+  /*  gap of items in input */
+  --icon-change-color: #15A986;
+  /*  when rotating changed icon color */
+  --height: 40px;
+  /*  height */
+  width: 95%;
+  margin-top: 65px;
+  padding-inline-end: 1em;
+  /*  change this for padding in the end of input */
+  background: var(--input-bg);
+  position: relative;
+  border-radius: 4px;
 }
 
 .form label {
-display: flex;
-align-items: center;
-width: 100%;
-height: 32px;
-margin-bottom: 5px;
-/* height: var(--height); */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  margin-bottom: 5px;
+  /* height: var(--height); */
 }
 
 .form input {
-width: 100%;
-padding-inline-start: calc(var(--padding) + var(--gap));
-outline: none;
-background: none;
-border: 0;
-height: 100%;
-margin: auto;
+  width: 100%;
+  padding-inline-start: calc(var(--padding) + var(--gap));
+  outline: none;
+  background: none;
+  border: 0;
+  height: 100%;
+  margin: auto;
 }
+
 /* style for both icons -- search,close */
 .form svg {
-/* display: block; */
-color: #111;
-transition: 0.3s cubic-bezier(.4,0,.2,1);
-position: absolute;
-height: 15px;
+  /* display: block; */
+  color: #111;
+  transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+  position: absolute;
+  height: 15px;
 }
+
 /* search icon */
 .icon {
-position: absolute;
-left: var(--padding);
-transition: 0.3s cubic-bezier(.4,0,.2,1);
-display: flex;
-justify-content: center;
-align-items: center;
+  position: absolute;
+  left: var(--padding);
+  transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 /* arrow-icon*/
 .swap-off {
-transform: rotate(-80deg);
-opacity: 0;
-visibility: hidden;
+  transform: rotate(-80deg);
+  opacity: 0;
+  visibility: hidden;
 }
+
 /* close button */
 .close-btn {
-/* removing default bg of button */
-background: none;
-border: none;
-right: calc(var(--padding) - var(--gap));
-box-sizing: border-box;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #111;
-padding: 0.1em;
-width: 20px;
-height: 20px;
-border-radius: 50%;
-transition: 0.3s;
-opacity: 0;
-transform: scale(0);
-visibility: hidden;
+  /* removing default bg of button */
+  background: none;
+  border: none;
+  right: calc(var(--padding) - var(--gap));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  padding: 0.1em;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: 0.3s;
+  opacity: 0;
+  transform: scale(0);
+  visibility: hidden;
 }
 
-.form input:focus ~ .icon {
-transform: rotate(var(--rotate)) scale(1.3);
+.form input:focus~.icon {
+  transform: rotate(var(--rotate)) scale(1.3);
 }
 
-.form input:focus ~ .icon .swap-off {
-opacity: 1;
-transform: rotate(-80deg);
-visibility: visible;
-color: var(--icon-change-color);
+.form input:focus~.icon .swap-off {
+  opacity: 1;
+  transform: rotate(-80deg);
+  visibility: visible;
+  color: var(--icon-change-color);
 }
 
-.form input:focus ~ .icon .swap-on {
-opacity: 0;
-visibility: visible;
+.form input:focus~.icon .swap-on {
+  opacity: 0;
+  visibility: visible;
 }
 
-.form input:valid ~ .icon {
-transform: scale(1.3) rotate(var(--rotate))
+.form input:valid~.icon {
+  transform: scale(1.3) rotate(var(--rotate))
 }
 
-.form input:valid ~ .icon .swap-off {
-opacity: 1;
-visibility: visible;
-color: var(--icon-change-color);
+.form input:valid~.icon .swap-off {
+  opacity: 1;
+  visibility: visible;
+  color: var(--icon-change-color);
 }
 
-.form input:valid ~ .icon .swap-on {
-opacity: 0;
-visibility: visible;
+.form input:valid~.icon .swap-on {
+  opacity: 0;
+  visibility: visible;
 }
 
-.form input:valid ~ .close-btn {
-opacity: 1;
-visibility: visible;
-transform: scale(1);
-transition: 0s;
+.form input:valid~.close-btn {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: 0s;
 }
 
 /* la barre de recherche ici */
 
 /* burger menu ici  */
 body .burger-nav {
-  max-height: 100vh; /* Par exemple, définissez une hauteur maximale */
+  max-height: 100vh;
+  /* Par exemple, définissez une hauteur maximale */
   background-color: white;
   color: rgb(57, 56, 56);
   position: absolute;
@@ -218,20 +231,23 @@ body .burger-nav {
   top: 0;
   left: 0;
   transition: 0.3s ease-in-out;
-  overflow-y: auto; /* Permet le défilement vertical lorsque le contenu dépasse la hauteur maximale */
+  overflow-y: auto;
+  /* Permet le défilement vertical lorsque le contenu dépasse la hauteur maximale */
 }
 
-.scroll-annule{
+.scroll-annule {
   overflow: hidden;
 }
-.burger-nav #menu-link{
+
+.burger-nav #menu-link {
   display: none;
   padding: 10px;
 }
-.burger-nav #menu-link p{
-font-size: 0.8rem !important;
-margin: 0;
-margin-left: 10px;
+
+.burger-nav #menu-link p {
+  font-size: 0.8rem !important;
+  margin: 0;
+  margin-left: 10px;
 }
 
 .burger-nav #affiche {
@@ -244,28 +260,31 @@ margin-left: 10px;
   text-align: center;
   color: white;
 }
-.burger-nav #link{
+
+.burger-nav #link {
   box-sizing: border-box;
- display: flex;
- justify-content: space-between;
- align-items: center;
- font-weight: 600;
- padding: 0px;
- height: 30px;
- width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  padding: 0px;
+  height: 30px;
+  width: auto;
 
 }
-#link .left{
-display: flex;
-align-items: center;
-width: 195px;
-height: 30px;
-padding: 0%;
+
+#link .left {
+  display: flex;
+  align-items: center;
+  width: 195px;
+  height: 30px;
+  padding: 0%;
 }
-#link .left i{
-font-size: 1.2rem;
-color: grey;  
-margin-right: 20px;
+
+#link .left i {
+  font-size: 1.2rem;
+  color: grey;
+  margin-right: 20px;
 }
 
 /* burger menu ici  */
@@ -273,7 +292,8 @@ margin-right: 20px;
 /* mon panier ici  */
 .monPanier {
   background-color: white;
-  width: 0%; /* Ajusté pour occuper toute la largeur */
+  width: 0%;
+  /* Ajusté pour occuper toute la largeur */
   min-height: 100vh;
   max-height: 100vh;
   z-index: 100;
@@ -283,8 +303,9 @@ margin-right: 20px;
   /* overflow-y: auto; */
   max-height: 100vh;
   transition: 0.3s ease-in-out;
-  padding-bottom: 190px; /* Ajoutez une marge inférieure pour .panier-footer */
-  
+  padding-bottom: 190px;
+  /* Ajoutez une marge inférieure pour .panier-footer */
+
 }
 
 .monPanier .top {
@@ -293,21 +314,27 @@ margin-right: 20px;
   background-color: #293847;
   color: white;
   height: 70px;
-  width: 100%; /* Ajusté pour occuper toute la largeur */
+  width: 100%;
+  /* Ajusté pour occuper toute la largeur */
   position: sticky;
   top: 0;
-  z-index: 1; /* Assurez-vous que .top est au-dessus du reste du contenu */
+  z-index: 1;
+  /* Assurez-vous que .top est au-dessus du reste du contenu */
 }
 
 .monPanier h3 {
-  margin: auto; /* Supprimé l'espacement par défaut pour le titre */
-  padding: 10px; /* Ajouté un peu d'espacement autour du titre */
+  margin: auto;
+  /* Supprimé l'espacement par défaut pour le titre */
+  padding: 10px;
+  /* Ajouté un peu d'espacement autour du titre */
 }
 
 .monPanier .center {
   padding: 10px;
-  max-height: calc(100vh - 100px); /* Ajusté la hauteur maximale */
-  overflow-y: scroll; /* Défilement si nécessaire */
+  max-height: calc(100vh - 100px);
+  /* Ajusté la hauteur maximale */
+  overflow-y: scroll;
+  /* Défilement si nécessaire */
 }
 
 .monPanier .panier-vide {
@@ -315,7 +342,8 @@ margin-right: 20px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px; /* Ajusté l'espacement */
+  padding: 10px;
+  /* Ajusté l'espacement */
   margin-bottom: 10px;
   border-radius: 10px;
   background-color: white;
@@ -329,7 +357,8 @@ margin-right: 20px;
   border: none;
   border-radius: 9px;
   height: 45px;
-  margin-top: 10px; /* Chaque bouton se trouve au-dessus de l'autre pour plus de clarté */
+  margin-top: 10px;
+  /* Chaque bouton se trouve au-dessus de l'autre pour plus de clarté */
 }
 
 .panier-footer {
@@ -337,7 +366,8 @@ margin-right: 20px;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 130px; /* Ajusté la hauteur pour que .panier-footer soit toujours présent en bas du panier */
+  height: 130px;
+  /* Ajusté la hauteur pour que .panier-footer soit toujours présent en bas du panier */
   width: 100%;
   padding: 20px 20px 0px 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 5px 0px;
@@ -348,12 +378,14 @@ margin-right: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-.footer-top{
+
+.footer-top {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .panier-footer button {
   width: 100%;
   height: 45px;
@@ -362,14 +394,16 @@ margin-right: 20px;
   border: none;
   border-radius: 10px;
   margin-bottom: 20px;
-  margin-right: 10px; /* Ajouté un peu d'espacement à droite */
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin-right: 10px;
+  /* Ajouté un peu d'espacement à droite */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 /* mon panier ici  */
 
 /* les carte de produits ici  */
 
-body .main{
+body .main {
   margin-top: 155px;
   margin-bottom: 50px;
   padding: 0px 5px 0px 5px;
@@ -378,28 +412,31 @@ body .main{
   box-sizing: border-box;
 }
 
-.main .carte{
+.main .carte {
   display: flex;
   flex-direction: column;
   min-height: 300px;
   height: auto;
   width: 97%;
-  background-color: white; 
+  background-color: white;
   margin-top: 5px;
   margin-bottom: 5px;
   font-family: 'Courier New', Courier, monospace;
 }
-.main .card-top{
+
+.main .card-top {
   height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f6f6f6;
 }
-.main .card-details{
+
+.main .card-details {
   padding: 5px;
 }
-.main .carte p{
+
+.main .carte p {
   margin-bottom: 1px;
 }
 
@@ -412,6 +449,7 @@ body .main{
   background-color: #293847;
   padding: 50px 0 30px;
 }
+
 .footer-heading {
   letter-spacing: 2px;
 }
@@ -482,4 +520,164 @@ body .main{
   border-bottom: 1px solid #1bbc9b;
 }
 
- /* footer ici  */
+/* footer ici  */
+
+/* media query pour pc view  */
+@media only screen and (min-width: 767px) {
+
+  /* les carte de produits ici  */
+  body nav {
+    display: none;
+  }
+
+  body #search {
+    display: none;
+  }
+
+  /* la nav de pc view */
+  body h4 {
+    font-family: 'Poppins', sans-serif;
+    margin-left: 30px;
+    margin-right: 20%;
+  }
+
+  .nav-desk {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 12px 12px 12px 12px;
+    border-bottom: 1.8px solid rgba(128, 128, 128, 0.233);
+  }
+
+  .nav-desk .input {
+    min-width: 620px;
+    height: 45px;
+    padding: 12px;
+    margin-right: 100px;
+    border-radius: 12px;
+    border: 1.5px solid lightgrey;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0px 0px 20px -18px;
+  }
+
+  .input:hover {
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+  }
+
+  .input:active {
+    transform: scale(0.95);
+  }
+
+  .input:focus {
+    border: 2px solid grey;
+  }
+
+  /* The switch - the box around the slider */
+  .nav-desk .switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+    margin-right: 60px;
+  }
+
+  /* Hide default HTML checkbox */
+  .nav-desk .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .nav-desk .slider {
+    --background: #28096b;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    transition: .5s;
+    border-radius: 30px;
+  }
+
+  .nav-desk .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 8px -4px 0px 0px #fff000;
+    background: var(--background);
+    transition: .5s;
+  }
+
+  .nav-desk input:checked+.slider {
+    background-color: #522ba7;
+  }
+
+  .nav-desk input:checked+.slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 15px -4px 0px 15px #fff000;
+  }
+
+  /* la nav de pc view */
+
+  body .main {
+    margin-top: 55px;
+    margin-bottom: 50px;
+    padding: 10px 50px 20px 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    box-sizing: border-box;
+  }
+
+  .main .carte {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    height: auto;
+    width: 97%;
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .main .card-top {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f6f6;
+  }
+
+  .main .card-details {
+    padding: 5px;
+  }
+
+  .main .carte p {
+    margin-bottom: 1px;
+  }
+
+ .menu-list {
+   display: flex;
+   padding: 20px 0px 20px 0px;
+ }
+
+ .menu-list .btn-link {
+   text-decoration: none;
+   color: black;
+ }
+
+  /* les carte de produits ici  */
+}
+
+/* media query pour pc view  */

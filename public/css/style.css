@@ -1473,5 +1473,8 @@
     .grosse-card-container{
       display: none;
     }
+    .app-pub{
+      margin: 0px !important;
+    }
 
   }
