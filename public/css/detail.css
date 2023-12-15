@@ -52,3 +52,26 @@ button{
     font-size: 1.1rem;
     font-weight: 100;
 }
+  @media only screen and (min-width: 767px) { 
+    /* la promo ici  */
+        body .promo {
+            background-color: #0f68c1;
+            padding: 10px 0px 10px 0px;
+            font-weight: bolder;
+            font-size: 0.8rem;
+            text-align: center;
+            color: white;
+        }
+    
+        /* la promo ici  */
+   .details-main{
+    display: flex;
+    border: 1px dashed;
+}
+.details-img{
+    margin: 20px;
+    margin-right: 50px;
+    width: 40%;
+}
+
+}

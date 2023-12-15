@@ -676,6 +676,17 @@ body .main {
    text-decoration: none;
    color: black;
  }
+     /* la promo ici  */
+     body .promo {
+       background-color: #0f68c1;
+       padding: 10px 0px 10px 0px;
+       font-weight: bolder;
+       font-size: 0.8rem;
+       text-align: center;
+       color: white;
+     }
+  
+     /* la promo ici  */
 
   /* les carte de produits ici  */
 }
