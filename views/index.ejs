@@ -31,8 +31,12 @@
 <body id="body">
 
   <%- include('composants/nav.ejs') %>
+  <%- include('composants/promo.ejs') %>
+  <div class="main">
+  <%- include('composants/nav-desk.ejs') %>
+  <%- include('composants/menu-list.ejs') %>
+  <%- include('composants/affiche-block.ejs') %>
 
-  <%- include('composants/promo.ejs') %> <br>
   <%- include('composants/burger-menu.ejs') %>
   <%- include('composants/panier.ejs') %>
   <%- include('composants/tab-bar.ejs') %>
@@ -80,6 +84,7 @@
   <!-- electro slider -->
   <br>
 
+</div>
 
   <div class="app-pub">
     <button>L'APPLI Lafyshop</button> <br>
@@ -89,7 +94,6 @@
     <br>
     <input type="submit" value="TELECHARGER MAINTENANT"><br>
   </div>
-
   <!-- FOOTER ICI  -->
   <%- include('composants/footer.ejs') %>
   <!-- FOOTER ICI  -->
