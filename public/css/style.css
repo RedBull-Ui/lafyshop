@@ -961,6 +961,7 @@
     user-select: none;
   }
 
+
   @keyframes keyframes-rotate-blubs {
     0% {
       transform: translate(10px) rotate(360deg);
@@ -1215,9 +1216,28 @@
 
   /* footer ici  */
 
+  /* display none les composant de desk vision  */
+  .affiche-block {
+    display: none;
+  }
+
+  .menu-list {
+    display: none;
+  }
+
+  .nav-desk {
+    display: none;
+  }
+
+  /* display none les composant de desk vision  */
 
   /* Media Query pour les téléphones (max-width: 767px) */
   @media only screen and (min-width: 767px) {
+
+    body a {
+      text-decoration: none;
+      color: black;
+    }
 
     body .main {
       padding: 0px 40px 0px 40px;
@@ -1229,7 +1249,7 @@
 
     body h4 {
       font-family: 'Poppins', sans-serif;
-      margin-left: 30px;
+      margin-left: 0px;
       margin-right: 20%;
     }
 
@@ -1348,6 +1368,7 @@
     }
 
     .affiche-block {
+      display: flex;
       justify-content: space-around;
       padding: 0% !important;
       min-height: 400px;
@@ -1378,6 +1399,7 @@
     .col-md-3 {
       padding: 0% !important;
       font-weight: bolder;
+      cursor: pointer;
     }
 
     .col-md-3 .top {
@@ -1393,6 +1415,17 @@
       height: 50%;
       width: 100%;
       border-radius: 7px;
+    }
+
+    .sliderVisiter .article-carte {
+      background-color: white;
+      width: 180px !important;
+      border-radius: 7px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .deux-card-container {
+      display: none;
     }
 
   }
