@@ -1427,5 +1427,51 @@
     .deux-card-container {
       display: none;
     }
+    .multi-card .col-md-3 .article{
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      padding: 20px !important;
+      word-wrap: none;
+      border-radius: 7px;
+      margin: 2px;
+      max-height: 200px;
+    }
+    .multi-card img{
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+    }
+    .multi-card .article p,span{
+      font-size: 0.7rem;
+      margin: 10px;
+    }
+    .multi-card .article #info{
+      color: grey;
+    }
+    .multi-card .article .prix-actuel{
+           display: none;
+    }
+    .cool-card{
+      display: none;
+    }
+    .pc-affiche{
+      height: 550px;
+      background: url(/img/pc-affiche.jpg) center/cover no-repeat ;
+      border-radius: 7px;
+      color: white;
+    }
+    .pc-affiche a{
+      margin-left: 50px;
+    }
+    .pc-affiche h2{
+      color: white;
+      font-weight: bolder;
+      margin-left: 50px;
+    }
+    .grosse-card-container{
+      display: none;
+    }
 
   }

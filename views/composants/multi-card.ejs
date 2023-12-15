@@ -1,0 +1,16 @@
+<div class="multi-card row">
+    <h3>Recommandé pour vous</h3> <br> <br>
+  <% multiCard.forEach((produit) => { %>
+  <div class="col-md-3">
+    <div class="article">
+      <img src="<%= produit.url %>" alt="<%= produit.nom %>">
+      <br>
+      <p style="text-align: center; text-transform: uppercase;"> <%= produit.nom %> </p>
+      <span id="info"><%= produit.info %></span>
+      <div class="prix">
+        <span class="prix-actuel"><%= produit.prix %> CFA</span>
+      </div>
+    </div>
+  </div>
+  <% }); %>
+</div>

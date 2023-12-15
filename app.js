@@ -48,6 +48,18 @@ app.get('/', async (reeq, res) => {
       };
     });
 
+    // Récupérer les données depuis la collection 'telephone'
+    const multiCardSnapshot = await db.collection('multi-card').get();
+    const multiCard = multiCardSnapshot.docs.map((doc) => {
+      const produitData = doc.data();
+      const produitId = doc.id; // Utilise l'ID de la base de données comme ID du produit
+
+      return {
+        ...produitData,
+        id: produitId,
+      };
+    });
+
     // Récupérer les données depuis la collection 'moment'
     const momentSnapshot = await db.collection('moment').get();
     const moment = momentSnapshot.docs.map((doc) => {
@@ -99,7 +111,7 @@ app.get('/', async (reeq, res) => {
     });
 
     // Rendre la vue en utilisant les données récupérées
-    res.render('index.ejs', { visiter, tel, moment, bigCard, femme, electro });
+    res.render('index.ejs', { visiter, tel, moment, bigCard, femme, electro, multiCard });
 
   } catch (error) {
     console.error('Erreur lors de la récupération des données :', error);
