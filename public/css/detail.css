@@ -85,4 +85,28 @@ button{
     margin-top: 10px;
 }
 
+ /* mon panier  */
+ .monPanier {
+     width: 0%;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     /* Ajustez les valeurs selon vos préférences */
+ }
+
+ .monPanier .center {
+     padding: 10px;
+     max-height: calc(100vh - 100px);
+     /* Ajusté la hauteur maximale */
+     overflow-y: auto;
+     /* Défilement si nécessaire */
+     padding-bottom: 200px !important;
+
+ }
+
+ .monPanier .bx {
+     cursor: pointer;
+ }
+
+
+ /* mon panier  */
+
 }

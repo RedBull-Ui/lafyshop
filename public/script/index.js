@@ -17,7 +17,7 @@ function handlePointRouge() {
 // Appeler la fonction pour gérer le point rouge lors du chargement de la page
 document.addEventListener('DOMContentLoaded', function () {
     handlePointRouge();
-    
+
     // ... (le reste de votre code)
 });
 
@@ -49,12 +49,23 @@ function menu() {
 // mon_panier.style.width= '0%';
 // right.style.display = 'none'; 
 
+
+// Modifiez votre fonction panier
 function panier() {
-    mon_panier.style.width = '100%'; // Vous pouvez ajuster la largeur souhaitée ici
+    // Utilisez la largeur spécifique en fonction de la taille de l'écran
+    if (window.innerWidth < 768) {
+        mon_panier.style.width = '100%'; // Vous pouvez ajuster la largeur souhaitée ici
+        // right.style.display = 'block'; 
+        body.classList.add('scroll-annule');
+    } else {
+         mon_panier.style.width = '30%'; // Vous pouvez ajuster la largeur souhaitée ici
     // right.style.display = 'block'; 
     body.classList.add('scroll-annule');
+    }
 
+    body.classList.add('scroll-annule');
 }
+
 function close_panier() {
     mon_panier.style.width = '0%'; // Vous pouvez ajuster la largeur souhaitée ici
     // right.style.display = 'none'; 
