@@ -1268,15 +1268,29 @@
     body .promo {
       margin-top: 0px;
       font-size: 0.8rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      /* Ajoutez la couleur de fond souhaitée */
+      z-index: 80;
+      width: 100%;
     }
 
     .nav-desk {
+      background-color: #f6ffff;
       width: 100%;
       display: flex;
       align-items: center;
       height: auto;
-      padding: 12px 12px 12px 12px;
+      padding: 12px 0px 12px 45px;
+      margin-top: 35px;
       border-bottom: 1.8px solid rgba(128, 128, 128, 0.233);
+      position: fixed;
+      top: 0;
+      left: 0;
+      /* Ajoutez la couleur de fond souhaitée */
+      z-index: 80;
+
     }
 
     .nav-desk .input {
@@ -1360,6 +1374,7 @@
     .menu-list {
       display: flex;
       padding: 20px 0px 20px 0px;
+      margin-top: 85px;
     }
 
     .menu-list .btn-link {
@@ -1538,10 +1553,12 @@
       /* Ajusté la hauteur maximale */
       overflow-y: auto;
       /* Défilement si nécessaire */
+      padding-top: 50px !important;
       padding-bottom: 200px !important;
 
     }
-    .monPanier .bx{
+
+    .monPanier .bx {
       cursor: pointer;
     }
 

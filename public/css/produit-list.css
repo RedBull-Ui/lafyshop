@@ -670,49 +670,73 @@ body .main {
  .menu-list {
    display: flex;
    padding: 20px 0px 20px 0px;
+   margin-top: 85px;
  }
 
- .menu-list .btn-link {
-   text-decoration: none;
-   color: black;
+  .menu-list .btn-link {
+    text-decoration: none;
+    color: black;
+  }
+
+ body .promo {
+   margin-top: 0px;
+   font-size: 0.8rem;
+   position: fixed;
+   top: 0;
+   left: 0;
+   /* Ajoutez la couleur de fond souhaitée */
+   z-index: 80;
+   width: 100%;
+   background-color: #0f68c1;
+   padding: 10px 0px 10px 0px;
+   font-weight: bolder;
+   font-size: 0.9rem;
+   text-align: center;
+   color: white;
  }
-     /* la promo ici  */
-     body .promo {
-       background-color: #0f68c1;
-       padding: 10px 0px 10px 0px;
-       font-weight: bolder;
-       font-size: 0.8rem;
-       text-align: center;
-       color: white;
-     }
-  
-     /* la promo ici  */
+
+  .nav-desk {
+    background-color: #f6ffff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 12px 0px 12px 45px;
+    margin-top: 35px;
+    border-bottom: 1.8px solid rgba(128, 128, 128, 0.233);
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Ajoutez la couleur de fond souhaitée */
+    z-index: 80;
+
+  }
 
   /* les carte de produits ici  */
 
-     /* mon panier  */
-     .monPanier {
-       width: 0%;
-       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-       /* Ajustez les valeurs selon vos préférences */
-     }
-  
-     .monPanier .center {
-       padding: 10px;
-       max-height: calc(100vh - 100px);
-       /* Ajusté la hauteur maximale */
-       overflow-y: auto;
-       /* Défilement si nécessaire */
-       padding-bottom: 200px !important;
-  
-     }
-  
-     .monPanier .bx {
-       cursor: pointer;
-     }
-  
-  
-     /* mon panier  */
+  /* mon panier  */
+  .monPanier {
+    width: 0%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Ajustez les valeurs selon vos préférences */
+  }
+
+  .monPanier .center {
+    padding: 10px;
+    max-height: calc(100vh - 100px);
+    /* Ajusté la hauteur maximale */
+    overflow-y: auto;
+    /* Défilement si nécessaire */
+    padding-bottom: 200px !important;
+
+  }
+
+  .monPanier .bx {
+    cursor: pointer;
+  }
+
+
+  /* mon panier  */
 }
 
 /* media query pour pc view  */

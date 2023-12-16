@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&display=swap');
 
-.details-main{
+.details-main {
     background-color: #f6f6f6;
     padding: 0px 20px 0px 20px;
 }
-a{
+
+a {
     color: grey;
     margin-left: 10px;
 
 }
-.details-img{
+
+.details-img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,10 +23,12 @@ a{
     margin-right: auto;
     margin-bottom: 20px;
 }
-.details-main h2{
+
+.details-main h2 {
     margin-right: auto;
 }
-.details-main select{
+
+.details-main select {
     width: 100%;
     height: 9vh;
     padding-left: 50%;
@@ -37,7 +41,8 @@ a{
     outline: none;
     color: black;
 }
-button{
+
+button {
     width: 100%;
     height: 10vh;
     text-align: center;
@@ -52,61 +57,95 @@ button{
     font-size: 1.1rem;
     font-weight: 100;
 }
-  @media only screen and (min-width: 767px) { 
-    /* la promo ici  */
-        body .promo {
-            background-color: #0f68c1;
-            padding: 10px 0px 10px 0px;
-            font-weight: bolder;
-            font-size: 0.8rem;
-            text-align: center;
-            color: white;
-        }
-    
-        /* la promo ici  */
-   .details-main{
-    display: flex;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.details-main #nom{
-    margin-top: 15px;
-}
-.details-img{
-    margin: 20px;
-    margin-right: 50px;
-    width: 1000px;
-}
-.details-info{
-    min-width: 450px;
-}
-#addToCartBtn{
-    margin-top: 10px;
-}
 
- /* mon panier  */
- .monPanier {
-     width: 0%;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-     /* Ajustez les valeurs selon vos préférences */
- }
+@media only screen and (min-width: 767px) {
+    body .promo {
+        margin-top: 0px;
+        font-size: 0.8rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* Ajoutez la couleur de fond souhaitée */
+        z-index: 80;
+        width: 100%;
+        background-color: #0f68c1;
+        padding: 10px 0px 10px 0px;
+        font-weight: bolder;
+        font-size: 0.9rem;
+        text-align: center;
+        color: white;
+    }
 
- .monPanier .center {
-     padding: 10px;
-     max-height: calc(100vh - 100px);
-     /* Ajusté la hauteur maximale */
-     overflow-y: auto;
-     /* Défilement si nécessaire */
-     padding-bottom: 200px !important;
+    .nav-desk {
+        background-color: #f6ffff;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: auto;
+        padding: 12px 0px 12px 45px;
+        margin-top: 35px;
+        border-bottom: 1.8px solid rgba(128, 128, 128, 0.233);
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* Ajoutez la couleur de fond souhaitée */
+        z-index: 80;
 
- }
+    }
 
- .monPanier .bx {
-     cursor: pointer;
- }
+    .menu-list {
+        display: flex;
+        padding: 20px 0px 20px 0px;
+        margin-top: 85px;
+    }
+
+    .details-main {
+        display: flex;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .details-main #nom {
+        margin-top: 15px;
+    }
+
+    .details-img {
+        margin: 20px;
+        margin-right: 50px;
+        width: 1000px;
+    }
+
+    .details-info {
+        min-width: 450px;
+    }
+
+    #addToCartBtn {
+        margin-top: 10px;
+    }
+
+    /* mon panier  */
+    .monPanier {
+        width: 0%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Ajustez les valeurs selon vos préférences */
+    }
+
+    .monPanier .center {
+        padding: 10px;
+        max-height: calc(100vh - 100px);
+        /* Ajusté la hauteur maximale */
+        overflow-y: auto;
+        /* Défilement si nécessaire */
+        padding-bottom: 200px !important;
+
+    }
+
+    .monPanier .bx {
+        cursor: pointer;
+    }
 
 
- /* mon panier  */
+    /* mon panier  */
 
 }
