@@ -1229,6 +1229,13 @@
     display: none;
   }
 
+  .multi-card{
+    display: none;
+  }
+  .pc-affiche{
+    display: none;
+  }
+
   /* display none les composant de desk vision  */
 
   /* Media Query pour les téléphones (max-width: 767px) */
@@ -1491,7 +1498,7 @@
 
     /* Dark mode  */
     body.dark-mode {
-      background-color: #001F3F;
+      background-color: #02172c;
       /* Couleur de fond pour le mode sombre */
       color: #ffffff;
       /* Couleur du texte pour le mode sombre */
