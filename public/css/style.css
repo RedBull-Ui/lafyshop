@@ -1510,8 +1510,11 @@
       /* Couleur du texte pour le mode sombre */
     }
 
-    body.dark-mode .btn {
+    body.dark-mode .btn,h3 {
       color: #fff;
+    }
+    body.dark-mode .slider-containerVisiter{
+      color: black;
     }
 
     /* Dark mode  */
