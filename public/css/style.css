@@ -1434,6 +1434,12 @@
     .deux-card-container {
       display: none;
     }
+    .multi-card{
+      display: flex;
+    }
+    .pc-affiche {
+      display: block;
+     }
 
     .multi-card .col-md-3 .article {
       display: flex;
