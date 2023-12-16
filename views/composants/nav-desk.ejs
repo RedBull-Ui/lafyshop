@@ -3,9 +3,19 @@
   <input class="input" name="text" type="text" placeholder="Search the internet...">
 
   <label class="switch">
-    <input type="checkbox">
+    <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
     <span class="slider"></span>
   </label>
   <i onclick="panier()" class='bx bxs-shopping-bag-alt' style="font-size: 2.2rem; cursor: pointer;"></i>
 
 </div>
+
+<script>
+  // Fonction pour basculer le mode sombre
+  function toggleDarkMode() {
+  var body = document.body;
+  body.classList.toggle('dark-mode');
+  var mode = localStorage.setItem('mode','dark');
+
+  }
+</script>

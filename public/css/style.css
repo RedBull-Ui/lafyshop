@@ -1298,11 +1298,11 @@
 
     /* The switch - the box around the slider */
     .nav-desk .switch {
-      font-size: 17px;
+      font-size: 17px !important;
       position: relative;
       display: inline-block;
       width: 3.5em;
-      height: 2em;
+      height: 2em !important;
       margin-right: 60px;
     }
 
@@ -1330,7 +1330,7 @@
     .nav-desk .slider:before {
       position: absolute;
       content: "";
-      height: 1.4em;
+      height: 1.4em !important;
       width: 1.4em;
       border-radius: 50%;
       left: 10%;
@@ -1427,7 +1427,8 @@
     .deux-card-container {
       display: none;
     }
-    .multi-card .col-md-3 .article{
+
+    .multi-card .col-md-3 .article {
       display: flex;
       justify-content: space-between;
       background-color: white;
@@ -1438,43 +1439,68 @@
       margin: 2px;
       max-height: 200px;
     }
-    .multi-card img{
+
+    .multi-card img {
       width: 50px;
       height: 50px;
       margin: 10px;
     }
-    .multi-card .article p,span{
+
+    .multi-card .article p,
+    span {
       font-size: 0.7rem;
       margin: 10px;
     }
-    .multi-card .article #info{
+
+    .multi-card .article #info {
       color: grey;
     }
-    .multi-card .article .prix-actuel{
-           display: none;
-    }
-    .cool-card{
+
+    .multi-card .article .prix-actuel {
       display: none;
     }
-    .pc-affiche{
+
+    .cool-card {
+      display: none;
+    }
+
+    .pc-affiche {
       height: 550px;
-      background: url(/img/pc-affiche.jpg) center/cover no-repeat ;
+      background: url(/img/pc-affiche.jpg) center/cover no-repeat;
       border-radius: 7px;
       color: white;
     }
-    .pc-affiche a{
+
+    .pc-affiche a {
       margin-left: 50px;
     }
-    .pc-affiche h2{
+
+    .pc-affiche h2 {
       color: white;
       font-weight: bolder;
       margin-left: 50px;
     }
-    .grosse-card-container{
+
+    .grosse-card-container {
       display: none;
     }
-    .app-pub{
+
+    .app-pub {
       margin: 0px !important;
     }
+
+    /* Dark mode  */
+    body.dark-mode {
+      background-color: #001F3F;
+      /* Couleur de fond pour le mode sombre */
+      color: #ffffff;
+      /* Couleur du texte pour le mode sombre */
+    }
+
+    body.dark-mode .btn {
+      color: #fff;
+    }
+
+    /* Dark mode  */
 
   }
