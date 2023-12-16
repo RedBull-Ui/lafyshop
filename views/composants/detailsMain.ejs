@@ -4,12 +4,12 @@
         <img id="productImageUrl" src="<%= product.url %>" alt="<%= product.nom %>" width="150">
     </div>
     <div class="details-info">
-        <h2><strong><%= product.nom %></strong></h2>
+        <h2 id="nom"><strong><%= product.nom %></strong></h2>
         <h5 style="color: grey; text-decoration: line-through;"><%= product.faux_prix %> CFA</h5>
         <h2><%= product.prix %> CFA</h2>
         <br>
         <p><%= product.details %></p>
-        <span>Quantite :</span> <br>
+        <span>Quantité :</span> <br>
         <select name="Quantite" id="Quantite">
             <option value="1">1</option>
             <option value="2">2</option>

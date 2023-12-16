@@ -66,12 +66,23 @@ button{
         /* la promo ici  */
    .details-main{
     display: flex;
-    border: 1px dashed;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.details-main #nom{
+    margin-top: 10px;
 }
 .details-img{
     margin: 20px;
     margin-right: 50px;
-    width: 40%;
+    width: 1000px;
+}
+.details-info{
+    min-width: 450px;
+}
+#addToCartBtn{
+    margin-top: 10px;
 }
 
 }
