@@ -7,10 +7,10 @@
     <h3>Améliorez votre <br> technologie</h3><br>
     <p style="color: grey;">Trouvez votre téléphone idéal <br>élégant et élégant ou économique</p>
     <br> <br>
-    <a href="/" class="btn btn-primary">Afficher</a>
+    <a href="/iphone" class="btn btn-primary">Afficher</a>
   </div>
-  <div class="col-md-3 watch shadow-sm">
-    <a href="#">
+  <div class="col-md-3 watch shadow-sm" id="watch">
+    <a href="/montresCoPage">
     <br>
     <p style="margin-left: 10px;">Montre connectée</p>
     </a>
@@ -30,3 +30,12 @@
     </a>
   </div>
 </div>
+
+<script>
+  var box = document.getElementById('watch');
+  box.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    window.location.href = '/montresCoPage'
+  })
+</script>
