@@ -88,3 +88,14 @@
     transform: translate(5px,5px);
     transition-duration: .3s;
   }
+
+
+    /* media query pour pc view  */
+    @media only screen and (min-width: 767px) {
+
+      .main{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
