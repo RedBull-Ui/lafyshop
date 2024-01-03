@@ -5,9 +5,12 @@ const bodyParser = require('body-parser');
 const admin = require('firebase-admin');
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
+const path = require('path'); // Ajout de cette ligne
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
+app.set('views', path.join(__dirname, 'views'));
+
 
 
 // Configuration de la connexion à la base de données 
