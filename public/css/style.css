@@ -345,6 +345,7 @@
     background-color: #0f68c1;
     color: white;
     font-size: 0.9rem;
+    font-weight: bolder;
     border: none;
     border-radius: 9px;
     height: 45px;
@@ -774,9 +775,10 @@
     padding: 5px;
     margin: 5px;
     margin-bottom: 10px;
-    height: 250px;
+    height: auto;
     background-color: white;
     border-radius: 18px;
+    white-space: nowrap;
   }
 
   .deux-card-container img {
@@ -958,6 +960,7 @@
     --blub-color: #52d4eb;
     position: relative;
     user-select: none;
+    height: auto;
   }
 
 
@@ -1126,13 +1129,19 @@
   }
 
   .app-pub input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 250px;
     color: black;
     background-color: white;
     border-radius: 9999px;
     border: none;
+    font-size: 0.9rem;
     font-weight: bolder;
     height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   /* APP pub ici */

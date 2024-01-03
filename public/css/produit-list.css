@@ -93,6 +93,9 @@ nav #bx-search {
 /* == type to see fully interactive and click the close buttom to remove the text  == */
 
 .form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   --input-bg: #FFf;
   /*  background of input */
   --padding: 1.5em;

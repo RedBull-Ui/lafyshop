@@ -937,18 +937,19 @@ app.get('/enfant', async (req, res) => {
 
 // Catégories de véhicules, appartements, enfants et beauté :
 // "appartement"
-app.get('/appartement', function (req, res) {
-  const sql = 'SELECT * FROM appartement';
 
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(`Erreur lors de la récupération des données : ${err.message}`);
-      res.status(500).send(`Erreur lors de la récupération des données appartement`);
-    } else {
-      res.render('appartement.ejs', { appartements: results });
-    }
-  });
-});
+// app.get('/appartement', function (req, res) {
+//   const sql = 'SELECT * FROM appartement';
+
+//   db.query(sql, (err, results) => {
+//     if (err) {
+//       console.error(`Erreur lors de la récupération des données : ${err.message}`);
+//       res.status(500).send(`Erreur lors de la récupération des données appartement`);
+//     } else {
+//       res.render('appartement.ejs', { appartements: results });
+//     }
+//   });
+// });
 
 // Catégories de véhicules, appartements, enfants et beauté :
 // "vehicule"
