@@ -2415,8 +2415,7 @@ app.post('/envoyer-sur-telegram', bodyParser.json(), async (req, res) => {
 
 
 
-
-
-app.listen(3333, () => {
-  console.log('Le serveur est lancé sur le port 3333 !');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
