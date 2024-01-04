@@ -957,7 +957,7 @@
     --blub-color: #52d4eb;
     position: relative;
     user-select: none;
-    height: auto;
+    height: 300px;
   }
 
 
