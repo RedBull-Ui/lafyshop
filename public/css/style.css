@@ -786,9 +786,6 @@
   }
 
   .deux-card-container button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 5px 0px 6px 0px;
     width: 100%;
     height: 40px;
