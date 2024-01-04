@@ -776,7 +776,7 @@
     margin: 5px;
     margin-bottom: 10px;
     height: 400px;
-    background-color: white;
+    background-color: rgba(67, 217, 227, 0.711);
     border-radius: 18px;
     white-space: nowrap;
   }
