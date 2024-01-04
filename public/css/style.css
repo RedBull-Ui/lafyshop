@@ -775,11 +775,11 @@
     padding: 5px;
     margin: 5px;
     margin-bottom: 10px;
-    height: 400px;
-    background-color: rgba(67, 217, 227, 0.711); 
+    height: 300px;
+    background-color: white; 
     border-radius: 18px;
     white-space: nowrap;
-    
+
   }
 
   .deux-card-container img {
