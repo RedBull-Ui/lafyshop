@@ -1024,8 +1024,8 @@
     outline: 1px solid var(--card-color);
     color: var(--card-color);
     width: 180px;
-    height: 250px;
-    border-radius: 5%;
+    height: 300px;
+    border-radius: 11px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
