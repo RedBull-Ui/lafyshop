@@ -957,7 +957,7 @@
     --blub-color: #52d4eb;
     position: relative;
     user-select: none;
-    height: 400px;
+    height: 350px;
   }
 
 
@@ -1073,6 +1073,7 @@
     justify-content: center;
     text-transform: uppercase;
     gap: .2em;
+    height: 40px;
   }
 
   .cool-card .card div button .arrow {
